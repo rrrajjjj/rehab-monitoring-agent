@@ -1,0 +1,16 @@
+{
+  "101": {
+    "protocol_id": 101,
+    "modality": "touch",
+    "targets": ["motor", "cognitive"],
+    "supports_kinematics": false,
+    "difficulty_modulator_keys": ["speed", "targets"]
+  },
+  "102": {
+    "protocol_id": 102,
+    "modality": "AR",
+    "targets": ["motor"],
+    "supports_kinematics": true,
+    "difficulty_modulator_keys": ["speed", "targets"]
+  }
+}

@@ -1,0 +1,10 @@
+# LLM response cache (prompt hash -> response)
+.llm_cache/
+
+# Env with secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/

@@ -1,0 +1,4 @@
+[
+  {"PATIENT_ID": 1, "TYPE": "Fugl-Meyer", "SCORE": 45, "TIMESTAMP": "2024-01-01T09:00:00", "SUBSCORES": null},
+  {"PATIENT_ID": 1, "TYPE": "MoCA", "SCORE": 26, "TIMESTAMP": "2024-01-01T09:00:00", "SUBSCORES": null}
+]

@@ -1,0 +1,9 @@
+pydantic>=2.0
+pandas>=2.0
+numpy>=1.24
+transformers>=4.40
+accelerate>=0.25
+torch>=2.0
+python-dotenv>=1.0
+fastapi>=0.100
+uvicorn[standard]>=0.22
