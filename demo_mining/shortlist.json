@@ -1,0 +1,225 @@
+[
+  {
+    "patient_id": 955,
+    "focal_week_start": "2024-01-08",
+    "focal_week_end": "2024-01-15",
+    "checkpoint_date": "2024-01-15",
+    "interest_score": 8.3286,
+    "focal_adherence": 0.5714285714285714,
+    "focal_max_pain": 10.0,
+    "alerts": [
+      "ADHERENCE_DROP",
+      "HIGH_PAIN",
+      "LEARNING_SATURATION",
+      "PROTOCOL_PERFORMANCE",
+      "CHECKIN_SIGNAL"
+    ],
+    "reason": "rare:LEARNING_SATURATION"
+  },
+  {
+    "patient_id": 2961,
+    "focal_week_start": "2024-12-16",
+    "focal_week_end": "2024-12-23",
+    "checkpoint_date": "2024-12-23",
+    "interest_score": 7.8857,
+    "focal_adherence": 0.5142857142857142,
+    "focal_max_pain": 10.0,
+    "alerts": [
+      "ADHERENCE_DROP",
+      "HIGH_PAIN",
+      "PROTOCOL_AVOIDANCE",
+      "PROTOCOL_PERFORMANCE",
+      "PROTOCOL_PLATEAU",
+      "CHECKIN_SIGNAL"
+    ],
+    "reason": "protocol_avoidance_focus"
+  },
+  {
+    "patient_id": 3318,
+    "focal_week_start": "2024-11-25",
+    "focal_week_end": "2024-12-02",
+    "checkpoint_date": "2024-12-02",
+    "interest_score": 7.3,
+    "focal_adherence": 0.9832207207207209,
+    "focal_max_pain": 10.0,
+    "alerts": [
+      "HIGH_PAIN",
+      "PROTOCOL_AVOIDANCE",
+      "PROTOCOL_PERFORMANCE",
+      "PROTOCOL_PLATEAU",
+      "CHECKIN_SIGNAL"
+    ],
+    "reason": "regressor:3318"
+  },
+  {
+    "patient_id": 1169,
+    "focal_week_start": "2024-05-20",
+    "focal_week_end": "2024-05-27",
+    "checkpoint_date": "2024-05-27",
+    "interest_score": 7.0525,
+    "focal_adherence": 0.3474658869395712,
+    "focal_max_pain": 10.0,
+    "alerts": [
+      "ADHERENCE_DROP",
+      "HIGH_PAIN",
+      "PROTOCOL_PERFORMANCE",
+      "PROTOCOL_PLATEAU",
+      "CHECKIN_SIGNAL"
+    ],
+    "reason": "rare:ADHERENCE_SEVERE"
+  },
+  {
+    "patient_id": 1123,
+    "focal_week_start": "2024-05-13",
+    "focal_week_end": "2024-05-20",
+    "checkpoint_date": "2024-05-20",
+    "interest_score": 5.3852,
+    "focal_adherence": 0.21478174603174605,
+    "focal_max_pain": 2.0,
+    "alerts": [
+      "ADHERENCE_DROP",
+      "PROTOCOL_PERFORMANCE",
+      "PROTOCOL_PLATEAU",
+      "CHECKIN_SIGNAL"
+    ],
+    "reason": "regressor:1123"
+  },
+  {
+    "patient_id": 1983,
+    "focal_week_start": "2024-05-06",
+    "focal_week_end": "2024-05-13",
+    "checkpoint_date": "2024-05-13",
+    "interest_score": 4.8416,
+    "focal_adherence": 0.5583809523809524,
+    "focal_max_pain": 10.0,
+    "alerts": [
+      "ADHERENCE_DROP",
+      "HIGH_PAIN",
+      "PROTOCOL_PERFORMANCE",
+      "CHECKIN_SIGNAL"
+    ],
+    "reason": "regressor:1983"
+  },
+  {
+    "patient_id": 3210,
+    "focal_week_start": "2024-12-09",
+    "focal_week_end": "2024-12-16",
+    "checkpoint_date": "2024-12-16",
+    "interest_score": 3.4571,
+    "focal_adherence": 0.14285714285714285,
+    "focal_max_pain": null,
+    "alerts": [
+      "ADHERENCE_DROP",
+      "PROTOCOL_PERFORMANCE"
+    ],
+    "reason": "diverse"
+  },
+  {
+    "patient_id": 2957,
+    "focal_week_start": "2024-10-28",
+    "focal_week_end": "2024-11-04",
+    "checkpoint_date": "2024-11-04",
+    "interest_score": 3.0255,
+    "focal_adherence": 0.07446808510638298,
+    "focal_max_pain": 2.0,
+    "alerts": [
+      "ADHERENCE_DROP",
+      "PROTOCOL_PLATEAU"
+    ],
+    "reason": "diverse"
+  },
+  {
+    "patient_id": 204,
+    "focal_week_start": "2024-09-16",
+    "focal_week_end": "2024-09-23",
+    "checkpoint_date": "2024-09-23",
+    "interest_score": 3.0,
+    "focal_adherence": 3.5114035087719295,
+    "focal_max_pain": 5.0,
+    "alerts": [
+      "PROTOCOL_AVOIDANCE",
+      "PROTOCOL_PERFORMANCE",
+      "DATA_ANOMALY"
+    ],
+    "reason": "rare:DATA_ANOMALY"
+  },
+  {
+    "patient_id": 957,
+    "focal_week_start": "2023-12-18",
+    "focal_week_end": "2023-12-25",
+    "checkpoint_date": "2023-12-25",
+    "interest_score": 3.0,
+    "focal_adherence": 0.8713095238095239,
+    "focal_max_pain": 5.0,
+    "alerts": [
+      "PROTOCOL_PERFORMANCE",
+      "PROTOCOL_PLATEAU"
+    ],
+    "reason": "diverse"
+  },
+  {
+    "patient_id": 1170,
+    "focal_week_start": "2024-05-13",
+    "focal_week_end": "2024-05-20",
+    "checkpoint_date": "2024-05-20",
+    "interest_score": 1.5,
+    "focal_adherence": 0.7685185185185185,
+    "focal_max_pain": null,
+    "alerts": [
+      "PROTOCOL_PLATEAU"
+    ],
+    "reason": "diverse"
+  },
+  {
+    "patient_id": 953,
+    "focal_week_start": "2023-12-11",
+    "focal_week_end": "2023-12-18",
+    "checkpoint_date": "2023-12-18",
+    "interest_score": 1.5,
+    "focal_adherence": 0.8346428571428571,
+    "focal_max_pain": 4.0,
+    "alerts": [
+      "PROTOCOL_PERFORMANCE"
+    ],
+    "reason": "diverse"
+  },
+  {
+    "patient_id": 1173,
+    "focal_week_start": "2024-05-13",
+    "focal_week_end": "2024-05-20",
+    "checkpoint_date": "2024-05-20",
+    "interest_score": 1.5,
+    "focal_adherence": 1.15,
+    "focal_max_pain": 6.0,
+    "alerts": [
+      "PROTOCOL_AVOIDANCE"
+    ],
+    "reason": "diverse"
+  },
+  {
+    "patient_id": 2955,
+    "focal_week_start": "2024-10-28",
+    "focal_week_end": "2024-11-04",
+    "checkpoint_date": "2024-11-04",
+    "interest_score": 1.3955,
+    "focal_adherence": 0.20454545454545456,
+    "focal_max_pain": 5.0,
+    "alerts": [
+      "ADHERENCE_DROP"
+    ],
+    "reason": "diverse"
+  },
+  {
+    "patient_id": 2913,
+    "focal_week_start": "2024-09-16",
+    "focal_week_end": "2024-09-23",
+    "checkpoint_date": "2024-09-23",
+    "interest_score": 0.5,
+    "focal_adherence": 1.144404761904762,
+    "focal_max_pain": 10.0,
+    "alerts": [
+      "CHECKIN_SIGNAL"
+    ],
+    "reason": "diverse"
+  }
+]

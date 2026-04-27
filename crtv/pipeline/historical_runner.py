@@ -8,13 +8,8 @@ import os
 from datetime import datetime, timedelta, date
 from collections import defaultdict
 
-from crtv.adapters.csv_adapter import CSVDataAdapter
-from crtv.repositories.patient_history import PatientHistoryRepository
-from crtv.features.adherence import AdherenceCalculator
-from crtv.features.session_summaries import SessionSignalSummarizer
-from crtv.features.learning_rate import LearningRateEstimator
-from crtv.drift.detector import DriftDetector, PatientStateBuilder
 from crtv.features.ppf import PPFComputer
+from crtv.pipeline.metrics_builder import MetricsBuilder
 from crtv.reasoning.medgemma_triage import MedGemmaTriageEngine
 from crtv.domain.models import TriageCard, ActionItem
 from crtv.cards.renderer import TriageCardRenderer
@@ -45,13 +40,8 @@ class HistoricalTriageRunner:
     """
 
     def __init__(self, data_dir: str, use_medgemma: bool = False):
-        self.adapter = CSVDataAdapter(data_dir)
-        self.repo = PatientHistoryRepository(self.adapter)
-        self.adherence_calc = AdherenceCalculator()
-        self.summarizer = SessionSignalSummarizer()
-        self.lr_estimator = LearningRateEstimator()
-        self.state_builder = PatientStateBuilder()
-        self.drift_detector = DriftDetector()
+        self.builder = MetricsBuilder.from_data_dir(data_dir)
+        self.adapter = self.builder.adapter
         self.ppf_computer = PPFComputer()
         self.medgemma = MedGemmaTriageEngine(use_medgemma=use_medgemma)
         self.card_renderer = TriageCardRenderer()
@@ -74,6 +64,66 @@ class HistoricalTriageRunner:
         dates = [s.start_time.date() for s in sessions]
         return min(dates), max(dates)
 
+    def _conclude_snapshot(self, patient_id: int, checkpoint_d: date, snapshot) -> dict:
+        """
+        Run the LLM on a pre-built MetricsBuilder snapshot and assemble the
+        full in-memory card entry (the dict shape that HistoricalTriageService
+        caches and CardStore persists). No dedup, no early-return.
+        """
+        from crtv.domain.models import RecommendationBundle
+
+        metrics = snapshot.metrics
+        drift_events = snapshot.drift_events
+        adherence = snapshot.adherence
+        diagnosis = _primary_diagnosis(drift_events)
+
+        conclusion = self.medgemma.conclude(metrics)
+        rec_bundle = RecommendationBundle(
+            disposition=conclusion.disposition,
+            rationale=conclusion.reasons,
+            expected_effect=[],
+            recommended_actions=[
+                ActionItem(action_type=a.get("action_type", "message"), params=a.get("params", {}))
+                for a in conclusion.recommended_actions
+            ],
+            audit={"medgemma": True, "confidence": conclusion.confidence},
+        )
+        evidence_str = f"Adherence {adherence.adherence_minutes:.0%}" if adherence.adherence_minutes else ""
+        card = self.card_renderer.render(rec_bundle, patient_id, drift_events, evidence_str)
+        observation_items = [
+            {"text": o.text, "attention": o.attention, "refs": o.refs} for o in conclusion.observations
+        ]
+        card = card.model_copy(update={
+            "headline": conclusion.headline,
+            "reasons": conclusion.reasons,
+            "evidence": {"items": observation_items},
+        })
+        return {
+            "patient_id": patient_id,
+            "checkpoint_date": checkpoint_d.isoformat(),
+            "card": card,
+            "drift_events": drift_events,
+            "disposition": conclusion.disposition,
+            "severity": conclusion.severity,
+            "diagnosis": diagnosis,
+            "adherence": adherence,
+            "metrics": metrics,
+        }
+
+    def run_single_checkpoint(self, patient_id: int, checkpoint_d: date, checkpoint_week: int | str | None = None) -> dict | None:
+        """
+        Run triage for one (patient, checkpoint). No dedup, no skip. Returns the
+        card entry dict or None if the patient has no data in the trailing window.
+        Used by demo_mining/build_cards.py to batch-build a fixed shortlist.
+        """
+        checkpoint = datetime.combine(checkpoint_d, datetime.min.time())
+        if checkpoint_week is None:
+            checkpoint_week = checkpoint_d.isoformat()
+        snapshot = self.builder.build(patient_id, checkpoint, checkpoint_week=checkpoint_week)
+        if snapshot is None:
+            return None
+        return self._conclude_snapshot(patient_id, checkpoint_d, snapshot)
+
     def run_weekly_checkpoints(
         self,
         patient_id: int,
@@ -93,124 +143,25 @@ class HistoricalTriageRunner:
             if max_checkpoints > 0 and checkpoints_run >= max_checkpoints:
                 break
             checkpoint = datetime.combine(d, datetime.min.time())
-            window_start = checkpoint - timedelta(days=28)
-            bundle = self.repo.load(patient_id, window_start, checkpoint)
-            if not bundle.sessions and not bundle.prescriptions:
+            checkpoint_week = (d - start).days // 7 + 1
+            snapshot = self.builder.build(patient_id, checkpoint, checkpoint_week=checkpoint_week)
+            if snapshot is None:
                 d += timedelta(days=7)
                 continue
 
-            adherence = self.adherence_calc.compute(bundle)
-            summaries = self.summarizer.summarize(bundle)
-            learning_rates = self.lr_estimator.compute(bundle, summaries)
-            state = self.state_builder.build(
-                adherence, learning_rates, summaries, bundle.self_reports, bundle
-            )
-            drift_events = self.drift_detector.detect(
-                state, adherence, learning_rates, summaries, bundle
-            )
-            diagnosis = _primary_diagnosis(drift_events)
-
+            diagnosis = _primary_diagnosis(snapshot.drift_events)
             last = self._last_diagnosis.get((patient_id, diagnosis))
             if last is not None and (d - last).days < dedupe_days:
                 d += timedelta(days=7)
                 continue
 
-            fm = self.adapter.get_patient_fm_scores(patient_id)
-            fm_bl = fm[0] if fm else None
-
-            session_by_id = {s.session_id: s for s in bundle.sessions}
-            protocol_wise: dict[int, dict] = {}
-            for sess_id, summ in summaries.items():
-                sess = session_by_id.get(sess_id)
-                if not sess:
-                    continue
-                proto_id = summ.protocol_id
-                if proto_id not in protocol_wise:
-                    protocol_wise[proto_id] = {
-                        "name": self.adapter.get_protocol_name(proto_id),
-                        "performance": [],
-                        "difficulty": [],
-                        "adherence_pct": None,
-                    }
-                dt = sess.start_time.strftime("%Y-%m-%d") if hasattr(sess.start_time, "strftime") else str(sess.start_time)[:10]
-                dm = getattr(summ, "difficulty_mean", {}) or {}
-                diff_val = sum(dm.values()) / len(dm) if dm else 0
-                protocol_wise[proto_id]["performance"].append({"date": dt, "value": getattr(summ, "performance_mean", 0)})
-                protocol_wise[proto_id]["difficulty"].append({"date": dt, "value": diff_val})
-
-            from crtv.features.adherence import expand_prescriptions, match_sessions_to_occurrences
-            start_d = window_start.date() if hasattr(window_start, "date") else window_start
-            end_d = checkpoint.date() if hasattr(checkpoint, "date") else checkpoint
-            occurrences = expand_prescriptions(bundle.prescriptions, start_d, end_d)
-            matched = match_sessions_to_occurrences(bundle.sessions, occurrences)
-            for proto_id in set(occ[1] for occ in occurrences):
-                if proto_id not in protocol_wise:
-                    protocol_wise[proto_id] = {"name": self.adapter.get_protocol_name(proto_id), "performance": [], "difficulty": [], "adherence_pct": None}
-                planned = sum(occ[2] for occ in occurrences if occ[1] == proto_id)
-                done = 0.0
-                for (d, pid), sess_ids in matched.items():
-                    if pid != proto_id:
-                        continue
-                    for s in bundle.sessions:
-                        if s.session_id in sess_ids:
-                            done += s.duration_sec / 60.0
-                protocol_wise[proto_id]["adherence_pct"] = done / planned if planned > 0 else None
-
-            metrics = {
-                "patient_id": patient_id,
-                "checkpoint_date": d.isoformat(),
-                "fm_bl": fm_bl,
-                "protocol_wise": {str(k): v for k, v in protocol_wise.items()},
-                "adherence": {
-                    "adherence_minutes": adherence.adherence_minutes,
-                    "done_total": adherence.done_minutes,
-                    "planned_total": adherence.planned_minutes,
-                    "days": [{"date": str(k), "planned_min": v[0], "done_min": v[1]} for k, v in adherence.per_day.items()],
-                },
-                "sessions": [{"session_id": s.session_id, "protocol_id": s.protocol_id, "start_time": s.start_time.isoformat(), "duration_sec": s.duration_sec} for s in bundle.sessions],
-                "performance": [{"session_id": x.session_id, "performance_mean": getattr(x, "performance_mean", 0)} for x in summaries.values()],
-                "difficulty": [{"session_id": x.session_id, "difficulty_mean": (sum(dm.values()) / len(dm)) if (dm := getattr(x, "difficulty_mean", {})) else 0} for x in summaries.values()],
-                "learning_rates": [{"protocol_id": lr.protocol_id, "learning_rate": lr.learning_rate} for lr in learning_rates.values()],
-                "self_reports": [
-                    {"key": r.key, "value": r.value, "timestamp": r.timestamp.isoformat() if hasattr(r.timestamp, "isoformat") else str(r.timestamp)}
-                    for r in bundle.self_reports
-                ],
-                "drift_events": [{"type": e.type, "severity": e.severity} for e in drift_events],
-            }
-
             checkpoints_run += 1
-            conclusion = self.medgemma.conclude(metrics)
-            if conclusion.disposition == "NO_ACTION" and not drift_events:
+            entry = self._conclude_snapshot(patient_id, d, snapshot)
+            if entry["disposition"] == "NO_ACTION" and not snapshot.drift_events:
                 d += timedelta(days=7)
                 continue
 
             self._last_diagnosis[(patient_id, diagnosis)] = d
-            from crtv.domain.models import RecommendationBundle
-            rec_bundle = RecommendationBundle(
-                disposition=conclusion.disposition,
-                rationale=conclusion.reasons,
-                expected_effect=[],
-                recommended_actions=[ActionItem(action_type=a.get("action_type", "message"), params=a.get("params", {})) for a in conclusion.recommended_actions],
-                audit={"medgemma": True, "confidence": conclusion.confidence},
-            )
-            evidence_str = f"Adherence {adherence.adherence_minutes:.0%}" if adherence.adherence_minutes else ""
-            card = self.card_renderer.render(rec_bundle, patient_id, drift_events, evidence_str)
-            observation_items = [{"text": o.text, "attention": o.attention, "refs": o.refs} for o in conclusion.observations]
-            card = card.model_copy(update={
-                "headline": conclusion.headline,
-                "reasons": conclusion.reasons,
-                "evidence": {"items": observation_items},  # keep key for backward compat; stores observations
-            })
-            cards.append({
-                "patient_id": patient_id,
-                "checkpoint_date": d.isoformat(),
-                "card": card,
-                "drift_events": drift_events,
-                "disposition": conclusion.disposition,
-                "severity": conclusion.severity,
-                "diagnosis": diagnosis,
-                "adherence": adherence,
-                "metrics": metrics,
-            })
+            cards.append(entry)
             d += timedelta(days=7)
         return cards

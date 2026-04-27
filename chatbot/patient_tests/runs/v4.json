@@ -1,0 +1,43 @@
+{
+  "version_id": 4,
+  "model": "gpt-5.4-nano",
+  "judge_model": "gpt-5.4-mini",
+  "ran_at": "2026-04-27T10:22:11.216529+00:00",
+  "avg_score": 5.0,
+  "results": [
+    {
+      "case_id": 1,
+      "question": "How to deal with post stroke depression?",
+      "gt_answer": "Post-stroke depression is typically managed through a combination of antidepressant medication (SSRIs are commonly prescribed), psychotherapy such as cognitive behavioral therapy, and rehabilitation support including physical activity and social engagement. It's important to talk to your doctor or neurologist, as treating depression early can actually improve stroke recovery outcomes.\nIf you or someone you know is struggling, please reach out to a healthcare provider — this is a sensitive topic, and proper support can make a real difference.",
+      "answer": "It makes a lot of sense to ask this. After stroke, depression is common—and it can feel confusing because some days might look “fine,” then suddenly you’re low again. Stroke can also make mood harder to spot, especially if someone has speech changes or seems “flat,” so it’s worth taking your feelings (and your team’s observations) seriously.\n\nOne practical step that often helps early is to **ask your stroke team for a depression screen and a clear plan**. You can say something like, “I’m worried about depression—can we check it and talk about treatment options?” Treatment can include talking therapies and, when needed, medication. Evidence shows **brief, structured psychosocial support can improve post-stroke depression**, and your care team can also check whether fatigue, pain, sleep problems, or communication difficulties are feeding into the mood.\n\n**One question for you:** what are the main signs you’ve noticed—low mood, loss of interest, sleep/appetite changes, or more frustration/irritability?",
+      "citations": [
+        {
+          "source_label": "ASA",
+          "section_title": "Depression after stroke is common",
+          "source_file": "ASA_Post_Stroke_Depression.pdf",
+          "page_start": 9,
+          "page_end": 10,
+          "score": 0.664211630821228
+        },
+        {
+          "source_label": "ASA",
+          "section_title": "Psychosocial therapies can reduce depression",
+          "source_file": "ASA_Post_Stroke_Depression.pdf",
+          "page_start": 7,
+          "page_end": 8,
+          "score": 0.6580471992492676
+        },
+        {
+          "source_label": "ASA",
+          "section_title": "Why Stroke Depression Is Hard to Spot",
+          "source_file": "ASA_Post_Stroke_Depression.pdf",
+          "page_start": 5,
+          "page_end": 6,
+          "score": 0.6530032157897949
+        }
+      ],
+      "score": 5,
+      "manual_override": true
+    }
+  ]
+}

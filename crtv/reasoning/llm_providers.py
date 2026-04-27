@@ -29,14 +29,15 @@ def _truncate(s: str, max_len: int = _TRUNCATE_LEN) -> str:
 class TriageLLM(Protocol):
     """Interface for LLM-backed triage reasoning. Swappable by design."""
 
-    def generate(self, prompt: str) -> str:
-        """Send prompt to LLM; return raw text response."""
+    def generate(self, prompt: str, *, cache_key: str | None = None) -> str:
+        """Send prompt to LLM; return raw text response. cache_key: optional deterministic key for caching."""
         ...
 
 
 class CachingProvider:
-    """Wraps another provider; saves responses to disk. Same prompt -> load from cache, skip LLM call.
-    Cache key = hash(full prompt). Any change to the prompt (including template) causes a cache miss."""
+    """Wraps another provider; saves responses to disk.
+    When cache_key is provided: uses hash(patient_id, model, week) for deterministic hits.
+    Otherwise falls back to hash(prompt). Set CRTV_LLM_USE_CACHE=0 to bypass cache."""
 
     def __init__(self, inner: TriageLLM, cache_dir: str | Path | None = None):
         self._inner = inner
@@ -44,8 +45,11 @@ class CachingProvider:
         self._dir = Path(cache_dir or os.environ.get("CRTV_LLM_CACHE_DIR", ".llm_cache"))
         self._dir.mkdir(parents=True, exist_ok=True)
 
-    def generate(self, prompt: str) -> str:
-        h = hashlib.sha256(prompt.encode("utf-8")).hexdigest()
+    def generate(self, prompt: str, *, cache_key: str | None = None) -> str:
+        use_cache = os.environ.get("CRTV_LLM_USE_CACHE", "1").lower() not in ("0", "false", "no")
+        if not use_cache:
+            return self._inner.generate(prompt)
+        h = hashlib.sha256((cache_key or prompt).encode("utf-8")).hexdigest()
         path = self._dir / f"{h}.json"
         if path.exists():
             try:
@@ -66,8 +70,8 @@ class CachingProvider:
                     return out
             except (json.JSONDecodeError, OSError) as e:
                 logger.debug("Cache read failed %s: %s", h[:12], e)
-        # Fallback for testing: use any cached response when exact key misses (e.g. after prompt change)
-        if os.environ.get("CRTV_LLM_CACHE_FALLBACK", "").lower() in ("1", "true", "yes"):
+        # Fallback only when using prompt-based key (no cache_key): use any cached response
+        if not cache_key and os.environ.get("CRTV_LLM_CACHE_FALLBACK", "").lower() in ("1", "true", "yes"):
             for p in sorted(self._dir.glob("*.json")):
                 try:
                     with open(p, encoding="utf-8") as f:
@@ -78,7 +82,7 @@ class CachingProvider:
                         return out
                 except (json.JSONDecodeError, OSError):
                     pass
-        raw = self._inner.generate(prompt)
+        raw = self._inner.generate(prompt, cache_key=cache_key)
         if not raw:
             logger.warning(
                 "LLM returned empty (provider=%s) - NOT caching; next run will retry. Check logs above for error.",
@@ -108,7 +112,7 @@ class CachingProvider:
 class RuleBasedProvider:
     """No-LLM fallback: always returns empty, prompting engine to use rule-based logic."""
 
-    def generate(self, prompt: str) -> str:
+    def generate(self, prompt: str, *, cache_key: str | None = None) -> str:
         logger.debug("Skipping LLM (rule-based provider); prompt len=%d", len(prompt))
         return ""
 
@@ -132,7 +136,7 @@ class MedGemmaProvider:
         except Exception:
             return False
 
-    def generate(self, prompt: str) -> str:
+    def generate(self, prompt: str, *, cache_key: str | None = None) -> str:
         if not self._load():
             logger.warning("MedGemmaProvider: model load failed")
             return ""
@@ -155,6 +159,7 @@ class OpenAICompatibleProvider:
     Any OpenAI-compatible API: OpenAI, Azure, local vLLM, Together, Groq, etc.
     Set CRTV_OPENAI_API_KEY and optionally CRTV_OPENAI_BASE_URL, CRTV_OPENAI_MODEL.
     For GPT-5.2 reasoning: CRTV_OPENAI_REASONING_EFFORT=medium (uses Responses API).
+    Retries: default 5 for 429/timeouts (exponential backoff). Timeout: default 120s.
     """
 
     def __init__(
@@ -174,8 +179,12 @@ class OpenAICompatibleProvider:
         self.max_tokens = int(_max) if _max and str(_max).isdigit() else (
             8192 if ("gpt-5" in self.model or self.model.startswith("o")) else 512
         )
+        _retries = os.environ.get("CRTV_OPENAI_MAX_RETRIES", "5")
+        self.max_retries = int(_retries) if str(_retries).lstrip("-").isdigit() else 5
+        _timeout = os.environ.get("CRTV_OPENAI_TIMEOUT", "120")
+        self.timeout = float(_timeout) if _timeout.replace(".", "").isdigit() else 120.0
 
-    def generate(self, prompt: str) -> str:
+    def generate(self, prompt: str, *, cache_key: str | None = None) -> str:
         if not self.api_key:
             logger.warning("OpenAICompatibleProvider: no API key, skipping")
             return ""
@@ -187,7 +196,12 @@ class OpenAICompatibleProvider:
         logger.info("LLM call attempt provider=openai model=%s prompt_len=%d", self.model, len(prompt))
         logger.debug("LLM prompt: %s", _truncate(prompt))
         try:
-            client = OpenAI(api_key=self.api_key, base_url=self.base_url)
+            client = OpenAI(
+                api_key=self.api_key,
+                base_url=self.base_url,
+                max_retries=self.max_retries,
+                timeout=self.timeout,
+            )
             if self._use_responses_api:
                 kwargs = {"model": self.model, "input": prompt, "max_output_tokens": self.max_tokens}
                 if self.reasoning_effort:

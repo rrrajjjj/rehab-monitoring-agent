@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python generate_pdf.py)",
+      "Bash(docker build *)",
+      "Bash(docker run *)",
+      "Bash(python -c ' *)",
+      "Bash(mv prompts.html ops.html)",
+      "Bash(mv prompts.js ops.js)",
+      "Read(//c/c/Users/rajsu/Desktop/Eodyne/medgemma agent/crtv/web/**)",
+      "Bash(python *)"
+    ]
+  }
+}

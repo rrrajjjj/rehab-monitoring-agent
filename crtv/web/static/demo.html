@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eodyne Systems — Rehabilitation Monitoring</title>
+  <link rel="stylesheet" href="/static/styles.css?v=12">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1>Eodyne Systems</h1>
+      <span class="subtitle">Rehabilitation Monitoring</span>
+      <div class="view-toggle">
+        <button type="button" id="view-clinician" class="view-btn active">Clinician View</button>
+        <button type="button" id="view-patient" class="view-btn">Patient Check-ins</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- Page 1: Patient list only -->
+      <section id="page-list" class="page page-list">
+        <h2>Patients</h2>
+        <ul id="patient-list" class="patient-list-items"></ul>
+      </section>
+
+      <!-- Page 2: Patient detail - two panes -->
+      <section id="page-detail" class="page page-detail hidden">
+        <div class="detail-topbar">
+          <button type="button" id="back-btn" class="back-btn">← Back to patients</button>
+        </div>
+        <div id="week-tabs-bar" class="week-tabs-bar"></div>
+        <div class="two-pane">
+          <aside class="observations-pane">
+            <h3>Observations</h3>
+            <p class="hint">Click an observation to view its evidence plots.</p>
+            <div id="observation-cards" class="observation-cards"></div>
+          </aside>
+          <section class="plots-pane">
+            <h3>Evidence</h3>
+            <div id="metrics-plots" class="metrics-plots"></div>
+          </section>
+        </div>
+        <!-- Chat drawer -->
+        <div id="chat-drawer" class="chat-drawer hidden">
+          <div class="chat-drawer-header">
+            <span>Chat — follow-up questions</span>
+            <button type="button" id="chat-close-btn" class="chat-close-btn">Close</button>
+          </div>
+          <div id="chat-messages" class="chat-messages"></div>
+          <div class="chat-input-bar">
+            <input type="text" id="chat-input" placeholder="Ask a question about this card..." autocomplete="off" />
+            <button type="button" id="chat-send-btn" class="chat-send-btn">Send</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Patient check-in view (hidden by default) -->
+    <main class="main hidden" id="patient-view">
+      <section id="checkin-page-list" class="page page-list">
+        <h2>Patient Check-ins</h2>
+        <p class="hint">Weekly motivational updates for patients and caregivers.</p>
+        <ul id="checkin-patient-list" class="patient-list-items"></ul>
+      </section>
+
+      <section id="checkin-page-detail" class="page page-detail hidden">
+        <button type="button" id="checkin-back-btn" class="back-btn">← Back to patients</button>
+        <div id="checkin-week-tabs" class="week-tabs-bar"></div>
+        <div id="checkin-content" class="checkin-content"></div>
+      </section>
+
+      <!-- Patient-view stroke-care assistant (RAG) -->
+      <button type="button" id="pt-chat-fab" class="pt-chat-fab" title="Ask the stroke-care assistant">
+        <span>Ask</span>
+      </button>
+      <div id="pt-chat-drawer" class="pt-chat-drawer hidden">
+        <div class="pt-chat-header">
+          <div style="flex:1;min-width:0;">
+            <div class="pt-chat-title">Stroke-care companion</div>
+            <div class="pt-chat-sub" id="pt-chat-context">General conversation</div>
+          </div>
+          <button type="button" id="pt-chat-reset" class="pt-chat-reset" title="Start over">Reset</button>
+          <button type="button" id="pt-chat-close" class="pt-chat-close" title="Minimize">×</button>
+        </div>
+        <div class="pt-chat-modebar">
+          <div class="pt-chat-modes" role="tablist">
+            <button type="button" class="pt-chat-mode active" data-mode="standalone">Standalone</button>
+            <button type="button" class="pt-chat-mode" data-mode="integrated">Integrated</button>
+          </div>
+          <select id="pt-chat-patient" class="pt-chat-patient" hidden>
+            <option value="">Select a patient…</option>
+          </select>
+        </div>
+        <div id="pt-chat-messages" class="pt-chat-messages"></div>
+        <div class="pt-chat-input-bar">
+          <textarea id="pt-chat-input" placeholder="Ask about stroke recovery, caregiving, or how you're feeling…" rows="2"></textarea>
+          <button type="button" id="pt-chat-send" class="pt-chat-send">Send</button>
+        </div>
+        <div class="pt-chat-disclaimer">Shares educational information from trusted sources. Not medical advice.</div>
+      </div>
+    </main>
+  </div>
+  <script src="/static/app.js?v=12"></script>
+</body>
+</html>

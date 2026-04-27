@@ -1,0 +1,202 @@
+x-sender: tecnico@arsys.es
+x-receiver: robotcrm@crm1.arsyslan.es
+Received: from pan.arsyslan.es ([10.4.186.119]) by crm1.arsyslan.es with Microsoft SMTPSVC(10.0.20348.1);
+	 Wed, 22 Apr 2026 11:31:21 +0200
+Received: from llsk488-a90.servidoresdns.net (llsk488-a90.servidoresdns.net [82.223.199.202])
+	by pan.arsyslan.es (Postfix) with ESMTPS id B971028004D
+	for <robotcrm@crm1.arsyslan.es>; Wed, 22 Apr 2026 11:31:18 +0200 (CEST)
+Received: from llsk488-a90.servidoresdns.net (localhost [127.0.0.1])
+	by llsk488-a90.servidoresdns.net (Postfix) with ESMTP id 4g0v9j1d7yz1LK2P
+	for <robotcrm@arsys.es>; Wed, 22 Apr 2026 11:31:21 +0200 (CEST)
+X-Virus-Scanned: by Cyren
+X-Amavis-Alert: BAD HEADER SECTION, Missing required header field: "Date"
+X-Spam-Flag: NO
+X-Spam-Score: 0.1
+X-Spam-Level:
+X-Spam-Status: No, score=0.1 tagged_above=0.01 required=5 tests=[EXPURGATE]
+ autolearn=unavailable
+X-Spam-Tests: InternalSpamCheck
+X-purgate-ID: 155846::1776850281-E9FE4470-C5857145/2/74079082334
+X-purgate-type: suspect.url-count
+Received: from llsk488-a90.servidoresdns.net ([127.0.0.1])
+ by llsk488-a90.servidoresdns.net (llsk488-a90.servidoresdns.net [127.0.0.1]) (amavis, port 10024)
+ with ESMTP id nJwDn411rQrw for <robotcrm@arsys.es>;
+ Wed, 22 Apr 2026 11:31:21 +0200 (CEST)
+Received: from mercurio.arsys.es (mercurio.arsys.es [217.76.128.83])
+	by llsk488-a90.servidoresdns.net (Postfix) with ESMTPS id 4g0v9h6x7Jz1LJ3Z
+	for <robotcrm@arsys.es>; Wed, 22 Apr 2026 11:31:20 +0200 (CEST)
+Authentication-Results: llsk488-a90.servidoresdns.net;
+	dkim=pass header.d=arsys.es header.s=201810 header.b=42JKdU3a;
+	dmarc=pass (policy=reject) header.from=arsys.es;
+	spf=pass (llsk488-a90.servidoresdns.net: domain of tecnico@arsys.es designates 217.76.128.83 as permitted sender) smtp.mailfrom=tecnico@arsys.es
+ARC-Seal: i=1; s=arc-202408; d=arsys.es; t=1776850280; a=rsa-sha256;
+	cv=none;
+	b=Nmz7hbdn9QZ4vgAnaCtjyItj2ac7sL46puezbMjBNAybOmel3h18yfRQIOlivJ543WziVk
+	9jS3aWQLmTpLzubd2a8GZJThljO63pEh9uajILCqAucTmuBPunXwn+A14z4WVkKxDuJFGR
+	7YmgFO51rHr5HhRl7359b92V8Cegdr5DXEJDzLXmfGcMG1aRriwYq5JTzU22kqhDM9CIi9
+	5IR+HxsMWwDpECFHx5T28PGbfEhPOrMuGZpeyIyqbeX7oWgSuGF09LN+/BGFP5S1NHUCjS
+	w0KTU88pfALtmtSfm26qhBiXOtgS2MoGedNAe+S/fQApZvcI6YvDguOpOEWuLQ==
+ARC-Authentication-Results: i=1;
+	llsk488-a90.servidoresdns.net;
+	dkim=pass header.d=arsys.es header.s=201810 header.b=42JKdU3a;
+	dmarc=pass (policy=reject) header.from=arsys.es;
+	spf=pass (llsk488-a90.servidoresdns.net: domain of tecnico@arsys.es designates 217.76.128.83 as permitted sender) smtp.mailfrom=tecnico@arsys.es
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=arsys.es;
+	s=arc-202408; t=1776850280;
+	h=from:from:reply-to:subject:subject:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:dkim-signature;
+	bh=zb1M/1x2Pq5wrCnOJhDRkOqqL9hoUC6uCPq7SCJOVuU=;
+	b=qufez7uqtpoR51YxWrHpaSUa0AwHQqB4ZKdO2wqOFm/JFhG5ameCbcqzcF3Klh9Xo5mNqG
+	+zbg0zhsh6WwemlkJagSeVGAUdZFMQMikRbq7+kYnXosY0b+0bFbRdsiD8O2TDcePgPLIe
+	DEQ6UtkpfEOVM7i4i36OUYXniH9WwzGPXkgDKrNofFTg/7+V4i45yBxA6eWE5kLe9Ms46H
+	ZZdF7YjDOwbXloS8pDDRaYQ4VG2KDbebmEiO7uNO2A8LtQkeb6X6szx7v5s7afq9svuj1s
+	rBJGkpU9IXzHuZNkz9LDnFj10TLK10EjOsXZQUNHMzHEp5WzDtEw2cuCbCqTFQ==
+Received: from LLW-146712 (unknown [82.223.201.151])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mercurio.arsys.es (Postfix) with ESMTPS id 4g0v9h5pMGz2W2mP;
+	Wed, 22 Apr 2026 11:31:20 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arsys.es; s=201810;
+	t=1776850280;
+	h=from:from:reply-to:subject:subject:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=zb1M/1x2Pq5wrCnOJhDRkOqqL9hoUC6uCPq7SCJOVuU=;
+	b=42JKdU3aJp6vApGy+VxmMMT5D9cFllXEGI4wh271Hw5ZhmQY1eXdHcra7ywChkzXQvnME4
+	LLJiLOqrWWpmQx1Dxixy0hJ0hdXDrXWF4Oc/aZq/lQCOkbBHa8meyRuwOEmAtopzXK5UeO
+	tbhw+qrCIK/7tXFhj2V8ppr8SR8Uybyfr7fxsSN48uRkprIWsARHEOb1vPrbeTZjY/O95q
+	WAtrXxE2mDdclcohpBPDJ0dmRgLcZVS9fNWyIwTYT7nKWngMkxOpS9P/3z5McbXRGCDBuK
+	kcvPetyCU1JXteSnFXRtkpjkv4J9Mql40iH+Xj5DPHopZUoJwlnIgdQJzEFS7A==
+X-Unsent: True
+X-Mailer: Microsoft CDO for Microsoft Exchange
+Thread-Topic: [ES-2026042222038056]
+X-MyContact: 22038056
+thread-index: AdzSOKP+BfE8yJKHSO20Ji+HUABxmQ==
+X-MyActivity: 9950579
+From: "arsys.es - Especialista IT" <tecnico@arsys.es>
+To: <geronimo.galindez@eodyne.com>
+Cc: "rajsuryan.singh@eodyne.com" <rajsuryan.singh@eodyne.com>
+Subject: [ES-2026042222038056]
+MIME-Version: 1.0
+Importance: normal
+Priority: normal
+X-MimeOLE: Produced By Microsoft MimeOLE
+Message-Id: <KC1BVJSP2TU4.69HCSHB93C0K3@llw-146712>
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Return-Path: tecnico@arsys.es
+X-OriginalArrivalTime: 22 Apr 2026 09:31:21.0368 (UTC) FILETIME=[C7A4E180:01DCD23A]
+Date: 22 Apr 2026 11:31:21 +0200
+
+<body contenteditable=3D"true">
+<!--MYACTIVITY=3D"IDACT"9950579-->
+<!--MYCONTACT=3D"IDCTO"22038056-->
+
+
+<meta name=3D"GENERATOR" content=3D"MSHTML 6.00.2800.1505">
+<style type=3D"text/css">
+* { font-family: Arial; font-size:12 px;}
+</style>
+
+
+<div><p style=3D"color: rgb(40, 40, 40); font-family: Arial,Helvetica,sans-=
+serif; font-size: 13px;">Dear customer,</p><p style=3D"color: rgb(40, 40, 4=
+0); font-family: Arial,Helvetica,sans-serif; font-size: 13px;">the server i=
+s managed by us so we can not provide root access to it. Also the server ha=
+s Plesk panel installed so any configuration&nbsp;must be&nbsp;done through=
+ this panel to avoid issues when updates are installed. If you need access =
+to Docker, we can install Plesk extensi&oacute;n to manage Docker from the =
+control panel.<br><br>Regards.<br></p><table align=3D"center" role=3D"signa=
+ture" style=3D"padding: 8px !important; width: 100%; text-align: left; font=
+-family: Arial,Helvetica,sans-serif; font-size: 100%; display: block;" bord=
+er=3D"0" cellspacing=3D"0" cellpadding=3D"0" itemtype=3D"http://schema.org/=
+Person" itemscope=3D""><tbody><tr><td width=3D"80" valign=3D"top" style=3D"=
+padding: 0pt 10pt 8pt 0px; vertical-align: top;" name=3D"logo"><a style=3D"=
+margin: 0px; padding: 0px; line-height: 24px; text-decoration: none;" href=3D=
+"https://www.arsys.es/?utm_source=3Dfirma&amp;utm_campaign=3Dimage&amp;utm_=
+medium=3Demail" border=3D"0"><img width=3D"84" height=3D"27" alt=3D"Arsys" =
+src=3D"https://www.arsys.es/img/firma/logo2.png" border=3D"0" valign=3D"top=
+"></a></td><td valign=3D"top" style=3D"padding: 0pt 0px 8pt 10pt; vertical-=
+align: top;"><table style=3D"border-spacing: 0px;" border=3D"0" cellspacing=
+=3D"0" cellpadding=3D"0"><tbody><tr><td style=3D"margin: 0px; padding: 0px;=
+ color: rgb(51, 153, 255); text-transform: uppercase; line-height: 9pt; fon=
+t-family: Arial,Helvetica,sans-serif; font-size: 9pt; font-weight: 600;" na=
+me=3D"name" itemprop=3D"name">Juan Marcos Lasheras</td></tr><tr><td style=3D=
+"margin: 0px; padding: 1pt 0px 8pt; color: rgb(50, 50, 50); text-transform:=
+ uppercase; font-family: Arial,Helvetica,sans-serif; font-size: 7pt; font-w=
+eight: 500;" name=3D"function" itemprop=3D"jobTitle">Dpto. de Soporte T&eac=
+ute;cnico</td></tr><tr><td valign=3D"top" style=3D"padding: 0px; color: rgb=
+(50, 50, 50); line-height: 16px; font-family: Arial,Helvetica,sans-serif; f=
+ont-size: 8pt; font-weight: 500;" name=3D"telephone"><a style=3D"margin: 0p=
+x; padding: 0px; line-height: 16px; text-decoration: none;" href=3D"tel:+34=
+941620131" border=3D"0" valign=3D"top"><span style=3D"text-align: left; col=
+or: rgb(50, 50, 50); line-height: 16px; font-family: Arial,Helvetica,sans-s=
+erif; font-size: 8pt; text-decoration: none; display: inline-block;" valign=
+=3D"top" itemprop=3D"telephone">(+34) 941 620 131</span></a></td></tr><tr><=
+td valign=3D"top" style=3D"padding: 0px; color: rgb(50, 50, 50); line-heigh=
+t: 16px; font-weight: 500;" name=3D"email"><a style=3D"margin: 0px; padding=
+: 0px; line-height: 16px; text-decoration: none;" href=3D"mailto:tecnico@ar=
+sys.es" border=3D"0" valign=3D"top"><span style=3D"text-align: left; color:=
+ rgb(50, 50, 50); line-height: 16px; font-family: Arial,Helvetica,sans-seri=
+f; font-size: 8pt; text-decoration: none; display: inline-block;" valign=3D=
+"top" itemprop=3D"email">tecnico@arsys.es</span></a></td></tr><tr><td valig=
+n=3D"top" style=3D"padding: 0px; color: rgb(50, 50, 50); line-height: 16px;=
+ font-weight: 500;" name=3D"address"><span style=3D"text-align: left; color=
+: rgb(50, 50, 50); line-height: 16px; font-family: Arial,Helvetica,sans-ser=
+if; font-size: 8pt; text-decoration: none; display: inline-block;" valign=3D=
+"top" itemprop=3D"address">Calle Madre de Dios 21 - 26004 Logro&ntilde;o - =
+La Rioja - Espa&ntilde;a</span></td></tr><tr><td valign=3D"top" style=3D"pa=
+dding: 0px; color: rgb(51, 153, 255); line-height: 16px; font-weight: 500;"=
+ name=3D"ayuda"><a style=3D"margin: 0px; padding: 0px; line-height: 16px; t=
+ext-decoration: none;" href=3D"https://www.arsys.es/ayuda/?utm_source=3Dfir=
+ma&amp;utm_campaign=3Dlink&amp;utm_medium=3Demail" border=3D"0"><span style=
+=3D"text-align: left; color: rgb(51, 153, 255); line-height: 16px; font-fam=
+ily: Arial,Helvetica,sans-serif; font-size: 8pt; font-weight: bold; text-de=
+coration: none; display: inline-block;" valign=3D"top" itemprop=3D"url">www=
+.arsys.es/ayuda</span></a></td></tr><tr><td valign=3D"top" style=3D"padding=
+: 0px; color: rgb(51, 153, 255); line-height: 16px; font-weight: 500;" name=
+=3D"url"><a style=3D"margin: 0px; padding: 0px; line-height: 16px; text-dec=
+oration: none;" href=3D"https://www.arsys.es/?utm_source=3Dfirma&amp;utm_ca=
+mpaign=3Dlink&amp;utm_medium=3Demail" border=3D"0"><span style=3D"text-alig=
+n: left; color: rgb(51, 153, 255); line-height: 16px; font-family: Arial,He=
+lvetica,sans-serif; font-size: 8pt; font-weight: bold; text-decoration: non=
+e; display: inline-block;" valign=3D"top" itemprop=3D"url">www.arsys.es</sp=
+an></a></td></tr></tbody></table></td></tr></tbody></table><table align=3D"=
+center" style=3D"padding: 2px 8px 8px !important; width: 100%; text-align: =
+left; font-family: Arial,Helvetica,sans-serif; font-size: 100%; display: bl=
+ock;" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td style=
+=3D"padding: 0px; text-align: left; color: rgb(55, 55, 55); line-height: 8p=
+t; font-family: sans-serif; font-size: 7pt;" name=3D"english">Aviso de conf=
+idencialidad - Este mensaje y sus posibles documentos adjuntos son confiden=
+ciales y est&aacute;n dirigidos exclusivamente a sus destinatarios. Por fav=
+or, si Ud. no es uno de ellos, notif&iacute;quenoslo y elimine el mensaje d=
+e su sistema. De conformidad con la legislaci&oacute;n vigente, queda prohi=
+bida la copia, difusi&oacute;n o revelaci&oacute;n de su contenido a tercer=
+os sin el previo consentimiento por escrito de arsys.</td></tr></tbody></ta=
+ble><br></div>
+<blockquote style=3D"padding-right: 0px; padding-left: 5px; margin-right: 0=
+px; margin-left: 5px; border-left-color: rgb(0, 0, 0); border-left-width: 2=
+px; border-left-style: solid;" dir=3D"ltr">
+<div style=3D"font: 10pt/normal Trebuchet MS; font-size-adjust: none; font-=
+stretch: normal;">----- Original Message ----- </div>
+<div style=3D"font: 10pt/normal Trebuchet MS; font-size-adjust: none; font-=
+stretch: normal; font-color: bflack;"><b>From:</b> <a title=3D"geronimo.gal=
+indez@eodyne.com" href=3D"mailto:geronimo.galindez@eodyne.com">geronimo.gal=
+indez@eodyne.com</a> </div>
+<div style=3D"font: 10pt/normal Trebuchet MS; font-size-adjust: none; font-=
+stretch: normal;"><b>To:</b> <a title=3D'href=3D"mailto:"'></a> </div>
+<div style=3D"font: 10pt/normal Trebuchet MS; font-size-adjust: none; font-=
+stretch: normal;"><b>Sent:</b> </div>
+<div style=3D"font: 10pt/normal Trebuchet MS; font-size-adjust: none; font-=
+stretch: normal;"><b>Subject:</b> sudo access to the dedicated server</div>
+<div><br></div>
+PERSONA DE CONTACTO: Rajsuryan Singh&nbsp;&nbsp;&nbsp; TFNO: 634943772&nbsp=
+;&nbsp;&nbsp; <br>I need sudo access to the server in order to install dock=
+er and deploy my applications. The person who signed up for arsys has since=
+ left the company and we don''t have root login credentials. Please email m=
+e at rajsuryan.singh@eodyne.com to help me solve this issue.
+</blockquote>
+
+</body>=

@@ -1,0 +1,3284 @@
+### Recommendation Algorithm
+
+1. **Learning Rate (ΔDM)**
+
+   * Each exercise has adjustable settings—like target size or number of tasks—that make it easier or harder called difficulty modulators (DMs).
+   * After every session, the system measures how much those settings had to change to keep the exercise challenging. That change is **delta-DM**.
+   * If delta-DM stays around zero for a few sessions (no more need to adjust), it means the patient has **plateaued** on that exercise.
+
+2. **Engagement (Adherence)**
+
+   * This is simply the share of prescribed sessions the patient completes.
+   * High adherence means the patient is sticking with the plan; low adherence may signal fatigue or lack of motivation.
+
+3. **Skill Match (Competence or Patient–Protocol Fit)**
+
+   * The system compares each patient’s clinical scores (e.g., MoCA for cognition, ARAT for arm function) to the known goals of an exercise (which motor or thinking skills it trains).
+   * If an exercise targets the areas your patient needs most, and their scores show they’re ready for it, that exercise gets a high **fit** rating. If not, it scores lower.
+
+4. **Putting It All Together**
+
+   * For every exercise, the CDSS looks at:
+
+     1. **ΔDM** (is the patient still learning?)
+     2. **Adherence** (are they doing it?)
+     3. **Fit** (does it match their clinical needs?)
+   * It ranks exercises by combining these three factors into one simple priority list.
+
+5. **When to Switch Exercises**
+
+   * If an exercise’s delta-DM has plateaued and another exercise is showing better learning or match, the system suggests a swap. It can also happen when the adherence falls too low indicating the user skipping the protocol frequently. 
+   * You always remain in control: accept, adjust, or reject any suggestion.
+
+
+---
+
+
+
+MIMS
+Medical Information
+Management System
+
+# MIMS - User manual
+
+MIMS
+Medical Information
+Management System
+
+Revision date: February 2024
+
+Manufacturer and distributor
+
+| ![Eodyne Systems S.L. logo]() eodyne<br/>Eodyne Systems S.L. | CIF B66407423                                        | +34 931 389 642                      |
+| ------------------------------------------------------------ | ---------------------------------------------------- | ------------------------------------ |
+|                                                              | Carrer de Veneçuela, 35.<br/>08019, Barcelona, Spain | info\@eodyne.com<br/>www\.eodyne.com |
+
+
+---
+
+# 1. Introduction
+
+## 1.1 Intended purpose
+
+The Medical Information Management System (MIMS) is a web platform for health professionals to access and manage patient data. The MIMS integrates the patient data collected by the various components of the RGS (Rehabilitation Gaming System) Ecosystem, such as RGSclinic, RGSapp, and RGSwear. This tool allows health professionals to create patient profiles and prescribe exercises and questionnaires. Moreover, through the MIMS, healthcare professionals can access various reports, including physical activity metrics, joint range of motion assessments, and treatment adherence. All this information is integrated, processed, and presented via the application MIMS to enhance decision-making for the clinical staff.
+
+## 1.2 Intended users
+
+Health professionals, such as neurologists, physical therapists, and occupational therapists, will monitor the patient's performance and prescribe the training activities.
+
+eodyne
+
+
+---
+
+
+
+MIMS
+Medical Information Management System
+
+## 2. Getting started with MIMS
+
+### 2.1 Access to the MIMS platform
+
+To access the MIMS platform, use the following URL: https://rgsmims.eodyne.com
+
+### 2.2 Log in
+
+The credentials to log in will be provided by Eodyne Systems.
+
+eodyne
+
+
+---
+
+
+
+# 3. MIMS platform
+
+## 3.1 Enrolling a patient
+
+Press the 'New Patient' button in the bottom left corner to create a new patient in the MIMS platform.
+
+## 3.2 Patient profile
+
+After clicking the New Patient button, the user will be shown a patient profile form to be completed.
+
+| Patients Support Settings Hospital name --- MIMS Medical Information Management System A2. Edit patient button → To edit any field, click the 'Edit patient' button. Then, click the 'Save' button to keep the changes made. A3. Patient Data. \*Note: Eodyne does not handle personal data. A code should be used for the username to avoid the patient's name and surname.\* A4. Skin tone → For more immersion, you can choose the skin tone that the user will see in the augmented reality activities. A5. Pathology information. A6. Training → This information is used to determine which arm should be used to perform rehabilitation activities as well as the motor and cognitive complexity of some tasks. A7. RGS applications → One or all activities can be assigned to each patient. ## 3.3 Patient list All patients' profiles created by the healthcare professional can be seen by clicking on the 'Patients' button.Patients	Support	Settings	Hospital name	en	LogoutMIMS&#xA;Medical Information Management System&#xA;TA:	USER	PROFILE INFORMATION	APPLICATIONS&#xA;Patient name	Female 28, Stroke	\[Icons for various applications]&#xA;Patient name	Male 26, Ataxia	\[Icons for various applications]&#xA;Patient name	Female 25, Cerebral Palsy	\[Icons for various applications]&#xA;Patient name	Male 23, Alzheimer's	\[Icons for various applications]&#xA;Patient name	Female 33, Stroke	\[Icons for various applications]&#xA;Patient name	Male 36, Stroke	\[Icons for various applications]&#xA;Patient name	Male 33, Other	\[Icons for various applications] |   |   |   |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | - | - | - |
+
+
+New patient
+
+*Fig. 2. Patients list screen*
+
+B1. Patients button → Redirects to the Patients List screen.
+
+B2. Support button → Redirects to contact information and technical support.
+
+B3. Settings button → Redirects to the Settings screen.
+
+B4. List filters → Click on them to sort the patient list.
+
+B5. Adherence avatar → Avatar colour based on the patient's adherence.
+
+B6. Profile button → Access to user profile data and editing.
+
+eodyne
+
+---
+
+
+
+MIMS
+Medical Information
+Management System
+
+B7. User information.
+
+B8. RGS application buttons → Direct access to RGS prescriptions and reports.
+
+B9. New patient button → To create patients in the MIMS platform.
+
+eodyne
+
+
+---
+
+
+
+## 3.4 Prescription
+
+The healthcare professional can prescribe activities to the patient by clicking on the 'RGS application buttons' (B8, mentioned in section 3.3 Patient list) and selecting the specific solution they want to create or modify a prescription.
+
+A menu like the one below will appear for the different RGS applications. There is an area for each individual protocol to select what days the patient should carry out that activity and its duration.
+
+| **MIMS** Medical Information Management System                                                                                                                                                   |           |                  |               |   |   |          | Patients Support Settings Hospital name en Logout |                                               |               |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------: | ---------------- | ------------- | - | - | -------- | ------------------------------------------------- | --------------------------------------------- | ------------- |
+| Patient name \[icons for various functions]                                                                                                                                                      |           |                  |               |   |   |          |                                                   |                                               |               |
+| Prescriptions and reports                                                                                                                                                                        |           |                  | Questionnaire |   |   | Messages |                                                   |                                               |               |
+| RGS APP: Prescriptions and reports<br/>Select the days of the week for which you want to prescribe each training activity:<br/>Click on the report button to see the individual activity reports |           |                  |               |   |   |          |                                                   |                                               |               |
+| Edit prescriptions                                                                                                                                                                               |           |                  |               |   |   |          |                                                   | Treatment with RGSapp active \[toggle switch] |               |
+| ACTIVITIES                                                                                                                                                                                       |         M | T                | W             | T | F | S        | S                                                 | DURATION                                      | REPORTS       |
+| Memoseq                                                                                                                                                                                          |         ✓ | ✓                | ✓             | ✓ | ✓ | ✓        | ✓                                                 | 1min                                          | \[graph icon] |
+| Place it                                                                                                                                                                                         |         ✓ | ✓                | ✓             | ✓ | ✓ | ✓        | ✓                                                 | 1min                                          | \[graph icon] |
+| Guess what?                                                                                                                                                                                      |         ✓ | ✓                | ✓             | ✓ | ✓ | ✓        | ✓                                                 | 1min                                          | \[graph icon] |
+| Pianoseq                                                                                                                                                                                         |         ✓ | ✓                | ✓             | ✓ | ✓ | ✓        | ✓                                                 | 1min                                          | \[graph icon] |
+| ROUTINE                                                                                                                                                                                          |      WEEK |                  |               |   |   |          |                                                   | Activities: 196 Time: 6h 53 min               |               |
+|                                                                                                                                                                                                  |    MONDAY |                  |               |   |   |          |                                                   | Activities: 28 Time: 59 min                   |               |
+|                                                                                                                                                                                                  |   TUESDAY |                  |               |   |   |          |                                                   | Activities: 28 Time: 59 min                   |               |
+|                                                                                                                                                                                                  | WEDNESDAY |                  |               |   |   |          |                                                   | Activities: 28 Time: 59 min                   |               |
+|                                                                                                                                                                                                  |  THURSDAY |                  |               |   |   |          |                                                   | Activities: 28 Time: 59 min                   |               |
+|                                                                                                                                                                                                  |    FRIDAY |                  |               |   |   |          |                                                   | Activities: 28 Time: 59 min                   |               |
+|                                                                                                                                                                                                  |  SATURDAY |                  |               |   |   |          |                                                   | Activities: 28 Time: 59 min                   |               |
+|                                                                                                                                                                                                  |    SUNDAY |                  |               |   |   |          |                                                   | Activities: 28 Time: 59 min                   |               |
+| \[icon] Enable coach                                                                                                                                                                             |           | \[toggle switch] |               |   |   |          |                                                   |                                               |               |
+
+
+Fig. 3. Prescription screen
+
+C1. Prescriptions and reports button → Redirects to the Prescription screen.
+
+C2. Questionnaire button → Redirects to the Questionnaire screen.
+
+C3. Messages button → Redirects to the Messages screen.
+
+C4. Edit prescription button → To create or edit prescriptions, click the 'Edit prescriptions' button. Then click on the 'Save' button to save the changes made.
+
+C5. Activity list.
+
+C6. Routine → Weekly and daily summary of prescribed activities and minutes.
+
+C7. Video/Information button → View the video (if available) and activity description.
+
+C8. Prescribe all days checkbox → Prescribe a protocol for all days of the week.
+
+C9. Enable coach toggle (RGSapp screen only) → Disables some patient motivation and follow-up patient.
+
+---
+
+
+
+C10. Pause/Resume treatment toggle → Pauses or resumes the prescription of an application. During the pause, the patient's lack of activity will not affect adherence metrics.
+
+C11. Reports button → Access patient reports for each activity.
+
+C12. Prescription → Select the days, activities, and duration to create a prescription
+
+## 3.5 Reports
+
+If we click on the 'Reports button' in the prescription screen, we will be redirected to the Reports screen of the selected activity. In this screen, we will be able to view the relevant data of the sessions performed by a patient in a specific activity.
+
+First, we have the activity adherence data. Then we find the metrics graphs per session (score, difficulty, hits and errors, and more) and, finally, a list with information on all sessions performed.
+
+| ![MIMS logo]() MIMS<br/>Medical Information Management System                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |         |          |               |    |        |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------- | ------------- | -- | ------ |
+| Patients                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Support | Settings | Hospital name | en | Logout |
+| Patient name \[icon] \[icon] \[icon] \[icon] RCS App                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |         |          |               |    |        |
+| ← Activities --- D1. Navigation bar → Return to the prescription list or navigate between reports for different activities. D2. Activity description. D3. Reports filter → Allows you to select a time period to view the reports. D4. Adherence wheels → Adherence can be observed based on days, sessions, and prescribed minutes. D5. Activity graphs → Charts on user and activity metrics: score, difficulty, hits and errors...SESSIONS&#xA;SESSION	SESSIONS&#xA;DATE	SESSIONS&#xA;TIME	SESSIONS&#xA;SCORE	SESSIONS&#xA;DURATION	SESSIONS&#xA;REPORTS5	19/12/2023	12:10:06	30	0' 37"	\[Icon]&#xA;4	15/12/2023	13:03:15	17	0' 10"	\[Icon]&#xA;3	13/12/2023	09:31:08	14	1' 0"	\[Icon]&#xA;2	12/12/2023	17:22:51	0	0' 36"	\[Icon]&#xA;1	12/12/2023	17:20:06	35	1' 0"	\[Icon] |         |          |               |    |        |
+
+
+Fig. 5. Activity reports screen 2 (lower side)
+
+D6. Session list → List of all performed sessions for the activity in question.
+
+D7. Detailed reports button → Redirects to the detailed activity data during that session.
+
+D8. Delete session reports → Remove that session from the data. This action will remove the data from all graphs except the adherence.
+
+## 3.4 Detailed reports
+
+By clicking on 'Detailed reports' in the list of report sessions, the user will be able to access the screen where they can see the details of the session in question, such as the adaptation of the difficult parameters based on the user's performance.
+
+---
+
+
+
+MIMS Medical Information Management System
+
+![MIMS logo]
+
+Patients Support Settings Hospital name Logout
+
+MIMS Medical Information Management System
+
+Patient name [Icons for various functions including RGS App]
+
+← Reports (Quality control basic) Previous Next
+
+QUALITY CONTROL BASIC REPORTS
+
+| SESSION | DATE       | TIME     | SCORE | DURATION |
+| ------- | ---------- | -------- | ----- | -------- |
+| 9       | 12/12/2023 | 17:32:51 | 36    | 0' 44"   |
+
+
+Difficulty modulators
+
+```mermaid
+graph LR
+    A[Session seconds] --> B[Difficulty level]
+    style B fill:#f9f,stroke:#333,stroke-width:4px
+```
+
+Fig. 6. Detailed reports screen
+
+E1. Navigation bar → Return to the activity reports screen or navigate between detailed reports for different sessions.
+
+E2. Session information.
+
+E3. Session graphs → Graphics on a specific activity and session, such as difficulty modulators
+
+## 3.7 Questionnaire (RGSapp only)
+
+We can access this screen through the buttons below the 'User bar' by clicking on the 'Questionnaire' button. In this screen, we can select a few questions with numerical answers from 0 to 10. These questions will be asked to users on three occasions: the first time of the day they open RGSapp, after they have reached 50% of the daily progress, and when they have completed all the prescribed activities.
+
+eodyne
+
+
+---
+
+
+
+MIMS Medical Information Management System
+
+```markdown
+| Patients | Support | Settings | Hospital name | en ▼ | Logout |
+|----------|---------|----------|---------------|------|--------|
+
+MIMS | Patient name | [icon] | [icon] | [icon] | [icon] | RCS App | [icon] |
+-----|--------------|--------|--------|--------|--------|---------|--------|
+
+| Prescriptions and reports | Questionnaire | Messages |
+|---------------------------|---------------|----------|
+
+### RCS app / Questionnaire
+
+These questions enable assessment of the patient's emotions. They will be displayed in the RCSapp at the start of the training and after completing all activities prescribed by the therapist. Choose the information you wish to gather about the patient:
+
+1. [✓] Edit questions
+
+### Assigned questions
+
+- [✓] Mood
+- [✓] Pain
+- [✓] Energy
+
+### Questions to assign
+
+- • Temperament
+- • Anxiety
+- • Engagement
+- • Satisfaction
+
+*Fig. 7. Questionnaire screen*
+
+F1. Edit questions button → To edit the assigned questions, click the 'Edit questions' button. Then, select and drag the items from 'Questions to assign' to 'Assigned questions' with a maximum of 3, and click on the 'Save' button to save the changes made.
+
+F2. Assigned questions → The questions that the patient is currently assigned.
+
+F3. Questions to assign → Questions that the patient doesn't currently have assigned.
+```
+
+eodyne
+
+
+---
+
+
+
+# 3.8 Messages
+
+This screen can be accessed through the buttons below the 'User bar' by clicking on the 'Messages' button. In this screen, the therapist can create messages to motivate, guide and support the user in his or her treatment with the RGS applications.
+
+| **MIMS** Medical Information Management System |   |   |               | Patients | Support | Settings | Hospital name | Logout |
+| ---------------------------------------------- | - | - | ------------- | -------- | ------- | -------- | ------------- | ------ |
+| Patient name RGS App                           |   |   |               |          |         |          |               |        |
+| Prescriptions and reports                      |   |   | Questionnaire |          |         | Messages |               |        |
+
+
+| Add new welcome message +                                               |           |                      |              |
+| ----------------------------------------------------------------------- | --------- | -------------------- | ------------ |
+| TYPE                                                                    | DATE      | STATUS               |              |
+| Welcome                                                                 | Undefined | Active               | Edit message |
+| Welcome messages will be seen by the user when opening the application: |           |                      |              |
+| Message \*                                                              |           | This is a message :) |              |
+| Recurrent Message \*                                                    |           | \[Toggle switch]     |              |
+| ALL                                                                     | M         | T                    | W            |
+| Ending Date                                                             |           | Undefined            |              |
+
+
+Fig. 8. Messages screen
+
+G1. Add a new message button → Create a new message.
+
+G2. Message element → Each time a new message is created, a new item appears in the message list.
+
+G3. Type → Type of message (currently only 'Welcome message' is available).
+
+G4. Date → Date of message creation.
+
+G5. Status → Status of the message: active, inactive, pending...
+
+G6. Edit message button → To edit the message, click the 'Edit message' button. Then click on the 'Save' button to save the changes made.
+
+G7. Minimize button → Minimize or expand the message panel.
+
+G8. Recurrent message toggle → Enable this option if you want the message to be sent more than once.
+
+G9. Prescribed days → If the 'Recurrent message toggle' is active, you can choose the days of the week you want the message to be repeated.
+
+G10. Ending date → Once this date is reached, the message will be permanently disabled.
+
+G11. Message text → Message that the users will receive when they enter RGSapp, according to the parameters indicated in the previous options.
+
+---
+
+
+
+## 3.9 Adherence
+
+We can access this screen by clicking on the image of the avatar with the colored T-shirt (green, yellow or red). In this screen, the therapist can see the adherence metrics for each and all RGS applications based on the prescribed days, sessions and minutes and visualize global data graphs.
+
+| Patients | Support | Settings | Eodyne Hospital | en | Logout |
+| -------- | ------- | -------- | --------------- | -: | -----: |
+
+
+| MIMS ☐<br/>Medical Information<br/>Management System | Patient name |         |     |   |   |   |
+| ---------------------------------------------------- | ------------ | ------- | --- | - | - | - |
+|                                                      | RGS App      | RGS Web | All |   |   |   |
+
+
+ADHERENCE
+
+| Week Month 3 Months                                                                                            |                                                            |                                                          |
+| -------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | -------------------------------------------------------- |
+| Adherence                                                                                                      |                                                            |                                                          |
+| 71%<br/>Prescribed days: 7<br/>Trained days: 5                                                                 | 83%<br/>Prescribed sessions: 221<br/>Trained sessions: 184 | 19%<br/>Prescribed minutes: 424<br/>Trained minutes: 122 |
+| The data from the sessions carried out today will not be reflected in the adherence percentages until tomorrow |                                                            |                                                          |
+
+
+| Score |                                                        |
+| ----- | ------------------------------------------------------ |
+| Score | \[Line graph showing score fluctuations over sessions] |
+
+
+Fig. 9. Adherence screen 1 (upper side)
+
+H1. Application filter → Select whether you want to see the adherence of a specific application or all of them together.
+
+H2. Time filter → Select the time period over which you want to view the adherence.
+
+H3. Adherence wheels → Percentage summary of adherence according to prescribed days, sessions and minutes.
+
+H4. Global graphs → Overall graphs of all the selected applications in the time intervals and applications indicated in the previous options.
+
+---
+
+
+
+MIMS Medical Information Management System
+
+| SESSION | DATE       | TIME     | APPLICATION | ACTIVITY       | SCORE |
+| ------- | ---------- | -------- | ----------- | -------------- | ----- |
+| 139     | 19/12/2023 | 17:02:44 | RGSapp      | Driving        | 0     |
+| 138     | 19/12/2023 | 17:02:17 | RGSapp      | Driving        | 0     |
+| 137     | 19/12/2023 | 16:15:33 | RGSapp      | Balloons basic | 18    |
+| 136     | 19/12/2023 | 16:14:35 | RGSapp      | Balloons basic | 16    |
+| 135     | 19/12/2023 | 16:13:54 | RGSapp      | Spheroids      | 1     |
+| 134     | 19/12/2023 | 16:03:32 | RGSapp      | Alphabet       | 10    |
+| 133     | 19/12/2023 | 15:58:42 | RGSapp      | Tubes          | 10    |
+| 132     | 19/12/2023 | 15:55:02 | RGSapp      | Ducks          | 5     |
+
+
+Fig. 10. Adherence screen 2 (lower side)
+
+H5. Session list → List of the chronologically ordered sessions where the user has performed sessions with the RGS applications. H6. Session ID
+
+## 3.10 Settings
+
+This screen can be accessed from the top menu by clicking the 'Settings' button. In this screen, we will be able to modify the password of the clinician's user.
+
+| Patients | Support | Settings | Hospital name | en ▼ | Logout |
+| -------- | ------- | -------- | ------------- | ---- | ------ |
+
+
+### SETTINGS
+
+Password change
+
+Are you sure you want to change the password? This step is irreversible.
+
+| Current password \*     | •••••• |
+| ----------------------- | ------ |
+| New password \*         | •••••• |
+| Confirm new password \* | •••••• |
+
+
+<button>Save</button>
+
+Fig. 11. Support screen
+
+eodyne
+
+---
+
+
+
+# 3.11 Support
+
+This screen can be accessed from the top menu by clicking the 'Support' button. In this screen, you can see the contact and service data assigned to the hospital.
+
+| ![MIMS logo]() MIMS<br/>Medical Information Management System                                                                                                                                                                                     |   |   |   | Patients | Support | Settings | Hospital name | en ▼ | Logout |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | - | - | - | -------- | ------- | -------- | ------------- | ---- | ------ |
+| **SUPPORT**                                                                                                                                                                                                                                       |   |   |   |          |         |          |               |      |        |
+| You can contact the Eodyne team in case you need further assistance by phone or email.<br/><br/>Landline +34<br/>Mobile +34<br/><br/>E-mail contact\@eodyne.com<br/><br/>Venezuela Street, 35<br/>08019 Barcelona, Spain<br/><br/>www\.eodyne.com |   |   |   |          |         |          |               |      |        |
+
+
+Fig. 12. Settings screen
+
+---
+
+
+
+MIMS logo
+
+# 4. Contact and technical support
+
+If you need further assistance, you may contact the RGS team by phone or email.
+
+## Information:
+
+Phone: +34 931 389 642
+E-mail: contact@eodyne.com
+
+## Support:
+
+Phone: +34 605 580 747
+E-mail: soporte@eodyne.com
+
+Eodyne logo
+
+Carrer de Veneçuela, 35.
+08019 Barcelona, Spain
+www.eodyne.com
+
+
+# Protocol List
+Here is a list of protocols and the attributes, i.e. cognitive/motor, that are targetted or addressed
+MOTOR-FOCUSED PROTOCOLS:
+* Hockey (ID: 219)
+* Ducks (ID: 209)
+* Balloons (AR) (ID: 231)
+* Driving (ID: 217)
+* Buffet (AR) (ID: 210)
+* Training (AR) (ID: 200)
+* Canvas wiping (AR) (ID: 227)
+* Do the dishes (AR) (ID: 225)
+
+COGNITIVE-FOCUSED PROTOCOLS:
+
+* Guess What (ID: 202)
+* Memoseq (ID: 201)
+* Pianoseq (ID: 203)
+* Potpourri (ID: 222)
+* Memory (TI) (ID: 224)
+* Shopping (VE) (ID: 215)
+* Balloons Basic (ID: 231)
+
+DUAL-DOMAIN PROTOCOLS THAT ADDRESS BOTH:
+
+• Blobs (ID: 214)
+• Twister (ID: 223)
+• Fishing day (AR) (ID: 221)
+• Shelves (AR) (ID: 208)
+• Place it (ID: 204)
+• Alphabet (AR) (ID: 205)
+• Tubes (AR) (ID: 226)
+• Spheroid (AR) (ID: 218)
+
+## PROTOCOL DETAILS:
+Here are the details of attributes, functions, and clinical parameters addressed or targetted by each protocol. The format is as such:
+Protocol: PROTOCOL NAME (ID)
+Targets:
+• ARAT: Grasp; Pinch etc. This field is empty (-) if none of the motor (ARAT attributes are targetted)
+• MoCA: Visual–spatial ability; Executive function; Motor integration; Conceptual abstraction. This field is empty (-) if none of the cognitive (MoCA attributes are targetted)
+
+
+Protocol: Blobs (ID: 214)
+Targets:
+• ARAT: Grasp; Pinch
+• MoCA: Visual–spatial ability; Executive function; Motor integration; Conceptual abstraction
+
+Protocol: Twister (ID: 223)
+Targets:
+• ARAT: Reach; Object manipulation
+• MoCA: Attention; Distractor inhibition; Response to stimulus
+
+Protocol: Shelves (AR) (ID: 208)
+Targets:
+• ARAT: Reach; Grasp; Gross movement
+• MoCA: —
+
+Protocol: Place it (ID: 204)
+Targets:
+• ARAT: Reach; Grasp; Pinch
+• MoCA: —
+
+Protocol: Alphabet (AR) (ID: 205)
+Targets:
+• ARAT: Grasp; Gross movement
+• MoCA: Language; Symbol manipulation; Semantic memory
+
+Protocol: Fishing day (AR) (ID: 221)
+Targets:
+• ARAT: Reach; Grasp; Gross movement
+• MoCA: Attention; Memory
+
+Protocol: Tubes (AR) (ID: 226)
+Targets:
+• ARAT: Reach; Grasp; Pinch; Gross movement
+• MoCA: Attention; Motor planning
+
+Protocol: Spheroid (AR) (ID: 218)
+Targets:
+• ARAT: Grasp; Gross movement
+• MoCA: Attention; Memory
+
+Protocol: Hockey (ID: 219)
+Targets:
+• ARAT: Grasp; Grip; Gross movement
+• MoCA: —
+
+Protocol: Ducks (ID: 209)
+Targets:
+• ARAT: Grasp; Grip; Gross movement
+• MoCA: —
+
+Protocol: Balloons (AR) (ID: 231)
+Targets:
+• ARAT: Grasp; Grip; Gross movement
+• MoCA: —
+
+Protocol: Driving (ID: 217)
+Targets:
+• ARAT: Grasp; Grip; Gross movement
+• MoCA: —
+
+Protocol: Buffet (AR) (ID: 210)
+Targets:
+• ARAT: Grasp; Grip; Gross movement
+• MoCA: —
+
+Protocol: Training (AR) (ID: 200)
+Targets:
+• ARAT: Grasp; Grip; Gross movement
+• MoCA: —
+
+Protocol: Canvas wiping (AR) (ID: 227)
+Targets:
+• ARAT: Grasp; Grip; Gross movement
+• MoCA: —
+
+Protocol: Do the dishes (AR) (ID: 225)
+Targets:
+• ARAT: Grasp; Grip; Gross movement
+• MoCA: —
+
+Protocol: Guess What (ID: 202)
+Targets:
+• ARAT: —
+• MoCA: Attention; Visuospatial; Memory; Naming; Language; Abstraction; Orientation
+
+Protocol: Memoseq (ID: 201)
+Targets:
+• ARAT: —
+• MoCA: Attention; Memory sequencing; Executive function
+
+Protocol: Pianoseq (ID: 203)
+Targets:
+• ARAT: —
+• MoCA: Attention; Motor integration; Processing speed
+
+Protocol: Potpourri (ID: 222)
+Targets:
+• ARAT: —
+• MoCA: Attention; Visuospatial; Language; Abstraction
+
+Protocol: Memory (TI) (ID: 224)
+Targets:
+• ARAT: —
+• MoCA: Memory; Semantic recall; Categorization
+
+Protocol: Shopping (VE) (ID: 215)
+Targets:
+• ARAT: —
+• MoCA: Attention; Memory; Motor planning
+
+Protocol: Balloons Basic (ID: 231)
+Targets:
+• ARAT: —
+• MoCA: Memory; Motor integration; Sustained attention
+
+RGS INTRINSIC MEASURES (DIAGNOSTIC ONLY):
+
+* Circle (V) (ID: 220)
+* Circle (H) (ID: 228)
+* Quality control (AR) (ID: 230)
+* Constellations (AR) (ID: 233)
+
+These intrinsic activities are not used for training. They serve solely as diagnostic assessments and are administered once every four weeks to monitor baseline motor function.
+
+
+
+
+# Rehabilitation Gaming System Application integrated with an AI-Based Recommender Module (RGS+AI)
+---
+# 1. Recommendations, Precautions, and Warnings {#recommendations,-precautions,-and-warnings}
+
+When using RGS+AI, please keep in mind:
+
+* The AI module is intended exclusively for clinician use. It operates under full professional supervision and is not intended to replace clinical judgment. While using RGS+ AI, patients continue to be monitored by qualified healthcare providers at all times.
+* Follow the instructions and recommendations provided by the manufacturers of the devices used to run the RGS software.
+
+Symbols used in this manual:
+
+🏭 Indicates information about the manufacturer of the product.
+
+📈 Indicates the manufacturing date of the product.
+
+📖 Indicates the need for the user to consult the instructions for use.
+
+MD Indicates that the product is a medical device.
+
+⚠️ To indicate that caution is necessary when operating the device or control near where the symbol is placed, or to indicate that the current situation requires the operator to be aware or take action to avoid undesirable consequences.
+
+---
+
+
+# 1. Introduction {#introduction}
+
+---
+
+
+
+## 2. Intended purpose {#intended-purpose}
+
+The RGS+ AI system is designed to support and enhance post-stroke rehabilitation by assisting clinicians in making more patient-centered and data-driven treatment planning.
+
+The AI module analyzes patient performance data to provide predictive modeling and therapy personalization suggestions. These outputs are intended for use only by qualified healthcare professionals, who retain full authority over treatment decisions.
+
+**The AI does not override or replace clinical judgment and is explicitly not intended as a primary diagnostic or therapeutic decision-making system.** Clinical supervision remains paramount, ensuring that all AI-driven insights are carefully reviewed and validated by healthcare professionals.
+
+---
+
+
+
+# 1. Intended User {#intended-user}
+
+Health professionals, such as neurologists, physical therapists, and occupational therapists, will monitor the patient's performance and prescribe the training activities, while having access to all the patient data and use the system as a decision-making support.
+
+
+# 1. Getting started with MIMS {#getting-started-with-mims}
+
+Health professionals will manage patient data through the Medical Information Management System (MIMS), a web platform that integrates the patient data collected by RGS with the prescription of exercises, reports, and the prognostics models of the Artificial Intelligence module.
+
+All this information is integrated, processed, and presented via the application MIMS to enhance decision-making for the clinical staff.
+
+---
+
+
+
+# 1. Access to the MIMS platform {#access-to-the-mims-platform}
+
+To access the MIMS platform, use the following URL:
+https://rgsmims.eodyne.com
+
+---
+
+
+# 1. Log in {#log-in}
+
+The credentials to log in will be provided by Eodyne Systems.
+
+
+
+# RGS+AI platform {#rgs+ai-platform}
+
+The MIMS version for the RGS+AI system differs from the version for RGS+ in that it includes all information relating to the recommendation system and prognostic models, including the following sections:
+
+1. Patient Data
+2. Patient model
+3. Diagnostics
+4. Self reported well-being
+5. Treatment efficacy
+6. Patient fit
+7. Notes
+8. Pending actions alerts
+
+---
+
+
+
+## 9. MIMS interface
+
+The following buttons can be accessed from the main interface (Figure 1):
+
+* Patients button → Redirects to the Patients List screen.
+* Support button → Redirects to contact information and technical support.
+* Settings button → Redirects to the Settings screen.
+* List filters → Click on them to sort the patient list.
+* Adherence avatar → Avatar colour based on the patient's adherence.
+* Profile button → Access to user profile data and editing.
+* User information.
+* New patient button → To create patients in the MIMS platform.
+
+<table>
+<thead>
+<tr>
+<th>Navigation</th>
+<th colspan="4">MIMS Interface</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="5">Patients | Support | Settings | AISN Hospital test AISN_Clinician | Logout</td>
+</tr>
+<tr>
+<td colspan="5"><strong>MIMS PATIENTS</strong></td>
+</tr>
+<tr>
+<td>Filter: All</td>
+<td colspan="4"></td>
+</tr>
+<tr>
+<th>T.A.</th>
+<th>USER</th>
+<th>PROFILE</th>
+<th>INFORMATION</th>
+<th>DASHBOARD</th>
+</tr>
+<tr>
+<td>👤</td>
+<td>IUXX_1</td>
+<td>👤</td>
+<td>Male 57 Stroke</td>
+<td>📊</td>
+</tr>
+<tr>
+<td>👤</td>
+<td>IDXX_2</td>
+<td>👤</td>
+<td>Male 67, Stroke</td>
+<td>📊</td>
+</tr>
+<tr>
+<td>👤</td>
+<td>newPati</td>
+<td>👤</td>
+<td>Male 24, Stroke</td>
+<td>📊</td>
+</tr>
+<tr>
+<td>👤</td>
+<td>testuser 1</td>
+<td>👤</td>
+<td>Male 41, Stroke</td>
+<td>📊</td>
+</tr>
+<tr>
+<td>👤</td>
+<td>testuser_6</td>
+<td>👤</td>
+<td>Male 45, Stroke</td>
+<td>📊</td>
+</tr>
+<tr>
+<td>👤</td>
+<td>test_CS</td>
+<td>👤</td>
+<td>Male 24, Stroke</td>
+<td>📊</td>
+</tr>
+<tr>
+<td colspan="5">➕ New patient</td>
+</tr>
+</tbody>
+</table>
+
+*Figure 1. MIMS interface for RGS+AI*
+
+---
+
+
+
+# Patient Data {#patient-data}
+
+This section includes basic patient information and graphically displays its clinical scores in different areas.
+
+<table>
+<tr>
+<td colspan="2" style="background-color: #cccccc; font-weight: bold;">PATIENT DATA</td>
+</tr>
+<tr>
+<td>
+
+<table>
+<tr>
+<td colspan="2" style="font-weight: bold;">Clinical information</td>
+</tr>
+<tr>
+<td>Patient ID</td>
+<td>PATIENTX2C0342</td>
+</tr>
+<tr>
+<td>Date of stroke</td>
+<td>dd/mm/yyyy</td>
+</tr>
+<tr>
+<td>AISN Group</td>
+<td>RGS+AI</td>
+</tr>
+<tr>
+<td>RGS+ Starting date</td>
+<td>dd/mm/yyyy</td>
+</tr>
+<tr>
+<td>Stroke side</td>
+<td>Left</td>
+</tr>
+<tr>
+<td>Stroke type</td>
+<td>Ischemic</td>
+</tr>
+<tr>
+<td>Stroke location</td>
+<td>Anterior</td>
+</tr>
+<tr>
+<td>Comorbidity</td>
+<td>Diabetes</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td colspan="2" style="font-weight: bold;">Demographics</td>
+</tr>
+<tr>
+<td>Gender</td>
+<td>Female</td>
+</tr>
+<tr>
+<td>Age</td>
+<td>62</td>
+</tr>
+<tr>
+<td>Civil status</td>
+<td>Married</td>
+</tr>
+<tr>
+<td>Home support</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Education</td>
+<td>University</td>
+</tr>
+<tr>
+<td>Work</td>
+<td>Unemployed</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td colspan="2" style="font-weight: bold;">RGS intrinsic measures assessments</td>
+</tr>
+</table>
+
+</td>
+<td>
+
+<table>
+<tr>
+<td colspan="2" style="font-weight: bold;">Clinical scores</td>
+</tr>
+<tr>
+<td>🔵 Baseline</td>
+</tr>
+<tr>
+<td>🟠 End of therapy</td>
+</tr>
+<tr>
+<td>🔵 Follow up</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td colspan="4" style="font-weight: bold;">Clinical Scores Assessment Areas</td>
+</tr>
+<tr>
+<td>Assessment Area</td>
+<td>Baseline</td>
+<td>End of therapy</td>
+<td>Follow up</td>
+</tr>
+<tr>
+<td>Language</td>
+<td>High</td>
+<td>High</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Motor</td>
+<td>Medium</td>
+<td>High</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Cognition</td>
+<td>Medium</td>
+<td>High</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Depression</td>
+<td>Low</td>
+<td>Medium</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Pain</td>
+<td>Medium</td>
+<td>Low</td>
+<td>Medium</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td>✏️ Edit clinical scores</td>
+<td>See details ℹ️</td>
+</tr>
+</table>
+
+</td>
+</tr>
+</table>
+
+*Figure 2. Clinical information and demographics data and clinical scores*
+
+## Clinical Information & Demographics {#clinical-information-&-demographics}
+
+---
+
+
+
+Displays key clinical and personal data collected during patient registration. These fields are not editable from this view and help contextualize treatment planning.
+
+The data included in this section is the following:
+
+* **Clinical data**: patient ID, date of stroke, project group, RGS+ starting date, stroke side, stroke type, stroke location, and comorbidity
+
+* **Demographics data**: Gender, age, civil status, home support, education, and work.
+
+## Clinical Scores {#clinical-scores}
+
+Summarizes the patient's status at different stages of the rehabilitation program:
+
+* **Baseline** ◆◆◆ before starting therapy.
+* **End of therapy** ◆◆◆ upon program completion.
+* **Follow-up** ◆◆◆ typically 2 months after therapy.
+
+The information is provided for different areas: language, motor, cognition, pain, and depression.
+
+This panel provides two available actions:
+
+* **Edit clinical scores** ◆◆◆ to enter or update assessment data.
+
+* **See details** ◆◆◆ to view a complete breakdown of the recorded scores.
+
+## Edit clinical scores button {#edit-clinical-scores-button}
+
+Figure 3. Edit clinical scores button
+
+---
+
+
+The button opens a list of clinical score entries, each representing a key evaluation stage (Baseline, End of Therapy, Follow-up). Each item displays its current status and can be edited via a structured form (MoCA, ARAT, and others).
+
+## Status types:
+
+* **Completed** ��� All required fields have been filled.
+
+* **Missing data** ��� Form is available, but one or more fields are incomplete.
+
+* **Waiting** ��� Form is not yet available (e.g. "End of Therapy" cannot be completed before the 12-week program ends).
+
+---
+
+
+
+## Figure 4. Edit clinical scores panel
+
+<table>
+<tr>
+<td colspan="4"><strong>Clinical scores list</strong></td>
+</tr>
+<tr>
+<td>Baseline</td>
+<td>COMPLETED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>End of therapy</td>
+<td>PENDING DATA</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Follow up</td>
+<td>WAITING</td>
+<td></td>
+<td></td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td colspan="4"><strong>Edit clinical score | Baseline</strong></td>
+</tr>
+<tr>
+<td colspan="4"><strong>MoCA</strong></td>
+</tr>
+<tr>
+<td>Visuospatial/Executive function</td>
+<td>5.3</td>
+<td>Language</td>
+<td>7.1</td>
+</tr>
+<tr>
+<td>Naming</td>
+<td>2</td>
+<td>Abstraction</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td>3.5</td>
+<td>Delayed Recall</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Attention</td>
+<td>7</td>
+<td>Orientation</td>
+<td>10</td>
+</tr>
+<tr>
+<td colspan="4"><strong>ARAT</strong></td>
+</tr>
+<tr>
+<td>Grip</td>
+<td></td>
+<td>Pinch</td>
+<td></td>
+</tr>
+<tr>
+<td>Gross movement</td>
+<td></td>
+<td>Grasp</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="4"><strong>Other</strong></td>
+</tr>
+<tr>
+<td>Depression</td>
+<td>2</td>
+<td>Fatigue</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Pain</td>
+<td>5</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Cancel</td>
+<td></td>
+<td></td>
+<td>Save changes</td>
+</tr>
+</table>
+
+## 1. See details button {#see-details-button}
+
+Shows all recorded values in a detailed panel view.
+
+See details
+
+## Figure 5. See details button
+
+---
+
+
+
+# Detailed clinical scores
+
+**Legend:**
+- ● Baseline
+- ● End of therapy  
+- ● Follow up
+
+<table>
+<thead>
+<tr>
+<th>ARAT (Motor)</th>
+<th>MoCA (Cognition)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<strong>Assessment Categories:</strong><br>
+• Grasp<br>
+• Grip<br>
+• Pinch<br>
+• Gross movement
+</td>
+<td>
+<strong>Assessment Categories:</strong><br>
+• Visuospatial / Executive Function<br>
+• Naming<br>
+• Memory<br>
+• Attention<br>
+• Language<br>
+• Abstraction<br>
+• Delayed Recall<br>
+• Orientation
+</td>
+</tr>
+</tbody>
+</table>
+
+*Figure 6. Detailed clinical scores panel*
+
+## 1. RGS intrinsic measures assessments {#rgs-intrinsic-measures-assessments}
+
+Drop-down panel displaying the prescription status of diagnostic activities (RGS+) and the Pinball activity (RGSclinic) across the different key evaluation stages (Baseline, End of Therapy, Follow-up). By default, no dates are set — each item must be individually edited to assign a prescription date.
+
+**Status definitions:**
+
+• **Waiting** — A date cannot be selected yet (e.g., the "End of Therapy" stage becomes available only after completing 12 weeks of treatment).
+• **Not prescribed** — A date can be set, but has not been assigned yet.
+• **Prescribed** — A prescription date has been set.
+
+---
+
+
+
+* **Not completed ◆◆◆** The scheduled date has passed, but one or more activities were not performed.
+* **Completed ◆◆◆** All prescribed activities were performed on the scheduled date.
+
+**RCS intrinsic measures assessments**
+
+**RCS intrinsic measures assessments**
+
+Diagnostic activities to be performed at the clinic: RGSa (Quality Control, Constellations, Vertical AR Circle, and Horizontal AR Circle), and RGSclinic (Pinball)
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Baseline</strong></td>
+<td>dd/mm/yyyy</td>
+<td><span style="background-color: green; color: white; padding: 2px 6px; border-radius: 3px;">COMPLETED</span></td>
+<td>📝</td>
+</tr>
+<tr>
+<td><strong>End of therapy</strong></td>
+<td>dd/mm/yyyy</td>
+<td><span style="background-color: orange; color: white; padding: 2px 6px; border-radius: 3px;">DESCRIBED</span></td>
+<td>📝</td>
+</tr>
+<tr>
+<td><strong>Follow up</strong></td>
+<td>-</td>
+<td><span style="background-color: gray; color: white; padding: 2px 6px; border-radius: 3px;">WAITING</span></td>
+<td>📝</td>
+</tr>
+</tbody>
+</table>
+
+*Figure 7. Intrinsic measures assessments*
+
+**Set date**
+
+<table>
+<tbody>
+<tr>
+<td><strong>Baseline</strong></td>
+<td>dd/mm/yyyy</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<tbody>
+<tr>
+<td><button style="border: 2px solid teal; background: white; color: teal; padding: 8px 16px;">Cancel</button></td>
+<td><button style="background: teal; color: white; padding: 8px 16px; border: none;">Accept</button></td>
+</tr>
+</tbody>
+</table>
+
+*Figure 8. xxx*
+
+---
+
+
+
+# Patient Model {#patient-model}
+
+This panel shows the results of the prognostics models, both the patient's recovery trajectory and the probability to belong to distinct sub-groups of recovery identified by the speed and rate. This information provides the clinician with valuable insight regarding one's potential recovery and may serve as an aid to decision making of e.g., the prescribed therapy.
+
+## Predicted Recovery Trajectory Plot {#predicted-recovery-trajectory-plot}
+
+The prediction of the patient's recovery is represented by a line graph with confidence intervals showing the expected progression of the patient's functional recovery over time (Figure 9 - left).
+
+## Patient Recovery Classification {#patient-recovery-classification}
+
+Horizontal bar chart displaying the probabilistic classification of the patient's functional recovery after stroke. Each bar represents a typical recovery class, based on a trained predictive model (Figure 9 - right).
+
+---
+
+
+
+# PATIENT MODEL
+
+## Prognostic model
+
+<table>
+<thead>
+<tr>
+<th colspan="2">Predicted recovery trajectory plot</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Time since stroke (months)</td>
+<td>IADL</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>25</td>
+</tr>
+<tr>
+<td>2</td>
+<td>35</td>
+</tr>
+<tr>
+<td>3</td>
+<td>42</td>
+</tr>
+<tr>
+<td>4</td>
+<td>45</td>
+</tr>
+<tr>
+<td>6</td>
+<td>48</td>
+</tr>
+<tr>
+<td>8</td>
+<td>50</td>
+</tr>
+<tr>
+<td>10</td>
+<td>52</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th colspan="2">Patient Recovery Classification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Recovery Class</td>
+<td>Probability of Belonging to a specific recovery class (%)</td>
+</tr>
+<tr>
+<td>Excellent (quick)</td>
+<td>4%</td>
+</tr>
+<tr>
+<td>Good (quick)</td>
+<td>15%</td>
+</tr>
+<tr>
+<td>Good (slow)</td>
+<td>70%</td>
+</tr>
+<tr>
+<td>Moderate (slow)</td>
+<td>9%</td>
+</tr>
+<tr>
+<td>Poor</td>
+<td>2%</td>
+</tr>
+</tbody>
+</table>
+
+Figure 9. Patient model dashboard with predicted patient's recovery (left) and patient classification probability (right)
+
+---
+
+
+
+# 1. Diagnostics {#diagnostics}
+
+## 2. Diagnosis Assessment {#diagnosis-assessment}
+
+Drop-down panel displaying the prescription status of diagnostic activities (RGS+) across weeks 1, 4, 8 and 12. By default, diagnostics are scheduled on Mondays of weeks 1, 4, 8, and 12, but each session can be individually edited to modify the scheduled date.
+
+If a diagnostic session is prescribed for the selected week, a message will be displayed along with a visual highlight indicating the scheduled day.
+
+Status definitions:
+
+* **Prescribed** ◆◆◆ A prescription date has been set.
+* **Not completed** ◆◆◆ The scheduled date has passed, but one or more activities were not performed.
+* **Completed** ◆◆◆ All prescribed activities were performed on the scheduled date.
+
+<table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Status</th>
+<th>Calendar</th>
+<th>Message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Week 1</td>
+<td>Diagnostic assessments</td>
+<td></td>
+<td>No prescribed diagnosis this week</td>
+</tr>
+<tr>
+<td>Week 4</td>
+<td>Diagnostic assessments</td>
+<td>M T W T F S S</td>
+<td>There is a prescribed diagnosis this week</td>
+</tr>
+<tr>
+<td>Week 8</td>
+<td>Diagnostic assessments</td>
+<td>M T W T F S S</td>
+<td>There is a prescribed diagnosis this week</td>
+</tr>
+</tbody>
+</table>
+
+RGS+ diagnostic activities: Quality Control, Constellations, Vertical AR Circle, and Horizontal AR Circle.
+
+<table>
+<thead>
+<tr>
+<th>Diagnostic</th>
+<th>Date</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Diagnostic 1</td>
+<td>dd/mm/yyyy</td>
+<td>COMPLETED</td>
+</tr>
+<tr>
+<td>Diagnostic 2</td>
+<td>dd/mm/yyyy</td>
+<td>NOT COMPLETED</td>
+</tr>
+<tr>
+<td>Diagnostic 3</td>
+<td>dd/mm/yyyy</td>
+<td>PRESCRIBED</td>
+</tr>
+<tr>
+<td>Diagnostic 4</td>
+<td>dd/mm/yyyy</td>
+<td>PRESCRIBED</td>
+</tr>
+</tbody>
+</table>
+
+*Figure 10. Diagnosis assessment*
+
+---
+
+
+*Figure 11. Diagnostic assessment edition*
+
+Set date
+
+Diagnostic 2    dd/mm/yyyy
+
+Cancel                           Accept
+
+## 1. Recent Diagnostics Assessment {#recent-diagnostics-assessment}
+
+Displays a summary of the most recent diagnostic session performed using RGS activities.
+
+*Figure 12. Recent Diagnostics Assessment*
+
+Recent Diagnostics Assessment
+
+The Recommender System tracks and optimizes patient recovery using two key activities that assess motor and cognitive functions. The image shows the recent success rates for each:
+
+* CQ (Control Quality) success rate - Assesses motor function with a scale from 0 to 100
+* Const. (Constellations) success rate - Assesses cognitive function with a scale from 0 to 100
+
+<table>
+<tr>
+<td>75%<br>CQ success rate</td>
+<td>46%<br>Const. success rate</td>
+</tr>
+</table>
+
+## 1. Executive (Quality Control) and Memory Function (Constellations) {#executive-(quality-control)-and-memory-function-(constellations)}
+
+Drop-down panels showing the evolution of the success rate for the Quality Control and Constellations activities, which assesses executive and memory functions. Hovering over any point on the graphs reveals detailed performance data for that session.
+
+---
+
+
+
+<table>
+<thead>
+<tr>
+<th>Diagnostic Sessions</th>
+<th>Success Rate (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>50</td>
+</tr>
+<tr>
+<td>4</td>
+<td>45</td>
+</tr>
+<tr>
+<td>7</td>
+<td>75</td>
+</tr>
+<tr>
+<td>10</td>
+<td>95</td>
+</tr>
+</tbody>
+</table>
+
+*Figure 13. Executive function (Quality Control)*
+
+<table>
+<thead>
+<tr>
+<th>Diagnostic Sessions</th>
+<th>Success Rate (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>25</td>
+</tr>
+<tr>
+<td>4</td>
+<td>45</td>
+</tr>
+<tr>
+<td>7</td>
+<td>85</td>
+</tr>
+<tr>
+<td>10</td>
+<td>80</td>
+</tr>
+</tbody>
+</table>
+
+*Figure 14. Memory function (Constellations)*
+
+---
+
+
+
+## Self Reported Well-Being {#self-reported-well-being}
+
+### Recent Self-Reported Well-Being Assessment {#recent-self-reported-well-being-assessment}
+
+Displays a summary of the most recent self-reported well-being assessment using the emotional slider in RGS+
+
+<table>
+<thead>
+<tr>
+<th colspan="3">Recent Self-Reported Well-Being Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="3">Recent results from a self-reported emotional slider, completed directly by the patient. These values reflect the patient's personal perception of their current well-being:</td>
+</tr>
+<tr>
+<td>1,6 / 10<br>Pain</td>
+<td>5,3 / 10<br>Fatigue</td>
+<td>7,8 / 10<br>Happiness</td>
+</tr>
+</tbody>
+</table>
+
+*Figure 15. Recent Self-Reported Well-Being Assessment*
+
+## Self-Reported Well-Being {#self-reported-well-being-1}
+
+Drop-down panel showing the evolution of the self-reported well-being assessments. Hovering over any point on the graphs reveals detailed performance data for that week.
+
+---
+
+
+
+# Self Reported Well-Being
+
+<table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Pain</th>
+<th>Fatigue</th>
+<th>Happiness</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2.5</td>
+<td>6.5</td>
+<td>5.5</td>
+</tr>
+<tr>
+<td>2</td>
+<td>4.5</td>
+<td>4.5</td>
+<td>4.5</td>
+</tr>
+<tr>
+<td>3</td>
+<td>6.5</td>
+<td>6.5</td>
+<td>2.5</td>
+</tr>
+<tr>
+<td>4</td>
+<td>7.5</td>
+<td>7.5</td>
+<td>3.0</td>
+</tr>
+<tr>
+<td>5</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.5</td>
+</tr>
+<tr>
+<td>6</td>
+<td>7.0</td>
+<td>5.5</td>
+<td>6.0</td>
+</tr>
+<tr>
+<td>7</td>
+<td>4.5</td>
+<td>3.5</td>
+<td>3.5</td>
+</tr>
+<tr>
+<td>8</td>
+<td>5.0</td>
+<td>4.5</td>
+<td>4.5</td>
+</tr>
+<tr>
+<td>9</td>
+<td>2.5</td>
+<td>2.5</td>
+<td>5.5</td>
+</tr>
+<tr>
+<td>10</td>
+<td>2.5</td>
+<td>2.5</td>
+<td>7.5</td>
+</tr>
+<tr>
+<td>11</td>
+<td>5.5</td>
+<td>8.0</td>
+<td>2.5</td>
+</tr>
+<tr>
+<td>12</td>
+<td>3.0</td>
+<td>6.5</td>
+<td>5.5</td>
+</tr>
+</tbody>
+</table>
+
+Figure 16. Self-Reported Well-Being
+
+---
+
+
+
+# Treatment Efficacy {#treatment-efficacy}
+
+## Recent Treatment Efficacy Assessment {#recent-treatment-efficacy-assessment}
+
+Displays a summary of the most recent treatment efficacy assessments. These metrics help personalize and adjust the treatment path over time.
+
+
+## Delta DM, Adherence, and Competence graphs {#delta-difficulty-modulators,-adherence,-and-competence-graphs}
+
+Drop-down panels showing the evolution of Treatment Efficacy assessments. Hovering over any point on the graphs reveals detailed performance data for that week.
+
+---
+
+
+
+## Figure 18. Delta DM
+
+<table>
+<thead>
+<tr>
+<th>Week</th>
+<th>DM Change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2.5</td>
+</tr>
+<tr>
+<td>2</td>
+<td>5.5</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2.5</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2.5</td>
+</tr>
+<tr>
+<td>5</td>
+<td>4.5</td>
+</tr>
+<tr>
+<td>6</td>
+<td>3.5</td>
+</tr>
+<tr>
+<td>7</td>
+<td>7.5</td>
+</tr>
+<tr>
+<td>8</td>
+<td>5.0</td>
+</tr>
+<tr>
+<td>9</td>
+<td>8.5</td>
+</tr>
+<tr>
+<td>10</td>
+<td>7.5</td>
+</tr>
+<tr>
+<td>11</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>12</td>
+<td>2.5</td>
+</tr>
+</tbody>
+</table>
+
+## Figure 19. Adherence
+
+<table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Adherence Rate (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>75</td>
+</tr>
+<tr>
+<td>2</td>
+<td>90</td>
+</tr>
+<tr>
+<td>3</td>
+<td>25</td>
+</tr>
+<tr>
+<td>4</td>
+<td>25</td>
+</tr>
+<tr>
+<td>5</td>
+<td>25</td>
+</tr>
+<tr>
+<td>6</td>
+<td>25</td>
+</tr>
+<tr>
+<td>7</td>
+<td>55</td>
+</tr>
+<tr>
+<td>8</td>
+<td>50</td>
+</tr>
+<tr>
+<td>9</td>
+<td>75</td>
+</tr>
+<tr>
+<td>10</td>
+<td>75</td>
+</tr>
+<tr>
+<td>11</td>
+<td>40</td>
+</tr>
+<tr>
+<td>12</td>
+<td>75</td>
+</tr>
+</tbody>
+</table>
+
+**Weekly adherence = 56%**
+- Monday: 62%
+- Tuesday: 44%
+- Wednesday: 70%
+- Thursday: 38%
+- Friday: 82%
+- Saturday: 24%
+- Sunday: 56%
+
+---
+
+
+
+<table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Competence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>0.75</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0.75</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0.75</td>
+</tr>
+<tr>
+<td>5</td>
+<td>0.6</td>
+</tr>
+<tr>
+<td>6</td>
+<td>0.65</td>
+</tr>
+<tr>
+<td>7</td>
+<td>0.25</td>
+</tr>
+<tr>
+<td>8</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>9</td>
+<td>0.15</td>
+</tr>
+<tr>
+<td>10</td>
+<td>0.25</td>
+</tr>
+<tr>
+<td>11</td>
+<td>0.9</td>
+</tr>
+<tr>
+<td>12</td>
+<td>0.75</td>
+</tr>
+</tbody>
+</table>
+
+*Figure 20. Competence*
+
+---
+
+
+
+## 1. Patient Fit {#patient-fit}
+
+## 2. Week Selector {#week-selector}
+
+Displays a set of selectable weeks for viewing prescription data. Previous weeks are shown in blue, while the current week is highlighted in orange.
+
+<table>
+<thead>
+<tr>
+<th colspan="12">Week 6 | 23/06/2025 - 29/06/2025</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Week 1<br>✓</td>
+<td>Week 2<br>✓</td>
+<td>Week 3<br>✓</td>
+<td>Week 4<br>✓</td>
+<td>Week 5<br>✓</td>
+<td>Week 6<br>✓<br>(current)</td>
+<td>Week 7<br>8</td>
+<td>Week 8<br>9</td>
+<td>Week 9<br>8</td>
+<td>Week 10<br>8</td>
+<td>Week 11<br>8</td>
+<td>Week 12<br>8</td>
+</tr>
+</tbody>
+</table>
+
+*Figure 21. Week selector*
+
+## 3. Prescription Overview {#prescription-overview}
+
+Displays a table of activities scheduled or performed during the selected week. Each entry includes the activity name, prescribed days, targeted functional domains, session duration, and additional indicators such as Difficulty Modulator (DM) changes, adherence, competence, and the number of times the activity was performed.
+
+## 4. Previous week {#previous-week}
+
+Displays the list of activities that were prescribed during the selected past week.
+
+---
+
+
+
+*Figure 22. List of activities prescribed*
+
+<table>
+<thead>
+<tr>
+<th>ACTIVITY</th>
+<th>WEEK DAYS</th>
+<th>FUNCTIONS</th>
+<th>DJM.</th>
+<th>AD.</th>
+<th>COM.</th>
+<th>TIME</th>
+<th>REP.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🧩 Guess what?</td>
+<td>M T W T F S S</td>
+<td>COGNITIVE</td>
+<td>9</td>
+<td>89</td>
+<td>6.8</td>
+<td>5 min</td>
+<td>7</td>
+</tr>
+<tr>
+<td>🎹 Pianoseq</td>
+<td>M T W T F S S</td>
+<td>COGNITIVE</td>
+<td>3.8</td>
+<td>25</td>
+<td>8.4</td>
+<td>5 min</td>
+<td>14</td>
+</tr>
+<tr>
+<td>🎯 Place it</td>
+<td>M T W T F S S</td>
+<td>MOTOR COGNITIVE</td>
+<td>7.5</td>
+<td>65</td>
+<td>3</td>
+<td>5 min</td>
+<td>7</td>
+</tr>
+<tr>
+<td>🧠 Memory</td>
+<td>M T W T F S S</td>
+<td>COGNITIVE</td>
+<td>9</td>
+<td>67</td>
+<td>2.6</td>
+<td>5 min</td>
+<td>7</td>
+</tr>
+<tr>
+<td>🏒 Hockey AR</td>
+<td>M T W T F S S</td>
+<td>MOTOR COGNITIVE</td>
+<td>3.7</td>
+<td>89</td>
+<td>7</td>
+<td>5 min</td>
+<td>14</td>
+</tr>
+<tr>
+<td>🔤 Alphabet AR</td>
+<td>M T W F S S</td>
+<td>MOTOR</td>
+<td>7.4</td>
+<td>16</td>
+<td>7.2</td>
+<td>3 min</td>
+<td>21</td>
+</tr>
+</tbody>
+</table>
+
+## 1. Current week {#current-week}
+
+Shows the current prescription and highlights differences compared to the previous week:
+
+* **Removed** ◆◆◆ Activities present in the previous week but not in the current one. Highlighted in red with the label Removed.
+* **Changes** ◆◆◆ Activities prescribed in both weeks but with modifications (e.g., duration changed from 4 to 5 minutes). Highlighted in yellow with the label Changes.
+* **Normal** ◆◆◆ Activities that remain unchanged across both weeks. Displayed with no special indicator.
+* **Added** ◆◆◆ New activities introduced this week that were not present in the previous one. Highlighted in blue with the label Added.
+
+---
+
+
+
+**Figure 23. Current week prescription**
+
+<table>
+<thead>
+<tr>
+<th>ACTIVITY</th>
+<th>WEEK DAYS</th>
+<th>FUNCTIONS</th>
+<th>D.M.</th>
+<th>A.D.</th>
+<th>COM.</th>
+<th>TIME</th>
+<th>REP.</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🎯 Guess what?</td>
+<td>M T W T F S S</td>
+<td>COGNITIVE</td>
+<td>9</td>
+<td>89</td>
+<td>6.8</td>
+<td>5 min</td>
+<td>7</td>
+<td>REMOVED</td>
+</tr>
+<tr>
+<td>🎹 Pianoseq</td>
+<td>M T W T F S S</td>
+<td>COGNITIVE</td>
+<td>3.8</td>
+<td>25</td>
+<td>8.4</td>
+<td>5 min</td>
+<td>14</td>
+<td>REMOVED</td>
+</tr>
+<tr>
+<td>🧩 Place it</td>
+<td>M T W T F S S</td>
+<td>MOTOR COGNITIVE</td>
+<td>7.5</td>
+<td>65</td>
+<td>3</td>
+<td>5 min</td>
+<td>7</td>
+<td>REMOVED</td>
+</tr>
+<tr>
+<td>🧠 Memory</td>
+<td>M T W T F S S</td>
+<td>COGNITIVE</td>
+<td>9</td>
+<td>67</td>
+<td>2.6</td>
+<td>5 min</td>
+<td>7</td>
+<td></td>
+</tr>
+<tr>
+<td>🏒 Hockey AR</td>
+<td>M T W T F S S</td>
+<td>MOTOR COGNITIVE</td>
+<td>3.7</td>
+<td>89</td>
+<td>7</td>
+<td>5 min</td>
+<td>14</td>
+<td></td>
+</tr>
+<tr>
+<td>🔤 Alphabet AR</td>
+<td>M T W T F S S</td>
+<td>MOTOR</td>
+<td>7.4</td>
+<td>16</td>
+<td>7.2</td>
+<td>5 min</td>
+<td>21</td>
+<td>CHANGED</td>
+</tr>
+<tr>
+<td>🎯 Twister</td>
+<td>M T W T F S S</td>
+<td>MOTOR COGNITIVE</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>5 min</td>
+<td>-</td>
+<td>ADDED</td>
+</tr>
+<tr>
+<td>🦆 Ducks AR</td>
+<td>M T W T F S S</td>
+<td>MOTOR COGNITIVE</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>5 min</td>
+<td>-</td>
+<td>ADDED</td>
+</tr>
+<tr>
+<td>🎈 Balloons AR</td>
+<td>M T W T F S S</td>
+<td>MOTOR COGNITIVE</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>5 min</td>
+<td>-</td>
+<td>ADDED</td>
+</tr>
+</tbody>
+</table>
+
+## 1. Weekly Summary {#weekly-summary}
+
+Provides a quick overview of the weekly prescription, including the number of cognitive, motor, and total activities, as well as the total training time.
+
+**Figure 24. Weekly summary**
+
+<table>
+<thead>
+<tr>
+<th>5<br>COGNITIVE<br>activities</th>
+<th>3<br>MOTOR<br>activities</th>
+<th>6<br>TOTAL<br>activities</th>
+<th>165<br>COGNITIVE<br>trained minutes</th>
+<th>85<br>MOTOR<br>trained minutes</th>
+<th>180<br>TOTAL<br>trained minutes</th>
+</tr>
+</thead>
+</table>
+
+On Mondays, when a new prescription is proposed, two actions become available:
+
+* **Edit Prescription**.
+* **Accept Prescription** (only available for patients using the Recommender System).
+
+---
+
+
+
+*Figure 25. Edit and accept prescription actions*
+
+<table>
+<tr>
+<td colspan="6"><strong>Weekly summary</strong></td>
+</tr>
+<tr>
+<td><strong>5</strong><br>COGNITIVE<br>activities</td>
+<td><strong>5</strong><br>MOTOR<br>activities</td>
+<td><strong>6</strong><br>TOTAL<br>activities</td>
+<td><strong>165</strong><br>COGNITIVE<br>trained minutes</td>
+<td><strong>165</strong><br>MOTOR<br>trained minutes</td>
+<td><strong>200</strong><br>TOTAL<br>trained minutes</td>
+</tr>
+<tr>
+<td colspan="3">Edit prescription</td>
+<td colspan="3">Accept prescription</td>
+</tr>
+</table>
+
+# Edit prescription {#edit-prescription}
+
+This panel displays all available activities that can be prescribed for the selected week.
+
+Therapists can select specific activities, assign training days, and define the duration (in minutes) for each one.
+
+Edit prescription
+
+*Figure 26. Edit prescription button*
+
+---
+
+
+
+<table>
+<thead>
+<tr>
+<th>ACTIVITY</th>
+<th>WEEK DAYS</th>
+<th>FUNCTIONS</th>
+<th>TIME</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Memory</td>
+<td>M T W T F S S</td>
+<td>COGNITIVE</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>Potpourri</td>
+<td>M T W T F S S</td>
+<td>COGNITIVE</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>Balloons</td>
+<td>M T W T F S S</td>
+<td>COGNITIVE</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>Bubbles</td>
+<td>M T W T F S S</td>
+<td>MOTOR COGNITIVE</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>Shopping</td>
+<td>M T W T F S S</td>
+<td>COGNITIVE</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>Cleaning</td>
+<td>M T W T F S S</td>
+<td>MOTOR</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>Driving</td>
+<td>M T W T F S S</td>
+<td>MOTOR</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>Guess what?</td>
+<td>M T W T F S S</td>
+<td>COGNITIVE</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>Pianoseq</td>
+<td>M T W T F S S</td>
+<td>COGNITIVE</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>Place it</td>
+<td>M T W T F S S</td>
+<td>MOTOR COGNITIVE</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>Twister</td>
+<td>M T W T F S S</td>
+<td>MOTOR COGNITIVE</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>Hockey AR</td>
+<td>M T W T F S S</td>
+<td>MOTOR COGNITIVE</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>Alphabet AR</td>
+<td>M T W T F S S</td>
+<td>MOTOR</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>Tubes AR</td>
+<td>M T W T F S S</td>
+<td>MOTOR COGNITIVE</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>Fishing day AR</td>
+<td>M T W T F S S</td>
+<td>MOTOR COGNITIVE</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>Spheroids AR</td>
+<td>M T W T F S S</td>
+<td>MOTOR COGNITIVE</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>Ducks AR</td>
+<td>M T W T F S S</td>
+<td>MOTOR COGNITIVE</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>Balloons AR</td>
+<td>M T W T F S S</td>
+<td>MOTOR COGNITIVE</td>
+<td>5 min</td>
+</tr>
+</tbody>
+</table>
+
+Cancel                                                                           Continue
+
+*Figure 27. Edit prescription panel*
+
+At the bottom of the panel, two options are available:
+
+---
+
+
+
+* Cancel → Discards all changes
+
+* Continue → Proceeds to analyze the prescription
+
+## Functions matrix {#functions-matrix}
+
+At the top of the "Edit prescription" panel, one button opens functional area matrices "Motor / Cognitive Functions (i)". This matrix shows each activity and the motor and cognitive functions it targets.
+
+[Motor / Cognitive Functions (i) button interface element]
+
+*Figure 28. Motor/cognitive functions button*
+
+---
+
+
+
+Figure 29. Motor/cognitive functions panel
+
+<table>
+<thead>
+<tr>
+<th colspan="5">MOTOR FUNCTIONS</th>
+<th colspan="6">COGNITIVE FUNCTIONS</th>
+</tr>
+<tr>
+<th>ACTIVITY</th>
+<th>GRASP</th>
+<th>GRIP</th>
+<th>PINCH</th>
+<th>GROSS</th>
+<th>ATTENTION</th>
+<th>VISUOSPATIAL</th>
+<th>RECALL</th>
+<th>NAMING</th>
+<th>LANGUAGE</th>
+<th>ABSTRACTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alphabet (AR)</td>
+<td>MEDIUM</td>
+<td>MEDIUM</td>
+<td>LOW</td>
+<td>HIGH</td>
+<td>MEDIUM</td>
+<td>HIGH</td>
+<td></td>
+<td>LOW</td>
+<td>LOW</td>
+<td>LOW</td>
+</tr>
+<tr>
+<td>Balloons (AR)</td>
+<td>MEDIUM</td>
+<td>HIGH</td>
+<td></td>
+<td>HIGH</td>
+<td>MEDIUM</td>
+<td>HIGH</td>
+<td>LOW</td>
+<td></td>
+<td></td>
+<td>MEDIUM</td>
+</tr>
+<tr>
+<td>Balloons Basic</td>
+<td>LOW</td>
+<td>LOW</td>
+<td></td>
+<td>LOW</td>
+<td>HIGH</td>
+<td>MEDIUM</td>
+<td>MEDIUM</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Blobs</td>
+<td></td>
+<td>MEDIUM</td>
+<td>HIGH</td>
+<td>LOW</td>
+<td>MEDIUM</td>
+<td>HIGH</td>
+<td>LOW</td>
+<td></td>
+<td></td>
+<td>HIGH</td>
+</tr>
+<tr>
+<td>Buffet (AR)</td>
+<td>HIGH</td>
+<td>HIGH</td>
+<td></td>
+<td>MEDIUM</td>
+<td>MEDIUM</td>
+<td>HIGH</td>
+<td>MEDIUM</td>
+<td></td>
+<td></td>
+<td>MEDIUM</td>
+</tr>
+<tr>
+<td>Canvas wiping (AR)</td>
+<td>HIGH</td>
+<td>HIGH</td>
+<td>LOW</td>
+<td>HIGH</td>
+<td>MEDIUM</td>
+<td>MEDIUM</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Do the dishes (AR)</td>
+<td>HIGH</td>
+<td>HIGH</td>
+<td>LOW</td>
+<td>HIGH</td>
+<td>MEDIUM</td>
+<td>MEDIUM</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Driving</td>
+<td>LOW</td>
+<td>HIGH</td>
+<td>MEDIUM</td>
+<td>HIGH</td>
+<td>HIGH</td>
+<td>HIGH</td>
+<td>MEDIUM</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Ducks (AR)</td>
+<td>MEDIUM</td>
+<td>HIGH</td>
+<td>LOW</td>
+<td>HIGH</td>
+<td>MEDIUM</td>
+<td>HIGH</td>
+<td>LOW</td>
+<td></td>
+<td></td>
+<td>MEDIUM</td>
+</tr>
+<tr>
+<td>Fishing day (AR)</td>
+<td>HIGH</td>
+<td>HIGH</td>
+<td>LOW</td>
+<td></td>
+<td>MEDIUM</td>
+<td>MEDIUM</td>
+<td>MEDIUM</td>
+<td></td>
+<td></td>
+<td>MEDIUM</td>
+</tr>
+<tr>
+<td>Guess What</td>
+<td>LOW</td>
+<td>LOW</td>
+<td>LOW</td>
+<td></td>
+<td>MEDIUM</td>
+<td>MEDIUM</td>
+<td>MEDIUM</td>
+<td>HIGH</td>
+<td>HIGH</td>
+<td>HIGH</td>
+</tr>
+<tr>
+<td>Hockey (AR)</td>
+<td>HIGH</td>
+<td>MEDIUM</td>
+<td></td>
+<td>HIGH</td>
+<td>HIGH</td>
+<td>HIGH</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th colspan="5">MOTOR FUNCTIONS</th>
+<th colspan="6">COGNITIVE FUNCTIONS</th>
+</tr>
+<tr>
+<th>ACTIVITY</th>
+<th>GRASP</th>
+<th>GRIP</th>
+<th>PINCH</th>
+<th>GROSS</th>
+<th>ATTENTION</th>
+<th>VISUOSPATIAL</th>
+<th>RECALL</th>
+<th>NAMING</th>
+<th>LANGUAGE</th>
+<th>ABSTRACTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Memory</td>
+<td>LOW</td>
+<td>LOW</td>
+<td>LOW</td>
+<td></td>
+<td>MEDIUM</td>
+<td>MEDIUM</td>
+<td>HIGH</td>
+<td>LOW</td>
+<td>LOW</td>
+<td></td>
+</tr>
+<tr>
+<td>Nemesis</td>
+<td>LOW</td>
+<td>LOW</td>
+<td>LOW</td>
+<td></td>
+<td>HIGH</td>
+<td>MEDIUM</td>
+<td>HIGH</td>
+<td>MEDIUM</td>
+<td>MEDIUM</td>
+<td>MEDIUM</td>
+</tr>
+<tr>
+<td>Planning</td>
+<td>LOW</td>
+<td>LOW</td>
+<td>LOW</td>
+<td>LOW</td>
+<td>MEDIUM</td>
+<td>MEDIUM</td>
+<td>MEDIUM</td>
+<td></td>
+<td></td>
+<td>MEDIUM</td>
+</tr>
+<tr>
+<td>Place It</td>
+<td>MEDIUM</td>
+<td>MEDIUM</td>
+<td>MEDIUM</td>
+<td>MEDIUM</td>
+<td>MEDIUM</td>
+<td>MEDIUM</td>
+<td>LOW</td>
+<td>LOW</td>
+<td>LOW</td>
+<td>LOW</td>
+</tr>
+<tr>
+<td>Potpourri</td>
+<td>LOW</td>
+<td>LOW</td>
+<td>LOW</td>
+<td></td>
+<td>MEDIUM</td>
+<td>LOW</td>
+<td>HIGH</td>
+<td>LOW</td>
+<td>LOW</td>
+<td>HIGH</td>
+</tr>
+<tr>
+<td>Shelves (AR)</td>
+<td>HIGH</td>
+<td>MEDIUM</td>
+<td>LOW</td>
+<td>MEDIUM</td>
+<td>MEDIUM</td>
+<td>MEDIUM</td>
+<td>LOW</td>
+<td>MEDIUM</td>
+<td>MEDIUM</td>
+<td>HIGH</td>
+</tr>
+<tr>
+<td>Shopping</td>
+<td>LOW</td>
+<td>LOW</td>
+<td>LOW</td>
+<td>LOW</td>
+<td>MEDIUM</td>
+<td>MEDIUM</td>
+<td>LOW</td>
+<td>MEDIUM</td>
+<td>MEDIUM</td>
+<td>HIGH</td>
+</tr>
+<tr>
+<td>Spheroids (AR)</td>
+<td>HIGH</td>
+<td>MEDIUM</td>
+<td></td>
+<td>HIGH</td>
+<td>HIGH</td>
+<td>HIGH</td>
+<td>MEDIUM</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Training (AR)</td>
+<td>HIGH</td>
+<td>HIGH</td>
+<td>LOW</td>
+<td>HIGH</td>
+<td>HIGH</td>
+<td>MEDIUM</td>
+<td>MEDIUM</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Tuxan (AR)</td>
+<td>HIGH</td>
+<td>HIGH</td>
+<td>MEDIUM</td>
+<td>HIGH</td>
+<td>HIGH</td>
+<td>HIGH</td>
+<td>MEDIUM</td>
+<td></td>
+<td></td>
+<td>MEDIUM</td>
+</tr>
+<tr>
+<td>Twister</td>
+<td>LOW</td>
+<td>MEDIUM</td>
+<td>HIGH</td>
+<td>LOW</td>
+<td>MEDIUM</td>
+<td>HIGH</td>
+<td>LOW</td>
+<td></td>
+<td></td>
+<td>HIGH</td>
+</tr>
+</tbody>
+</table>
+
+## 1. Reason for Prescription Change {#reason-for-prescription-change}
+
+If the user chooses to edit the recommendation instead of accepting it, a confirmation pop-up will appear after completing the selection. A justification must be selected or written manually, explaining the reason for overriding the proposed plan.
+
+---
+
+
+
+## Reason for prescription change
+
+**Select a reason** ▼
+
+*The Recommender System (RS) is optimized to achieve a specific objective. Editing its parameters may reduce its effectiveness within its intended scope. However, given your expertise, you may choose to override these settings.*
+
+[Cancel] [Accept prescription]
+
+----
+
+## Reason for prescription change
+
+**Data Accuracy** ▼
+
+*The AI recommendation was based on incomplete, outdated, or incorrect patient data.*
+
+[Cancel] [Accept prescription]
+
+----
+
+## Reason for prescription change
+
+**Other reason (specify)** ▼
+
+```
+Write your reason here..
+```
+
+[Cancel] [Accept prescription]
+
+----
+
+**Figure 30. Reason for Prescription Change**
+
+At the bottom of this panel:
+
+* **Cancel** ◆◆◆ Returns to the previous screen without saving
+
+---
+
+
+
+* Accept Prescription ◆◆◆ Conforms and applies the edited prescription
+
+* Activities Performed {#activities-performed}
+
+Drop-down panel displaying a raster plot of prescribed and non-prescribed activities throughout the selected week.
+On the right side, report buttons are available for activities that have been completed, allowing access to detailed views of the patient◆◆◆s performance and progression in each specific activity.
+
+<table>
+<thead>
+<tr>
+<th>Activities</th>
+<th>Week 0</th>
+<th>Week 1</th>
+<th>Week 2</th>
+<th>Week 3</th>
+<th>Week 4</th>
+<th>Week 5</th>
+<th>Week 6</th>
+<th>Week 7</th>
+<th>Week 8</th>
+<th>Week 9</th>
+<th>Week 10</th>
+<th>Week 11</th>
+<th>Week 12</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Memoseq</td>
+<td>●</td>
+<td></td>
+<td>●</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>14</td>
+</tr>
+<tr>
+<td>Pianoseq</td>
+<td>●</td>
+<td></td>
+<td></td>
+<td>●</td>
+<td></td>
+<td>●</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>21</td>
+</tr>
+<tr>
+<td>Place it</td>
+<td>●</td>
+<td></td>
+<td></td>
+<td>●</td>
+<td></td>
+<td>●</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>21</td>
+</tr>
+<tr>
+<td>Blobs</td>
+<td>●</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>●</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>14</td>
+</tr>
+<tr>
+<td>Potpourri</td>
+<td>●</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>14</td>
+</tr>
+<tr>
+<td>Twister</td>
+<td>●</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>7</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td>●</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>7</td>
+</tr>
+<tr>
+<td>Balloons</td>
+<td>●</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>●</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>21</td>
+</tr>
+<tr>
+<td>Balloons AR</td>
+<td>●</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>14</td>
+</tr>
+<tr>
+<td>Shelves AR</td>
+<td></td>
+<td>●</td>
+<td></td>
+<td>●</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>14</td>
+</tr>
+<tr>
+<td>Ducks AR</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>-</td>
+</tr>
+<tr>
+<td>Spheroids AR</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>-</td>
+</tr>
+<tr>
+<td>Constellations</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>-</td>
+</tr>
+<tr>
+<td>Control Quality</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>-</td>
+</tr>
+<tr>
+<td>Circle Vertical AR</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>-</td>
+</tr>
+<tr>
+<td>Circle Horizontal AR</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+
+*Figure 31. Activities performed*
+
+---
+
+
+
+# Notes {#notes}
+
+Section for adding and viewing clinical notes and observations recorded throughout the treatment process.
+
+<table>
+<thead>
+<tr>
+<th colspan="3">NOTES</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="3"><strong>Notes</strong></td>
+</tr>
+<tr>
+<td>Note — dd/mm/yyyy</td>
+<td>Note 1 text...</td>
+<td>✏️</td>
+</tr>
+<tr>
+<td>Note — dd/mm/yyyy</td>
+<td>Note 2 text...</td>
+<td>✏️</td>
+</tr>
+<tr>
+<td>Note — dd/mm/yyyy</td>
+<td>Note 3 text...</td>
+<td>✏️</td>
+</tr>
+<tr>
+<td colspan="2"></td>
+<td><button>New note</button></td>
+</tr>
+</tbody>
+</table>
+
+*Figure 32. Notes*
+
+Clicking "New note" opens a pop-up panel to create and save a new note. The same panel is used to edit existing notes. When editing, an additional option to delete the note is also available.
+
+<table>
+<thead>
+<tr>
+<th colspan="2">New note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2">
+<textarea placeholder="Write your note here..."></textarea>
+</td>
+</tr>
+<tr>
+<td><button>Cancel</button></td>
+<td><button>Save note</button></td>
+</tr>
+</tbody>
+</table>
+
+*Figure 33. Notes*
+
+---
+
+
+
+# 1. Pending actions alerts {#pending-actions-alerts}
+
+Displays alerts to inform clinical staff of pending actions, with direct access links to complete each task. Persistent panel located in the upper-right corner of the screen.
+
+<table>
+<thead>
+<tr>
+<th colspan="2">Pending Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2">Action is required to continue the process</td>
+</tr>
+<tr>
+<td>⚠️ Start of Treatment</td>
+<td></td>
+</tr>
+<tr>
+<td>Missing Baseline RGS intrinsic measurement activities prescription.</td>
+<td><button>Select date</button></td>
+</tr>
+<tr>
+<td>⚠️ Start of Treatment</td>
+<td></td>
+</tr>
+<tr>
+<td>One or more RGS intrinsic measurement activities were not completed on the Baseline scheduled date.</td>
+<td><button>Ignore</button> <button>Reschedule</button></td>
+</tr>
+<tr>
+<td>⚠️ Incomplete Diagnosis</td>
+<td></td>
+</tr>
+<tr>
+<td>Diagnostic session incomplete on the scheduled date. It will be automatically rescheduled for the next day.</td>
+<td><button>Dismiss</button></td>
+</tr>
+</tbody>
+</table>
+
+*Figure 34. Pending action alert*
+
+---
+
+
+
+# 1. Settings
+
+This screen can be accessed from the top menu by clicking the 'Settings' button. In this screen, we will be able to modify the password of the clinician's user.
+
+---
+
+
+
+**Figure 35. Settings screen**
+
+<table>
+<tr>
+<td colspan="3">
+<strong>MIMS</strong> - Navigation: Patients | Support | Settings | Hospital name | en < | Logout
+</td>
+</tr>
+<tr>
+<td colspan="3"><strong>SETTINGS</strong></td>
+</tr>
+<tr>
+<td colspan="3"><strong>Password change</strong></td>
+</tr>
+<tr>
+<td colspan="3">Are you sure you want to change the password? This step is irreversible.</td>
+</tr>
+<tr>
+<td>Current password *</td>
+<td>••••••••</td>
+<td></td>
+</tr>
+<tr>
+<td>New password *</td>
+<td>••••••••</td>
+<td></td>
+</tr>
+<tr>
+<td>Confirm new password *</td>
+<td>••••••••</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="3" style="text-align: center;">
+<button>Save</button>
+</td>
+</tr>
+</table>
+
+
+
+---
+
+
+
+# 1. Support
+
+This screen can be accessed from the top menu by clicking the 'Support' button. In this screen, you can see the contact and service data assigned to the hospital.
+
+---
+
+
+
+Figure 36. Support screen
+
+---
+
+
+
+# 1. Contact and Technical Support {#contact-and-technical-support}
+
+In case further assistance is required, the RGS team can be contacted by phone or email.
+
+**Landline** +34 931 389 642  
+**E-mail** contact@eodyne.com
+
+eodyne
+
+Venezuela Street, 35  
+08019 Barcelona, Spain  
+www.eodyne.com

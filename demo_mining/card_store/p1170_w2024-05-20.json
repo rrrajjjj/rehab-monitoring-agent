@@ -1,0 +1,1736 @@
+{
+  "patient_id": 1170,
+  "checkpoint_date": "2024-05-20",
+  "disposition": "TRIAGE",
+  "severity": "medium",
+  "diagnosis": "PLATEAU",
+  "card": {
+    "headline": "High overall training adherence, but several protocols show low use or zero success; Blobs appears over-challenging.",
+    "reasons": [
+      "Overall adherence 90%, but Shelves AR 31%, Hockey AR 32%, Circle AR Horizontal 25% adherence indicate protocol-specific avoidance.",
+      "Blobs difficulty rose to 0.6 while performance dropped from 0.917 to 0.0, suggesting over-challenge.",
+      "Armanoid and Cleaning AR have 0.0 performance at 50% adherence; Balloons AR also 0.0 performance with 38% adherence."
+    ],
+    "patient_voice_excerpt": "",
+    "recommended_actions": [
+      {
+        "action_type": "message",
+        "params": {
+          "topic": "barriers_and_tech_check",
+          "details": "Ask about barriers to Shelves AR/Hockey AR/Circle AR Horizontal and whether Armanoid/Cleaning AR/Balloons AR are registering correctly given repeated 0.0 performance."
+        }
+      },
+      {
+        "action_type": "swap_protocol",
+        "params": {
+          "protocols": [
+            "Shelves AR",
+            "Hockey AR",
+            "Circle AR Horizontal"
+          ],
+          "reason": "low adherence compared with overall 90% adherence; consider alternatives that match goals and are easier to engage with."
+        }
+      },
+      {
+        "action_type": "assign_questionnaire",
+        "params": {
+          "questionnaire": "pain_check_in",
+          "reason": "Multiple 10/10 pain reports; clarify location, triggers during training, and need for adjustments."
+        }
+      }
+    ],
+    "evidence": {
+      "items": [
+        {
+          "text": "Overall adherence 90%, but Shelves AR 31%, Hockey AR 32%, Circle AR Horizontal 25% adherence indicate protocol-specific avoidance.",
+          "attention": 2,
+          "refs": [
+            "adherence",
+            "protocol_208_adh",
+            "protocol_219_adh",
+            "protocol_228_adh"
+          ]
+        },
+        {
+          "text": "Blobs difficulty rose to 0.6 while performance dropped from 0.917 to 0.0, suggesting over-challenge.",
+          "attention": 2,
+          "refs": [
+            "protocol_214_perf",
+            "protocol_214_diff"
+          ]
+        },
+        {
+          "text": "Armanoid and Cleaning AR have 0.0 performance at 50% adherence; Balloons AR also 0.0 performance with 38% adherence.",
+          "attention": 2,
+          "refs": [
+            "protocol_211_adh",
+            "protocol_211_perf",
+            "protocol_211_diff",
+            "protocol_225_adh",
+            "protocol_225_perf",
+            "protocol_225_diff",
+            "protocol_206_adh",
+            "protocol_206_perf",
+            "protocol_206_diff"
+          ]
+        }
+      ]
+    },
+    "audit": {
+      "medgemma": true,
+      "confidence": 0.7
+    }
+  },
+  "drift_events": [
+    {
+      "type": "PLATEAU",
+      "severity": 1
+    },
+    {
+      "type": "PLATEAU",
+      "severity": 1
+    },
+    {
+      "type": "PLATEAU",
+      "severity": 1
+    },
+    {
+      "type": "PLATEAU",
+      "severity": 1
+    },
+    {
+      "type": "PLATEAU",
+      "severity": 1
+    },
+    {
+      "type": "PLATEAU",
+      "severity": 1
+    }
+  ],
+  "adherence": {
+    "patient_id": 1170,
+    "window_start": "2024-04-22",
+    "window_end": "2024-05-20",
+    "planned_minutes": 432,
+    "done_minutes": 355.6,
+    "adherence_minutes": 0.8231481481481482,
+    "adherence_sessions": 39,
+    "adherence_days": 11,
+    "per_day": {
+      "2024-05-02": [
+        38,
+        48.0
+      ],
+      "2024-04-30": [
+        35,
+        40.0
+      ],
+      "2024-05-09": [
+        38,
+        38.0
+      ],
+      "2024-04-25": [
+        38,
+        30.0
+      ],
+      "2024-04-27": [
+        35,
+        0.0
+      ],
+      "2024-05-14": [
+        35,
+        10.0
+      ],
+      "2024-05-18": [
+        35,
+        35.0
+      ],
+      "2024-05-16": [
+        38,
+        38.0
+      ],
+      "2024-05-04": [
+        35,
+        31.6
+      ],
+      "2024-05-07": [
+        35,
+        30.0
+      ],
+      "2024-05-11": [
+        35,
+        20.0
+      ],
+      "2024-04-23": [
+        35,
+        35.0
+      ]
+    },
+    "evidence_map": {
+      "2024-04-23_223": [
+        21200
+      ],
+      "2024-04-23_208": [
+        21206
+      ],
+      "2024-04-23_219": [
+        21209
+      ],
+      "2024-04-23_228": [
+        21215
+      ],
+      "2024-04-25_214": [
+        21682
+      ],
+      "2024-04-25_211": [
+        21687
+      ],
+      "2024-04-25_206": [],
+      "2024-04-25_225": [
+        21692
+      ],
+      "2024-04-27_223": [],
+      "2024-04-27_208": [],
+      "2024-04-27_219": [],
+      "2024-04-27_228": [],
+      "2024-04-30_223": [
+        22744,
+        22753
+      ],
+      "2024-04-30_208": [
+        22757
+      ],
+      "2024-04-30_219": [
+        22749
+      ],
+      "2024-04-30_228": [],
+      "2024-05-02_214": [
+        23198,
+        23200
+      ],
+      "2024-05-02_211": [
+        23208
+      ],
+      "2024-05-02_206": [
+        23204
+      ],
+      "2024-05-02_225": [
+        23209
+      ],
+      "2024-05-04_223": [
+        23502
+      ],
+      "2024-05-04_208": [
+        23499
+      ],
+      "2024-05-04_219": [
+        23500,
+        23501
+      ],
+      "2024-05-04_228": [],
+      "2024-05-07_223": [
+        24029
+      ],
+      "2024-05-07_208": [
+        24024
+      ],
+      "2024-05-07_219": [
+        24032
+      ],
+      "2024-05-07_228": [],
+      "2024-05-09_214": [
+        24500
+      ],
+      "2024-05-09_211": [
+        24499
+      ],
+      "2024-05-09_206": [
+        24504
+      ],
+      "2024-05-09_225": [
+        24501
+      ],
+      "2024-05-11_223": [
+        24962,
+        24964
+      ],
+      "2024-05-11_208": [],
+      "2024-05-11_219": [],
+      "2024-05-11_228": [],
+      "2024-05-14_223": [
+        25640
+      ],
+      "2024-05-14_208": [],
+      "2024-05-14_219": [],
+      "2024-05-14_228": [],
+      "2024-05-16_214": [
+        26259
+      ],
+      "2024-05-16_211": [
+        26260
+      ],
+      "2024-05-16_206": [
+        26262
+      ],
+      "2024-05-16_225": [
+        26261
+      ],
+      "2024-05-18_223": [
+        26625
+      ],
+      "2024-05-18_208": [
+        26626
+      ],
+      "2024-05-18_219": [
+        26627
+      ],
+      "2024-05-18_228": [
+        26629
+      ]
+    }
+  },
+  "metrics": {
+    "patient_id": 1170,
+    "checkpoint_date": "2024-05-20",
+    "checkpoint_week": "2024-05-20",
+    "fm_bl": 58.0,
+    "protocol_wise": {
+      "223": {
+        "name": "OS_twister",
+        "performance": [
+          {
+            "date": "2024-04-23",
+            "value": 0.5428571428571428
+          },
+          {
+            "date": "2024-04-30",
+            "value": 0.5555555555555556
+          },
+          {
+            "date": "2024-04-30",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-04",
+            "value": 0.509
+          },
+          {
+            "date": "2024-05-07",
+            "value": 0.5888888888888889
+          },
+          {
+            "date": "2024-05-11",
+            "value": 0.49193548387096775
+          },
+          {
+            "date": "2024-05-11",
+            "value": 0.5816326530612245
+          },
+          {
+            "date": "2024-05-14",
+            "value": 0.5441176470588235
+          },
+          {
+            "date": "2024-05-18",
+            "value": 0.48484848484848486
+          }
+        ],
+        "difficulty": [
+          {
+            "date": "2024-04-23",
+            "value": 0.13402061855670103
+          },
+          {
+            "date": "2024-04-30",
+            "value": 0.13924050632911392
+          },
+          {
+            "date": "2024-04-30",
+            "value": 0.16229508196721312
+          },
+          {
+            "date": "2024-05-04",
+            "value": 0.11619047619047618
+          },
+          {
+            "date": "2024-05-07",
+            "value": 0.10076923076923076
+          },
+          {
+            "date": "2024-05-11",
+            "value": 0.05189189189189189
+          },
+          {
+            "date": "2024-05-11",
+            "value": 0.08639455782312926
+          },
+          {
+            "date": "2024-05-14",
+            "value": 0.13979591836734692
+          },
+          {
+            "date": "2024-05-18",
+            "value": 0.1336842105263158
+          }
+        ],
+        "adherence_pct": 0.5625,
+        "adherence_daily": [
+          {
+            "date": "2024-04-23",
+            "value": 0.5
+          },
+          {
+            "date": "2024-04-27",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-30",
+            "value": 1.0
+          },
+          {
+            "date": "2024-05-04",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-07",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-11",
+            "value": 1.0
+          },
+          {
+            "date": "2024-05-14",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-18",
+            "value": 0.5
+          }
+        ]
+      },
+      "208": {
+        "name": "OS_shelvesAR",
+        "performance": [
+          {
+            "date": "2024-04-23",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-30",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-04",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-07",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-18",
+            "value": 0.0
+          }
+        ],
+        "difficulty": [
+          {
+            "date": "2024-04-23",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-30",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-04",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-07",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-18",
+            "value": 0.0
+          }
+        ],
+        "adherence_pct": 0.3125,
+        "adherence_daily": [
+          {
+            "date": "2024-04-23",
+            "value": 0.5
+          },
+          {
+            "date": "2024-04-27",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-30",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-04",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-07",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-11",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-14",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-18",
+            "value": 0.5
+          }
+        ]
+      },
+      "219": {
+        "name": "OS_hockeyAR",
+        "performance": [
+          {
+            "date": "2024-04-23",
+            "value": 0.6181818181818182
+          },
+          {
+            "date": "2024-04-30",
+            "value": 0.37777777777777777
+          },
+          {
+            "date": "2024-05-04",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-04",
+            "value": 0.5599999999999999
+          },
+          {
+            "date": "2024-05-07",
+            "value": 0.4
+          },
+          {
+            "date": "2024-05-18",
+            "value": 0.35
+          }
+        ],
+        "difficulty": [
+          {
+            "date": "2024-04-23",
+            "value": 0.03928571428571429
+          },
+          {
+            "date": "2024-04-30",
+            "value": 0.04
+          },
+          {
+            "date": "2024-05-04",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-04",
+            "value": 0.0058823529411764705
+          },
+          {
+            "date": "2024-05-07",
+            "value": 0.02
+          },
+          {
+            "date": "2024-05-18",
+            "value": 0.0
+          }
+        ],
+        "adherence_pct": 0.3225,
+        "adherence_daily": [
+          {
+            "date": "2024-04-23",
+            "value": 0.5
+          },
+          {
+            "date": "2024-04-27",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-30",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-04",
+            "value": 0.58
+          },
+          {
+            "date": "2024-05-07",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-11",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-14",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-18",
+            "value": 0.5
+          }
+        ]
+      },
+      "228": {
+        "name": "OS_circleAR_horizontal",
+        "performance": [
+          {
+            "date": "2024-04-23",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-18",
+            "value": 0.0
+          }
+        ],
+        "difficulty": [
+          {
+            "date": "2024-04-23",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-18",
+            "value": 0.0
+          }
+        ],
+        "adherence_pct": 0.25,
+        "adherence_daily": [
+          {
+            "date": "2024-04-23",
+            "value": 1.0
+          },
+          {
+            "date": "2024-04-27",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-30",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-04",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-07",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-11",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-14",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-18",
+            "value": 1.0
+          }
+        ]
+      },
+      "214": {
+        "name": "OS_blobs",
+        "performance": [
+          {
+            "date": "2024-04-25",
+            "value": 1.0
+          },
+          {
+            "date": "2024-05-02",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-02",
+            "value": 0.875
+          },
+          {
+            "date": "2024-05-09",
+            "value": 0.91675
+          },
+          {
+            "date": "2024-05-11",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-16",
+            "value": 0.0
+          }
+        ],
+        "difficulty": [
+          {
+            "date": "2024-04-25",
+            "value": 0.0625
+          },
+          {
+            "date": "2024-05-02",
+            "value": 0.4
+          },
+          {
+            "date": "2024-05-02",
+            "value": 0.03529411764705882
+          },
+          {
+            "date": "2024-05-09",
+            "value": 0.17500000000000002
+          },
+          {
+            "date": "2024-05-11",
+            "value": 0.4
+          },
+          {
+            "date": "2024-05-16",
+            "value": 0.6
+          }
+        ],
+        "adherence_pct": 0.625,
+        "adherence_daily": [
+          {
+            "date": "2024-04-25",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-02",
+            "value": 1.0
+          },
+          {
+            "date": "2024-05-09",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-16",
+            "value": 0.5
+          }
+        ]
+      },
+      "211": {
+        "name": "OS_armanoid",
+        "performance": [
+          {
+            "date": "2024-04-25",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-02",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-09",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-16",
+            "value": 0.0
+          }
+        ],
+        "difficulty": [
+          {
+            "date": "2024-04-25",
+            "value": 0
+          },
+          {
+            "date": "2024-05-02",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-09",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-16",
+            "value": 0.0
+          }
+        ],
+        "adherence_pct": 0.5,
+        "adherence_daily": [
+          {
+            "date": "2024-04-25",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-02",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-09",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-16",
+            "value": 0.5
+          }
+        ]
+      },
+      "225": {
+        "name": "OS_cleaningAR",
+        "performance": [
+          {
+            "date": "2024-04-25",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-02",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-09",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-16",
+            "value": 0.0
+          }
+        ],
+        "difficulty": [
+          {
+            "date": "2024-04-25",
+            "value": 0
+          },
+          {
+            "date": "2024-05-02",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-09",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-16",
+            "value": 0.0
+          }
+        ],
+        "adherence_pct": 0.5,
+        "adherence_daily": [
+          {
+            "date": "2024-04-25",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-02",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-09",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-16",
+            "value": 0.5
+          }
+        ]
+      },
+      "206": {
+        "name": "OS_balloonsAR",
+        "performance": [
+          {
+            "date": "2024-05-02",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-09",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-16",
+            "value": 0.0
+          }
+        ],
+        "difficulty": [
+          {
+            "date": "2024-05-02",
+            "value": 0
+          },
+          {
+            "date": "2024-05-09",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-16",
+            "value": 0.0
+          }
+        ],
+        "adherence_pct": 0.375,
+        "adherence_daily": [
+          {
+            "date": "2024-04-25",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-02",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-09",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-16",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "adherence": {
+      "adherence_minutes": 0.8231481481481482,
+      "done_total": 355.6,
+      "planned_total": 432,
+      "days": [
+        {
+          "date": "2024-05-02",
+          "planned_min": 38,
+          "done_min": 48.0
+        },
+        {
+          "date": "2024-04-30",
+          "planned_min": 35,
+          "done_min": 40.0
+        },
+        {
+          "date": "2024-05-09",
+          "planned_min": 38,
+          "done_min": 38.0
+        },
+        {
+          "date": "2024-04-25",
+          "planned_min": 38,
+          "done_min": 30.0
+        },
+        {
+          "date": "2024-04-27",
+          "planned_min": 35,
+          "done_min": 0.0
+        },
+        {
+          "date": "2024-05-14",
+          "planned_min": 35,
+          "done_min": 10.0
+        },
+        {
+          "date": "2024-05-18",
+          "planned_min": 35,
+          "done_min": 35.0
+        },
+        {
+          "date": "2024-05-16",
+          "planned_min": 38,
+          "done_min": 38.0
+        },
+        {
+          "date": "2024-05-04",
+          "planned_min": 35,
+          "done_min": 31.6
+        },
+        {
+          "date": "2024-05-07",
+          "planned_min": 35,
+          "done_min": 30.0
+        },
+        {
+          "date": "2024-05-11",
+          "planned_min": 35,
+          "done_min": 20.0
+        },
+        {
+          "date": "2024-04-23",
+          "planned_min": 35,
+          "done_min": 35.0
+        }
+      ]
+    },
+    "sessions": [
+      {
+        "session_id": 21200,
+        "protocol_id": 223,
+        "start_time": "2024-04-23T18:47:17",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 21206,
+        "protocol_id": 208,
+        "start_time": "2024-04-23T19:02:23",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 21209,
+        "protocol_id": 219,
+        "start_time": "2024-04-23T19:08:32",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 21215,
+        "protocol_id": 228,
+        "start_time": "2024-04-23T19:24:49",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 21682,
+        "protocol_id": 214,
+        "start_time": "2024-04-25T18:19:04",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 21687,
+        "protocol_id": 211,
+        "start_time": "2024-04-25T18:26:07",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 21692,
+        "protocol_id": 225,
+        "start_time": "2024-04-25T18:34:51",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 22744,
+        "protocol_id": 223,
+        "start_time": "2024-04-30T18:07:12",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 22749,
+        "protocol_id": 219,
+        "start_time": "2024-04-30T18:14:06",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 22753,
+        "protocol_id": 223,
+        "start_time": "2024-04-30T18:22:04",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 22757,
+        "protocol_id": 208,
+        "start_time": "2024-04-30T18:29:15",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 23198,
+        "protocol_id": 214,
+        "start_time": "2024-05-02T17:54:14",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 23200,
+        "protocol_id": 214,
+        "start_time": "2024-05-02T18:00:24",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 23204,
+        "protocol_id": 206,
+        "start_time": "2024-05-02T18:06:29",
+        "duration_sec": 240.0
+      },
+      {
+        "session_id": 23208,
+        "protocol_id": 211,
+        "start_time": "2024-05-02T18:13:13",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 23209,
+        "protocol_id": 225,
+        "start_time": "2024-05-02T18:19:07",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 23499,
+        "protocol_id": 208,
+        "start_time": "2024-05-04T18:10:11",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 23500,
+        "protocol_id": 219,
+        "start_time": "2024-05-04T18:18:33",
+        "duration_sec": 48.0
+      },
+      {
+        "session_id": 23501,
+        "protocol_id": 219,
+        "start_time": "2024-05-04T18:22:17",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 23502,
+        "protocol_id": 223,
+        "start_time": "2024-05-04T18:30:58",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 24024,
+        "protocol_id": 208,
+        "start_time": "2024-05-07T18:36:54",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 24029,
+        "protocol_id": 223,
+        "start_time": "2024-05-07T18:43:49",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 24032,
+        "protocol_id": 219,
+        "start_time": "2024-05-07T18:51:40",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 24499,
+        "protocol_id": 211,
+        "start_time": "2024-05-09T18:30:38",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 24500,
+        "protocol_id": 214,
+        "start_time": "2024-05-09T18:37:01",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 24501,
+        "protocol_id": 225,
+        "start_time": "2024-05-09T18:43:11",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 24504,
+        "protocol_id": 206,
+        "start_time": "2024-05-09T18:51:21",
+        "duration_sec": 240.0
+      },
+      {
+        "session_id": 24961,
+        "protocol_id": 214,
+        "start_time": "2024-05-11T17:39:10",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 24962,
+        "protocol_id": 223,
+        "start_time": "2024-05-11T17:45:06",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 24964,
+        "protocol_id": 223,
+        "start_time": "2024-05-11T18:04:08",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 25640,
+        "protocol_id": 223,
+        "start_time": "2024-05-14T18:29:42",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 26259,
+        "protocol_id": 214,
+        "start_time": "2024-05-16T18:11:46",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 26260,
+        "protocol_id": 211,
+        "start_time": "2024-05-16T18:17:50",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 26261,
+        "protocol_id": 225,
+        "start_time": "2024-05-16T18:23:45",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 26262,
+        "protocol_id": 206,
+        "start_time": "2024-05-16T18:30:02",
+        "duration_sec": 240.0
+      },
+      {
+        "session_id": 26625,
+        "protocol_id": 223,
+        "start_time": "2024-05-18T17:51:25",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 26626,
+        "protocol_id": 208,
+        "start_time": "2024-05-18T17:58:25",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 26627,
+        "protocol_id": 219,
+        "start_time": "2024-05-18T18:05:06",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 26629,
+        "protocol_id": 228,
+        "start_time": "2024-05-18T18:11:39",
+        "duration_sec": 300.0
+      }
+    ],
+    "performance": [
+      {
+        "session_id": 21200,
+        "performance_mean": 0.5428571428571428
+      },
+      {
+        "session_id": 21206,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 21209,
+        "performance_mean": 0.6181818181818182
+      },
+      {
+        "session_id": 21215,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 21682,
+        "performance_mean": 1.0
+      },
+      {
+        "session_id": 21687,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 21692,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 22744,
+        "performance_mean": 0.5555555555555556
+      },
+      {
+        "session_id": 22749,
+        "performance_mean": 0.37777777777777777
+      },
+      {
+        "session_id": 22753,
+        "performance_mean": 0.5
+      },
+      {
+        "session_id": 22757,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 23198,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 23200,
+        "performance_mean": 0.875
+      },
+      {
+        "session_id": 23204,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 23208,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 23209,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 23499,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 23500,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 23501,
+        "performance_mean": 0.5599999999999999
+      },
+      {
+        "session_id": 23502,
+        "performance_mean": 0.509
+      },
+      {
+        "session_id": 24024,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 24029,
+        "performance_mean": 0.5888888888888889
+      },
+      {
+        "session_id": 24032,
+        "performance_mean": 0.4
+      },
+      {
+        "session_id": 24499,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 24500,
+        "performance_mean": 0.91675
+      },
+      {
+        "session_id": 24501,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 24504,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 24961,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 24962,
+        "performance_mean": 0.49193548387096775
+      },
+      {
+        "session_id": 24964,
+        "performance_mean": 0.5816326530612245
+      },
+      {
+        "session_id": 25640,
+        "performance_mean": 0.5441176470588235
+      },
+      {
+        "session_id": 26259,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 26260,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 26261,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 26262,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 26625,
+        "performance_mean": 0.48484848484848486
+      },
+      {
+        "session_id": 26626,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 26627,
+        "performance_mean": 0.35
+      },
+      {
+        "session_id": 26629,
+        "performance_mean": 0.0
+      }
+    ],
+    "difficulty": [
+      {
+        "session_id": 21200,
+        "difficulty_mean": 0.13402061855670103
+      },
+      {
+        "session_id": 21206,
+        "difficulty_mean": 0.0
+      },
+      {
+        "session_id": 21209,
+        "difficulty_mean": 0.03928571428571429
+      },
+      {
+        "session_id": 21215,
+        "difficulty_mean": 0.0
+      },
+      {
+        "session_id": 21682,
+        "difficulty_mean": 0.0625
+      },
+      {
+        "session_id": 21687,
+        "difficulty_mean": 0
+      },
+      {
+        "session_id": 21692,
+        "difficulty_mean": 0
+      },
+      {
+        "session_id": 22744,
+        "difficulty_mean": 0.13924050632911392
+      },
+      {
+        "session_id": 22749,
+        "difficulty_mean": 0.04
+      },
+      {
+        "session_id": 22753,
+        "difficulty_mean": 0.16229508196721312
+      },
+      {
+        "session_id": 22757,
+        "difficulty_mean": 0.0
+      },
+      {
+        "session_id": 23198,
+        "difficulty_mean": 0.4
+      },
+      {
+        "session_id": 23200,
+        "difficulty_mean": 0.03529411764705882
+      },
+      {
+        "session_id": 23204,
+        "difficulty_mean": 0
+      },
+      {
+        "session_id": 23208,
+        "difficulty_mean": 0.0
+      },
+      {
+        "session_id": 23209,
+        "difficulty_mean": 0.0
+      },
+      {
+        "session_id": 23499,
+        "difficulty_mean": 0.0
+      },
+      {
+        "session_id": 23500,
+        "difficulty_mean": 0.0
+      },
+      {
+        "session_id": 23501,
+        "difficulty_mean": 0.0058823529411764705
+      },
+      {
+        "session_id": 23502,
+        "difficulty_mean": 0.11619047619047618
+      },
+      {
+        "session_id": 24024,
+        "difficulty_mean": 0.0
+      },
+      {
+        "session_id": 24029,
+        "difficulty_mean": 0.10076923076923076
+      },
+      {
+        "session_id": 24032,
+        "difficulty_mean": 0.02
+      },
+      {
+        "session_id": 24499,
+        "difficulty_mean": 0.0
+      },
+      {
+        "session_id": 24500,
+        "difficulty_mean": 0.17500000000000002
+      },
+      {
+        "session_id": 24501,
+        "difficulty_mean": 0.0
+      },
+      {
+        "session_id": 24504,
+        "difficulty_mean": 0.0
+      },
+      {
+        "session_id": 24961,
+        "difficulty_mean": 0.4
+      },
+      {
+        "session_id": 24962,
+        "difficulty_mean": 0.05189189189189189
+      },
+      {
+        "session_id": 24964,
+        "difficulty_mean": 0.08639455782312926
+      },
+      {
+        "session_id": 25640,
+        "difficulty_mean": 0.13979591836734692
+      },
+      {
+        "session_id": 26259,
+        "difficulty_mean": 0.6
+      },
+      {
+        "session_id": 26260,
+        "difficulty_mean": 0.0
+      },
+      {
+        "session_id": 26261,
+        "difficulty_mean": 0.0
+      },
+      {
+        "session_id": 26262,
+        "difficulty_mean": 0.0
+      },
+      {
+        "session_id": 26625,
+        "difficulty_mean": 0.1336842105263158
+      },
+      {
+        "session_id": 26626,
+        "difficulty_mean": 0.0
+      },
+      {
+        "session_id": 26627,
+        "difficulty_mean": 0.0
+      },
+      {
+        "session_id": 26629,
+        "difficulty_mean": 0.0
+      }
+    ],
+    "learning_rates": [
+      {
+        "protocol_id": 223,
+        "learning_rate": -0.016666666666666666
+      },
+      {
+        "protocol_id": 208,
+        "learning_rate": 0.0
+      },
+      {
+        "protocol_id": 219,
+        "learning_rate": -0.01285714285714286
+      },
+      {
+        "protocol_id": 228,
+        "learning_rate": 0.0
+      },
+      {
+        "protocol_id": 214,
+        "learning_rate": 0.07785714285714283
+      },
+      {
+        "protocol_id": 211,
+        "learning_rate": 0.0
+      },
+      {
+        "protocol_id": 225,
+        "learning_rate": 0.0
+      },
+      {
+        "protocol_id": 206,
+        "learning_rate": 0.0
+      }
+    ],
+    "self_reports": [
+      {
+        "key": "mood",
+        "value": "0",
+        "timestamp": "2024-04-23T18:34:41"
+      },
+      {
+        "key": "pain",
+        "value": "10",
+        "timestamp": "2024-04-23T18:34:41"
+      },
+      {
+        "key": "energy",
+        "value": "8",
+        "timestamp": "2024-04-23T18:34:41"
+      },
+      {
+        "key": "mood",
+        "value": "0",
+        "timestamp": "2024-04-25T18:08:07"
+      },
+      {
+        "key": "pain",
+        "value": "2",
+        "timestamp": "2024-04-25T18:08:07"
+      },
+      {
+        "key": "energy",
+        "value": "10",
+        "timestamp": "2024-04-25T18:08:07"
+      },
+      {
+        "key": "mood",
+        "value": "10",
+        "timestamp": "2024-04-30T18:05:58"
+      },
+      {
+        "key": "pain",
+        "value": "0",
+        "timestamp": "2024-04-30T18:05:58"
+      },
+      {
+        "key": "energy",
+        "value": "6",
+        "timestamp": "2024-04-30T18:05:58"
+      },
+      {
+        "key": "mood",
+        "value": "10",
+        "timestamp": "2024-05-02T17:53:22"
+      },
+      {
+        "key": "pain",
+        "value": "10",
+        "timestamp": "2024-05-02T17:53:22"
+      },
+      {
+        "key": "energy",
+        "value": "10",
+        "timestamp": "2024-05-02T17:53:22"
+      },
+      {
+        "key": "mood",
+        "value": "10",
+        "timestamp": "2024-05-02T18:26:40"
+      },
+      {
+        "key": "pain",
+        "value": "10",
+        "timestamp": "2024-05-02T18:26:40"
+      },
+      {
+        "key": "energy",
+        "value": "10",
+        "timestamp": "2024-05-02T18:26:40"
+      },
+      {
+        "key": "mood",
+        "value": "10",
+        "timestamp": "2024-05-07T18:26:44"
+      },
+      {
+        "key": "pain",
+        "value": "10",
+        "timestamp": "2024-05-07T18:26:44"
+      },
+      {
+        "key": "energy",
+        "value": "4",
+        "timestamp": "2024-05-07T18:26:44"
+      },
+      {
+        "key": "mood",
+        "value": "10",
+        "timestamp": "2024-05-09T18:27:36"
+      },
+      {
+        "key": "pain",
+        "value": "10",
+        "timestamp": "2024-05-09T18:27:36"
+      },
+      {
+        "key": "energy",
+        "value": "10",
+        "timestamp": "2024-05-09T18:27:36"
+      },
+      {
+        "key": "mood",
+        "value": "10",
+        "timestamp": "2024-05-09T18:58:33"
+      },
+      {
+        "key": "pain",
+        "value": "10",
+        "timestamp": "2024-05-09T18:58:33"
+      },
+      {
+        "key": "energy",
+        "value": "10",
+        "timestamp": "2024-05-09T18:58:33"
+      },
+      {
+        "key": "mood",
+        "value": "10",
+        "timestamp": "2024-05-11T18:02:45"
+      },
+      {
+        "key": "pain",
+        "value": "10",
+        "timestamp": "2024-05-11T18:02:45"
+      },
+      {
+        "key": "energy",
+        "value": "10",
+        "timestamp": "2024-05-11T18:02:45"
+      }
+    ],
+    "drift_events": [
+      {
+        "type": "PLATEAU",
+        "severity": 1
+      },
+      {
+        "type": "PLATEAU",
+        "severity": 1
+      },
+      {
+        "type": "PLATEAU",
+        "severity": 1
+      },
+      {
+        "type": "PLATEAU",
+        "severity": 1
+      },
+      {
+        "type": "PLATEAU",
+        "severity": 1
+      },
+      {
+        "type": "PLATEAU",
+        "severity": 1
+      }
+    ]
+  },
+  "checkin": {
+    "wins": "You kept showing up and your Twister work looked steady, even when it felt more challenging. You also put in a strong push on Saturday.",
+    "to_improve": "If you can, sprinkle in a bit more Shelves AR or Hockey AR this week to round things out.",
+    "check_in": "",
+    "tone": "proud",
+    "progress": [
+      {
+        "label": "Completion",
+        "current": 90,
+        "previous": null,
+        "unit": "%",
+        "direction": "up"
+      },
+      {
+        "label": "OS_hockeyAR",
+        "previous": 19,
+        "current": 44,
+        "unit": "%",
+        "direction": "up"
+      },
+      {
+        "label": "OS_blobs",
+        "previous": 44,
+        "current": 31,
+        "unit": "%",
+        "direction": "down"
+      },
+      {
+        "label": "OS_blobs difficulty",
+        "previous": 22,
+        "current": 39,
+        "unit": "",
+        "direction": "up"
+      }
+    ]
+  }
+}

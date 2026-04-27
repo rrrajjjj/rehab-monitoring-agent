@@ -35,7 +35,14 @@ JSON:"""
 
 
 def _load_triage_prompt() -> str:
-    """Load system prompt from prompts/triage_system.txt, or use built-in default."""
+    """Load triage prompt: versioned store (Ops-editable) → file → built-in default."""
+    try:
+        from chatbot.triage_prompt_store import get_active
+        active = get_active()
+        if active and active.get("system_prompt"):
+            return active["system_prompt"]
+    except Exception as e:
+        logger.debug("triage_prompt_store unavailable, falling back: %s", e)
     path = _PROMPTS_DIR / "triage_system.txt"
     if path.exists():
         try:
@@ -181,8 +188,8 @@ def _daily_avg(series: list, date_key: str = "date", value_key: str = "value") -
 
 
 def _metrics_to_prompt(metrics: dict) -> str:
-    """Format all metrics for LLM context. Restricts to last 3 weeks. Includes daily averages."""
-    metrics = _filter_metrics_to_last_weeks(metrics, weeks=3)
+    """Format all metrics for LLM context. Full 4-week window. Includes daily averages."""
+    metrics = _filter_metrics_to_last_weeks(metrics, weeks=4)
     lines = []
 
     # Trial context
@@ -334,7 +341,19 @@ class MedGemmaTriageEngine:
         metrics_str = _metrics_to_prompt(metrics)
         plots_str = _build_available_plots(metrics)
         prompt = template.replace("{metrics}", metrics_str).replace("{available_plots}", plots_str)
-        raw = self._provider.generate(prompt)
+        cache_key = None
+        pid = metrics.get("patient_id")
+        week = metrics.get("checkpoint_week")
+        if pid is not None and week is not None:
+            prov = os.environ.get("CRTV_LLM_PROVIDER", "").lower()
+            if prov == "openai":
+                model = os.environ.get("CRTV_OPENAI_MODEL", "gpt-5-mini")
+            elif prov == "medgemma":
+                model = os.environ.get("MEDGEMMA_MODEL", "google/medgemma-4b-it")
+            else:
+                model = prov or "rule"
+            cache_key = f"triage_v4_{pid}_{model}_{week}"
+        raw = self._provider.generate(prompt, cache_key=cache_key)
         if raw:
             result = self._parse_response(raw)
             if result.headline == "Needs manual review" and not result.reasons:

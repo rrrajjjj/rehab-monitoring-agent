@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>All Patients — Eodyne Systems</title>
+  <link rel="stylesheet" href="/static/styles.css?v=10">
+  <style>
+    .all-app { max-width: 1080px; margin: 0 auto; padding: 1.5rem; }
+    .all-app h1 { font-size: 1.4rem; margin: 0 0 0.25rem; }
+    .all-app .subtitle { color: var(--text-muted); font-size: 0.9rem; display: block; margin-bottom: 1.5rem; }
+    .back-link { display: inline-block; color: var(--accent); text-decoration: none; font-size: 0.9rem; margin-bottom: 0.75rem; }
+    .back-link:hover { text-decoration: underline; }
+
+    .search-row { display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.75rem; }
+    .search-row input { flex: 1; padding: 0.55rem 0.75rem; border: 1px solid var(--border); border-radius: 6px; font-size: 0.95rem; }
+    .search-row input:focus { outline: 2px solid var(--accent); border-color: transparent; }
+    .search-row button { padding: 0.55rem 1rem; background: var(--accent); color: #fff; border: none; border-radius: 6px; font-size: 0.85rem; cursor: pointer; }
+
+    .candidates { list-style: none; padding: 0; margin: 0 0 1rem; border: 1px solid var(--border); border-radius: 6px; max-height: 240px; overflow-y: auto; background: var(--card-bg); }
+    .candidates li { padding: 0.55rem 0.75rem; cursor: pointer; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    .candidates li:last-child { border-bottom: none; }
+    .candidates li:hover { background: var(--bg); }
+    .candidates li.active { background: #e8f0fe; color: var(--accent); font-weight: 600; }
+
+    .section-label { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em; margin: 1.25rem 0 0.5rem; }
+
+    .week-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 0.4rem; margin-bottom: 0.75rem; }
+    .week-chip { padding: 0.45rem 0.3rem; border: 1px solid var(--border); border-radius: 4px; background: var(--card-bg); text-align: center; font-size: 0.78rem; cursor: pointer; }
+    .week-chip:hover { border-color: var(--accent); }
+    .week-chip.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    .generate-bar { display: flex; gap: 0.5rem; align-items: center; margin-top: 0.5rem; }
+    .generate-btn { padding: 0.55rem 1.25rem; background: var(--accent); color: #fff; border: none; border-radius: 6px; font-size: 0.9rem; cursor: pointer; }
+    .generate-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .status-msg { font-size: 0.82rem; color: var(--text-muted); }
+    .status-msg.err { color: var(--attention-high); }
+
+    .cards-section { margin-top: 2rem; }
+    .cards-section h2 { font-size: 1.1rem; margin: 0 0 0.75rem; }
+    .card-row { display: flex; align-items: center; gap: 0.75rem; padding: 0.7rem 0.9rem; border: 1px solid var(--border); border-radius: 6px; background: var(--card-bg); margin-bottom: 0.5rem; cursor: pointer; }
+    .card-row:hover { border-color: var(--accent); }
+    .card-row .pid { font-weight: 700; min-width: 4rem; }
+    .card-row .cp { color: var(--text-muted); font-size: 0.82rem; min-width: 6.5rem; }
+    .card-row .headline { flex: 1; font-size: 0.9rem; }
+    .card-row .disp { font-size: 0.75rem; padding: 0.15rem 0.55rem; border-radius: 10px; background: var(--bg); color: var(--text-muted); }
+    .card-row .disp.TRIAGE { background: #fde2e1; color: var(--attention-high); }
+    .card-row .del-btn { padding: 0.25rem 0.55rem; background: none; border: 1px solid var(--border); border-radius: 4px; color: var(--text-muted); cursor: pointer; font-size: 0.78rem; }
+    .card-row .del-btn:hover { color: var(--attention-high); border-color: var(--attention-high); }
+
+    .detail-pane { display: none; margin-top: 1.5rem; padding: 1.25rem; background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; }
+    .detail-pane.open { display: block; }
+    .detail-pane h2 { font-size: 1.1rem; margin: 0 0 0.25rem; }
+    .detail-pane .meta { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1rem; }
+    .obs-list { list-style: none; padding: 0; margin: 0; }
+    .obs-item { padding: 0.55rem 0.75rem; border-left: 3px solid var(--border); margin-bottom: 0.4rem; background: var(--bg); font-size: 0.88rem; }
+    .obs-item.attention-2 { border-left-color: #f0b000; }
+    .obs-item.attention-3 { border-left-color: var(--attention-high); }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 0.75rem; margin-top: 1rem; }
+    .stat { padding: 0.6rem 0.75rem; background: var(--bg); border-radius: 6px; }
+    .stat .k { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.03em; }
+    .stat .v { font-size: 1rem; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="all-app">
+    <a href="/" class="back-link">← Back to home</a>
+    <h1>All Patients</h1>
+    <span class="subtitle">Generate a triage card for any patient and week on demand.</span>
+
+    <div class="section-label">1. Find patient</div>
+    <div class="search-row">
+      <input type="text" id="patient-query" placeholder="Patient ID or username (e.g. 3639 or ana)" autocomplete="off" />
+      <button type="button" id="search-btn">Search</button>
+    </div>
+    <ul id="candidates" class="candidates" hidden></ul>
+
+    <div id="weeks-wrap" hidden>
+      <div class="section-label">2. Pick week</div>
+      <div id="week-grid" class="week-grid"></div>
+      <div class="generate-bar">
+        <button type="button" id="generate-btn" class="generate-btn" disabled>Generate card</button>
+        <span id="gen-status" class="status-msg"></span>
+      </div>
+    </div>
+
+    <div class="cards-section">
+      <h2>Generated cards</h2>
+      <div id="cards-list"></div>
+    </div>
+
+    <div id="detail-pane" class="detail-pane"></div>
+  </div>
+
+  <section id="all-detail" class="detail-view hidden"></section>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="/static/detail_view.js?v=3"></script>
+  <script src="/static/all.js?v=2"></script>
+</body>
+</html>

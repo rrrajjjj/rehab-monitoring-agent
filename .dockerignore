@@ -1,0 +1,14 @@
+.git
+.gitignore
+__pycache__
+*.pyc
+.env
+.llm_cache
+*.log
+*.pdf
+docs/
+screnshots/
+texput.log
+.claude/
+chatbot/config/
+Eodyne_Clinical_Decision_Support.*

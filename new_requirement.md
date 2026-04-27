@@ -1,0 +1,10 @@
+- move the current page to /demo
+- rename /prompts to /ops
+- we need a new page /all where we can enter patient ID or patient USER and a week and get the cards for that patient and week (generate, run the pipeline). The cards that are generated here need to persist in this view. There should be an option to delete a card. When the user enters a patient ID, show a view of their active weeks and the user can select a week.
+
+## Patient View Chatbot
+- We need to integrate a chatbot in the patient view. This will be a standalone stroke assistant chatbot for caregivers and patients that can function independently but then can be plugged into the patient view so it can respond to specific patients. This needs to be a rag based chatbot with the following features -
+1. Uses a custom knowledge base pdfs (files in chatbot/corpus/) - has a LLM based chunking and enrichment pipeline that can be triggered (reindexing), when a new pdf is added. 
+2. We need a section in /ops to be able to add these documents and rerun indexing. Essentially two views - patient and clinician, and similar to clinician, allow editing of prompts and models etc. but also adding the documents to the corpus by uploading pdfs (allow multiple uploads at once)
+3. The chatbot can function independently of the patient view but can also integrate the patient card - maybe not all the data time series but just summary stats. 
+4. Provenance is very important, the chatbot (at least internally) needs to base the answers on the corpus and surface that citation in natural language when appropriate like "WHO suggests, ASA recommends etc.", but we don't want overly scientific language or citations as this is geared towards caregivers and patients post stroke. It should essentailly serve as an OT or a compassionate clinician but never give medical advice. 

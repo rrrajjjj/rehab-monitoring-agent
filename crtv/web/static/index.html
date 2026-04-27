@@ -4,41 +4,61 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Eodyne Systems — Rehabilitation Monitoring</title>
-  <link rel="stylesheet" href="/static/styles.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="/static/styles.css?v=8">
+  <style>
+    .landing {
+      max-width: 720px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+    }
+    .landing h1 { font-size: 1.6rem; margin: 0 0 0.25rem; }
+    .landing .subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      display: block;
+      margin-bottom: 2.5rem;
+    }
+    .landing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .landing-card {
+      display: block;
+      padding: 1.25rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--card-bg);
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s, transform 0.15s;
+    }
+    .landing-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .landing-card h2 { font-size: 1rem; margin: 0 0 0.35rem; color: var(--accent); }
+    .landing-card p { margin: 0; font-size: 0.85rem; color: var(--text-muted); line-height: 1.45; }
+  </style>
 </head>
 <body>
-  <div class="app">
-    <header class="header">
-      <h1>Eodyne Systems</h1>
-      <span class="subtitle">Rehabilitation Monitoring</span>
-    </header>
-
-    <main class="main">
-      <!-- Page 1: Patient list only -->
-      <section id="page-list" class="page page-list">
-        <h2>Patients</h2>
-        <ul id="patient-list" class="patient-list-items"></ul>
-      </section>
-
-      <!-- Page 2: Patient detail - two panes -->
-      <section id="page-detail" class="page page-detail hidden">
-        <button type="button" id="back-btn" class="back-btn">← Back to patients</button>
-        <div id="week-tabs-bar" class="week-tabs-bar"></div>
-        <div class="two-pane">
-          <aside class="observations-pane">
-            <h3>Observations</h3>
-            <p class="hint">Click an observation to view its evidence plots.</p>
-            <div id="observation-cards" class="observation-cards"></div>
-          </aside>
-          <section class="plots-pane">
-            <h3>Evidence</h3>
-            <div id="metrics-plots" class="metrics-plots"></div>
-          </section>
-        </div>
-      </section>
-    </main>
+  <div class="landing">
+    <h1>Eodyne Systems</h1>
+    <span class="subtitle">Rehabilitation Monitoring</span>
+    <div class="landing-grid">
+      <a class="landing-card" href="/demo">
+        <h2>Demo</h2>
+        <p>Curated clinician-view and patient-view cards for a fixed cohort.</p>
+      </a>
+      <a class="landing-card" href="/all">
+        <h2>All patients</h2>
+        <p>Generate a triage card for any patient and week on demand.</p>
+      </a>
+      <a class="landing-card" href="/ops">
+        <h2>Ops</h2>
+        <p>Prompts, models, and knowledge-base management.</p>
+      </a>
+    </div>
   </div>
-  <script src="/static/app.js"></script>
 </body>
 </html>
