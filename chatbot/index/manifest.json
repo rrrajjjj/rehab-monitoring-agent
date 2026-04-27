@@ -1,0 +1,21 @@
+{
+  "files": {
+    "a_carers_guide_to_stroke.pdf": {
+      "sha256": "a0284866b29b2b916d39300a64c741debf787142756b456cf0b105398aa4a573"
+    },
+    "alt-murphy-et-al-2025-european-stroke-organisation-(eso)-guideline-on-motor-rehabilitation.pdf": {
+      "sha256": "7e0c514bdd948921a2ad21c376564e2d1877199dd5f43294769cb96decac9dba"
+    },
+    "ASA_Post_Stroke_Depression.pdf": {
+      "sha256": "b9c2cbbdca20192b049ecf9a351a3006c3fb73775827ae3a80d92b4eae2238aa"
+    },
+    "brady-et-al-2025-european-stroke-organisation-(eso)-guideline-on-aphasia-rehabilitation.pdf": {
+      "sha256": "2f3794d81cd906ff41ed122da6fc526401c7cf28b96fa3fee1814573008f3b0f"
+    },
+    "who-guide.pdf": {
+      "sha256": "1a9b0a8033a43c559a5399f4849b93f7564411edbbf668be8f56f9dd2e77ca6a"
+    }
+  },
+  "embed_model": "text-embedding-3-small",
+  "chunk_count": 545
+}

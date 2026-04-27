@@ -1,65 +1,63 @@
 """
-HistoricalTriageService - populates clinician window with triage cards from real data.
-Runs triage at weekly checkpoints for patients with FM regression; deduplicates.
-Set CRTV_TRIAL_MODE=1 for testing: one patient, 3 weeks.
+HistoricalTriageService - serves pre-built triage cards from the CardStore.
+
+Cards are built offline by `python -m demo_mining.build_cards` and persisted
+under `demo_mining/card_store/`. This service is read-only: no LLM calls at
+request time. If `demo_mining/shortlist.json` exists, the cache is filtered
+to just the shortlisted (patient, checkpoint) pairs.
 """
 
-import os
+import json
+import logging
 from collections import defaultdict
 from pathlib import Path
-from datetime import datetime, timedelta
 
-from crtv.adapters.csv_adapter import CSVDataAdapter
-from crtv.pipeline.historical_runner import HistoricalTriageRunner
+from crtv.adapters import get_adapter
+from demo_mining.card_store import CardStore
+
+logger = logging.getLogger("crtv.web.historical_service")
 
 
 class HistoricalTriageService:
-    """Load NEST data, run historical triage, serve cards for clinician view."""
+    """Load pre-built triage cards from CardStore and serve them."""
 
-    def __init__(self, data_dir: str | Path, use_medgemma: bool = False):
+    def __init__(
+        self,
+        data_dir: str | Path,
+        use_medgemma: bool = False,  # retained for API compat; unused in read-only mode
+        card_store_path: str | Path = "demo_mining/card_store",
+        demo_selection_path: str | Path = "demo_mining/demo_selection.json",
+    ):
         self.data_dir = Path(data_dir)
-        self.runner = HistoricalTriageRunner(str(self.data_dir), use_medgemma=use_medgemma)
+        self.adapter = get_adapter(self.data_dir)
+        self.store = CardStore(card_store_path)
+        self.demo_selection_path = Path(demo_selection_path)
         self._cache: list[dict] = []
         self._cache_done = False
+
+    def _load_clinician_patients(self) -> set[int] | None:
+        """Frozen clinician-view patient ids. Returns None if the file is missing
+        (meaning no filter — show everything in the store)."""
+        if not self.demo_selection_path.exists():
+            return None
+        try:
+            raw = json.loads(self.demo_selection_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as e:
+            logger.warning("could not read demo_selection %s: %s", self.demo_selection_path, e)
+            return None
+        return {int(p) for p in raw.get("clinician", [])}
 
     def _ensure_cache(self):
         if self._cache_done:
             return
-        trial = os.environ.get("CRTV_TRIAL_MODE", "").lower() in ("1", "true", "yes")
-        if trial:
-            # Trial: one patient, 3 weeks
-            pid = self.runner.get_regressor_with_largest_delta()
-            regressors = [pid] if pid is not None else []
-            weeks = 3
+        entries = self.store.load_all()
+        allowed = self._load_clinician_patients()
+        if allowed is not None:
+            entries = [e for e in entries if int(e["patient_id"]) in allowed]
+            logger.info("loaded %d cards for %d clinician-view patients", len(entries), len(allowed))
         else:
-            # Full: 2959, 3432, 1553 plus largest FM delta. 6 weeks.
-            pid_delta = self.runner.get_regressor_with_largest_delta()
-            fixed_ids = [2959, 3432, 1553]
-            regressors = list(dict.fromkeys(fixed_ids + ([pid_delta] if pid_delta and pid_delta not in fixed_ids else [])))
-            weeks = 6
-        all_cards = []
-        for pid in regressors:
-            start, end = self.runner.get_patient_date_range(pid)
-            if start is None or end is None:
-                continue
-            end = min(end, start + timedelta(days=weeks * 7 - 1))
-            cards = self.runner.run_weekly_checkpoints(pid, start, end)
-            for c in cards:
-                all_cards.append({
-                    "patient_id": c["patient_id"],
-                    "checkpoint_date": c["checkpoint_date"],
-                    "headline": c["card"].headline,
-                    "disposition": c["disposition"],
-                    "severity": c.get("severity", "medium"),
-                    "diagnosis": c["diagnosis"],
-                    "reasons": c["card"].reasons,
-                    "drift_types": [e.type for e in c["drift_events"]],
-                    "adherence_pct": c["adherence"].adherence_minutes,
-                    "full_card": c["card"],
-                    "metrics": c.get("metrics", {}),
-                    "adherence": c["adherence"],
-                })
-        self._cache = sorted(all_cards, key=lambda x: (x["patient_id"], x["checkpoint_date"]))
+            logger.info("loaded %d cards (no demo_selection filter)", len(entries))
+        self._cache = sorted(entries, key=lambda x: (x["patient_id"], x["checkpoint_date"]))
         self._cache_done = True
 
     def _max_attention_for_card(self, c: dict) -> int:
@@ -120,7 +118,7 @@ class HistoricalTriageService:
     def get_card_detail(self, patient_id: int, checkpoint_date: str) -> dict | None:
         """Full detail for a specific triage card."""
         self._ensure_cache()
-        adapter = self.runner.adapter
+        adapter = self.adapter
         for c in self._cache:
             if c["patient_id"] != patient_id or c["checkpoint_date"] != checkpoint_date:
                 continue
@@ -168,9 +166,9 @@ class HistoricalTriageService:
                 for d, v in sorted(diff_by_date.items())
             ]
             protocol_wise = metrics.get("protocol_wise", {})
-            for pid, data in protocol_wise.items():
+            for pwid, data in protocol_wise.items():
                 if isinstance(data, dict) and "name" not in data:
-                    data["name"] = adapter.get_protocol_name(int(pid) if isinstance(pid, str) and pid.isdigit() else pid)
+                    data["name"] = adapter.get_protocol_name(int(pwid) if isinstance(pwid, str) and pwid.isdigit() else pwid)
             drift_types = c.get("drift_types", [])
             evidence_items = c["full_card"].evidence.get("items", []) if c["full_card"].evidence else []
 
@@ -199,19 +197,18 @@ class HistoricalTriageService:
 
             # Protocol-wise: aggregate by date per protocol
             pw_lines = {}
-            cp_date = checkpoint_date[:10] if isinstance(checkpoint_date, str) else str(checkpoint_date)[:10]
-            for pid, data in protocol_wise.items():
+            for pwid, data in protocol_wise.items():
                 if not isinstance(data, dict):
                     continue
                 perf_list = data.get("performance", [])
                 diff_list = data.get("difficulty", [])
                 adh_pct = data.get("adherence_pct")
-                adh_series = [{"date": cp_date, "value": adh_pct}] if adh_pct is not None else []
-                pw_lines[str(pid)] = {
-                    "name": data.get("name", f"Protocol {pid}"),
+                adh_daily = data.get("adherence_daily") or []
+                pw_lines[str(pwid)] = {
+                    "name": data.get("name", f"Protocol {pwid}"),
                     "performance": [{"date": x.get("date", ""), "value": x.get("value", x.get("performance_mean", 0))} for x in perf_list],
                     "difficulty": [{"date": x.get("date", ""), "value": x.get("value", x.get("difficulty_mean", 0))} for x in diff_list],
-                    "adherence": adh_series,
+                    "adherence": [{"date": str(x.get("date", ""))[:10], "value": x.get("value")} for x in adh_daily],
                     "adherence_pct": adh_pct,
                 }
 

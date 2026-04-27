@@ -1,0 +1,1864 @@
+{
+  "patient_id": 1983,
+  "checkpoint_date": "2024-05-13",
+  "disposition": "TRIAGE",
+  "severity": "medium",
+  "diagnosis": "ADHERENCE_DRIFT",
+  "card": {
+    "headline": "OS_cleaningAR failing at easiest level",
+    "reasons": [
+      "OS_cleaningAR performance stays at zero at minimum difficulty \u2014 patient can't complete this protocol; modify or replace."
+    ],
+    "patient_voice_excerpt": "",
+    "recommended_actions": [
+      {
+        "action_type": "swap_protocol",
+        "params": {
+          "protocol": "OS_cleaningAR"
+        }
+      },
+      {
+        "action_type": "message",
+        "params": {
+          "topic": "OS_cleaningAR is not completable; ask what blocks completion (setup, understanding, symptoms) and adjust plan."
+        }
+      }
+    ],
+    "evidence": {
+      "items": [
+        {
+          "text": "OS_cleaningAR performance stays at zero at minimum difficulty \u2014 patient can't complete this protocol; modify or replace.",
+          "attention": 2,
+          "refs": [
+            "protocol_225_perf",
+            "protocol_225_diff",
+            "protocol_225_adh"
+          ]
+        }
+      ]
+    },
+    "audit": {
+      "medgemma": true,
+      "confidence": 0.86
+    }
+  },
+  "drift_events": [
+    {
+      "type": "ADHERENCE_DRIFT",
+      "severity": 1
+    },
+    {
+      "type": "PLATEAU",
+      "severity": 1
+    },
+    {
+      "type": "PLATEAU",
+      "severity": 1
+    }
+  ],
+  "adherence": {
+    "patient_id": 1983,
+    "window_start": "2024-04-15",
+    "window_end": "2024-05-13",
+    "planned_minutes": 565,
+    "done_minutes": 333.9166666666667,
+    "adherence_minutes": 0.5910029498525075,
+    "adherence_sessions": 34,
+    "adherence_days": 16,
+    "per_day": {
+      "2024-05-04": [
+        20,
+        0.0
+      ],
+      "2024-05-09": [
+        20,
+        20.0
+      ],
+      "2024-05-01": [
+        20,
+        29.0
+      ],
+      "2024-05-02": [
+        20,
+        20.0
+      ],
+      "2024-04-24": [
+        20,
+        0.0
+      ],
+      "2024-05-10": [
+        20,
+        20.0
+      ],
+      "2024-05-08": [
+        20,
+        30.0
+      ],
+      "2024-04-30": [
+        20,
+        20.0
+      ],
+      "2024-05-03": [
+        20,
+        20.0
+      ],
+      "2024-04-18": [
+        20,
+        20.0
+      ],
+      "2024-05-07": [
+        20,
+        20.0
+      ],
+      "2024-04-22": [
+        20,
+        37.93333333333334
+      ],
+      "2024-04-19": [
+        20,
+        20.0
+      ],
+      "2024-04-21": [
+        20,
+        0.0
+      ],
+      "2024-04-25": [
+        20,
+        10.0
+      ],
+      "2024-04-20": [
+        20,
+        0.0
+      ],
+      "2024-05-12": [
+        20,
+        0.0
+      ],
+      "2024-05-06": [
+        20,
+        0.0
+      ],
+      "2024-04-29": [
+        20,
+        20.0
+      ],
+      "2024-04-17": [
+        65,
+        16.983333333333334
+      ],
+      "2024-04-28": [
+        20,
+        0.0
+      ],
+      "2024-05-05": [
+        20,
+        0.0
+      ],
+      "2024-04-23": [
+        20,
+        20.0
+      ],
+      "2024-04-27": [
+        20,
+        0.0
+      ],
+      "2024-05-11": [
+        20,
+        0.0
+      ],
+      "2024-04-26": [
+        20,
+        10.0
+      ]
+    },
+    "evidence_map": {
+      "2024-04-17_214": [],
+      "2024-04-17_219": [
+        19733
+      ],
+      "2024-04-17_208": [],
+      "2024-04-17_209": [],
+      "2024-04-17_205": [],
+      "2024-04-17_206": [],
+      "2024-04-17_226": [],
+      "2024-04-17_211": [],
+      "2024-04-17_223": [],
+      "2024-04-17_225": [
+        19740
+      ],
+      "2024-04-18_219": [
+        19992
+      ],
+      "2024-04-18_225": [
+        19993
+      ],
+      "2024-04-19_219": [
+        20228
+      ],
+      "2024-04-19_225": [
+        20230
+      ],
+      "2024-04-20_219": [],
+      "2024-04-20_225": [],
+      "2024-04-21_219": [],
+      "2024-04-21_225": [],
+      "2024-04-22_219": [
+        20803,
+        20814
+      ],
+      "2024-04-22_225": [
+        20805,
+        20816
+      ],
+      "2024-04-23_219": [
+        21049
+      ],
+      "2024-04-23_225": [
+        21053
+      ],
+      "2024-04-24_219": [],
+      "2024-04-24_225": [],
+      "2024-04-25_219": [
+        21664
+      ],
+      "2024-04-25_225": [],
+      "2024-04-26_219": [
+        21870
+      ],
+      "2024-04-26_225": [],
+      "2024-04-27_219": [],
+      "2024-04-27_225": [],
+      "2024-04-28_219": [],
+      "2024-04-28_225": [],
+      "2024-04-29_219": [
+        22349
+      ],
+      "2024-04-29_225": [
+        22350
+      ],
+      "2024-04-30_219": [
+        22614
+      ],
+      "2024-04-30_225": [
+        22615
+      ],
+      "2024-05-01_219": [
+        22887,
+        22904
+      ],
+      "2024-05-01_225": [
+        22892
+      ],
+      "2024-05-02_219": [
+        23088
+      ],
+      "2024-05-02_225": [
+        23091
+      ],
+      "2024-05-03_219": [
+        23245
+      ],
+      "2024-05-03_225": [
+        23246
+      ],
+      "2024-05-04_219": [],
+      "2024-05-04_225": [],
+      "2024-05-05_219": [],
+      "2024-05-05_225": [],
+      "2024-05-06_219": [],
+      "2024-05-06_225": [],
+      "2024-05-07_219": [
+        23966
+      ],
+      "2024-05-07_225": [
+        23967
+      ],
+      "2024-05-08_219": [
+        24077,
+        24164
+      ],
+      "2024-05-08_225": [
+        24079
+      ],
+      "2024-05-09_219": [
+        24309
+      ],
+      "2024-05-09_225": [
+        24311
+      ],
+      "2024-05-10_219": [
+        24644
+      ],
+      "2024-05-10_225": [
+        24646
+      ],
+      "2024-05-11_219": [],
+      "2024-05-11_225": [],
+      "2024-05-12_219": [],
+      "2024-05-12_225": []
+    }
+  },
+  "metrics": {
+    "patient_id": 1983,
+    "checkpoint_date": "2024-05-13",
+    "checkpoint_week": "2024-05-13",
+    "fm_bl": 25.0,
+    "protocol_wise": {
+      "219": {
+        "name": "OS_hockeyAR",
+        "performance": [
+          {
+            "date": "2024-04-17",
+            "value": 0.27999999999999997
+          },
+          {
+            "date": "2024-04-18",
+            "value": 0.4666666666666666
+          },
+          {
+            "date": "2024-04-19",
+            "value": 0.6
+          },
+          {
+            "date": "2024-04-22",
+            "value": 0.4000000000000001
+          },
+          {
+            "date": "2024-04-22",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-23",
+            "value": 0.7555555555555555
+          },
+          {
+            "date": "2024-04-25",
+            "value": 0.6
+          },
+          {
+            "date": "2024-04-26",
+            "value": 0.525
+          },
+          {
+            "date": "2024-04-29",
+            "value": 0.6285714285714287
+          },
+          {
+            "date": "2024-04-30",
+            "value": 0.7333333333333333
+          },
+          {
+            "date": "2024-05-01",
+            "value": 0.6
+          },
+          {
+            "date": "2024-05-01",
+            "value": 0.6
+          },
+          {
+            "date": "2024-05-02",
+            "value": 0.74
+          },
+          {
+            "date": "2024-05-03",
+            "value": 0.6571428571428571
+          },
+          {
+            "date": "2024-05-07",
+            "value": 0.6
+          },
+          {
+            "date": "2024-05-08",
+            "value": 0.65
+          },
+          {
+            "date": "2024-05-08",
+            "value": 0.6
+          },
+          {
+            "date": "2024-05-09",
+            "value": 0.6444444444444444
+          },
+          {
+            "date": "2024-05-10",
+            "value": 0.6857142857142857
+          }
+        ],
+        "difficulty": [
+          {
+            "date": "2024-04-17",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-18",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-19",
+            "value": 0.009523809523809525
+          },
+          {
+            "date": "2024-04-22",
+            "value": 0.01
+          },
+          {
+            "date": "2024-04-22",
+            "value": 0
+          },
+          {
+            "date": "2024-04-23",
+            "value": 0.041379310344827586
+          },
+          {
+            "date": "2024-04-25",
+            "value": 0.06000000000000001
+          },
+          {
+            "date": "2024-04-26",
+            "value": 0.038461538461538464
+          },
+          {
+            "date": "2024-04-29",
+            "value": 0.014285714285714287
+          },
+          {
+            "date": "2024-04-30",
+            "value": 0.06071428571428572
+          },
+          {
+            "date": "2024-05-01",
+            "value": 0.125
+          },
+          {
+            "date": "2024-05-01",
+            "value": 0.034782608695652174
+          },
+          {
+            "date": "2024-05-02",
+            "value": 0.052941176470588235
+          },
+          {
+            "date": "2024-05-03",
+            "value": 0.08
+          },
+          {
+            "date": "2024-05-07",
+            "value": 0.09444444444444444
+          },
+          {
+            "date": "2024-05-08",
+            "value": 0.1217391304347826
+          },
+          {
+            "date": "2024-05-08",
+            "value": 0.13125
+          },
+          {
+            "date": "2024-05-09",
+            "value": 0.10384615384615385
+          },
+          {
+            "date": "2024-05-10",
+            "value": 0.11818181818181818
+          }
+        ],
+        "adherence_pct": 0.36025641025641025,
+        "adherence_daily": [
+          {
+            "date": "2024-04-17",
+            "value": 0.4166666666666667
+          },
+          {
+            "date": "2024-04-18",
+            "value": 0.5
+          },
+          {
+            "date": "2024-04-19",
+            "value": 0.5
+          },
+          {
+            "date": "2024-04-20",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-21",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-22",
+            "value": 1.0
+          },
+          {
+            "date": "2024-04-23",
+            "value": 0.5
+          },
+          {
+            "date": "2024-04-24",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-25",
+            "value": 0.5
+          },
+          {
+            "date": "2024-04-26",
+            "value": 0.5
+          },
+          {
+            "date": "2024-04-27",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-28",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-29",
+            "value": 0.5
+          },
+          {
+            "date": "2024-04-30",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-01",
+            "value": 0.95
+          },
+          {
+            "date": "2024-05-02",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-03",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-04",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-05",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-06",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-07",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-08",
+            "value": 1.0
+          },
+          {
+            "date": "2024-05-09",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-10",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-11",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-12",
+            "value": 0.0
+          }
+        ]
+      },
+      "225": {
+        "name": "OS_cleaningAR",
+        "performance": [
+          {
+            "date": "2024-04-17",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-18",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-19",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-22",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-22",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-23",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-29",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-30",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-01",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-02",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-03",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-07",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-08",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-09",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-10",
+            "value": 0.0
+          }
+        ],
+        "difficulty": [
+          {
+            "date": "2024-04-17",
+            "value": 0
+          },
+          {
+            "date": "2024-04-18",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-19",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-22",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-22",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-23",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-29",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-30",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-01",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-02",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-03",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-07",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-08",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-09",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-10",
+            "value": 0.0
+          }
+        ],
+        "adherence_pct": 0.2711320754716981,
+        "adherence_daily": [
+          {
+            "date": "2024-04-17",
+            "value": 0.1922222222222222
+          },
+          {
+            "date": "2024-04-18",
+            "value": 0.5
+          },
+          {
+            "date": "2024-04-19",
+            "value": 0.5
+          },
+          {
+            "date": "2024-04-20",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-21",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-22",
+            "value": 0.8966666666666667
+          },
+          {
+            "date": "2024-04-23",
+            "value": 0.5
+          },
+          {
+            "date": "2024-04-24",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-25",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-26",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-27",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-28",
+            "value": 0.0
+          },
+          {
+            "date": "2024-04-29",
+            "value": 0.5
+          },
+          {
+            "date": "2024-04-30",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-01",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-02",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-03",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-04",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-05",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-06",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-07",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-08",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-09",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-10",
+            "value": 0.5
+          },
+          {
+            "date": "2024-05-11",
+            "value": 0.0
+          },
+          {
+            "date": "2024-05-12",
+            "value": 0.0
+          }
+        ]
+      },
+      "226": {
+        "name": "OS_tubes",
+        "performance": [],
+        "difficulty": [],
+        "adherence_pct": 0.0,
+        "adherence_daily": [
+          {
+            "date": "2024-04-17",
+            "value": 0.0
+          }
+        ]
+      },
+      "205": {
+        "name": "OS_alphabetAR",
+        "performance": [],
+        "difficulty": [],
+        "adherence_pct": 0.0,
+        "adherence_daily": [
+          {
+            "date": "2024-04-17",
+            "value": 0.0
+          }
+        ]
+      },
+      "206": {
+        "name": "OS_balloonsAR",
+        "performance": [],
+        "difficulty": [],
+        "adherence_pct": 0.0,
+        "adherence_daily": [
+          {
+            "date": "2024-04-17",
+            "value": 0.0
+          }
+        ]
+      },
+      "208": {
+        "name": "OS_shelvesAR",
+        "performance": [],
+        "difficulty": [],
+        "adherence_pct": 0.0,
+        "adherence_daily": [
+          {
+            "date": "2024-04-17",
+            "value": 0.0
+          }
+        ]
+      },
+      "209": {
+        "name": "OS_ducksAR",
+        "performance": [],
+        "difficulty": [],
+        "adherence_pct": 0.0,
+        "adherence_daily": [
+          {
+            "date": "2024-04-17",
+            "value": 0.0
+          }
+        ]
+      },
+      "211": {
+        "name": "OS_armanoid",
+        "performance": [],
+        "difficulty": [],
+        "adherence_pct": 0.0,
+        "adherence_daily": [
+          {
+            "date": "2024-04-17",
+            "value": 0.0
+          }
+        ]
+      },
+      "214": {
+        "name": "OS_blobs",
+        "performance": [],
+        "difficulty": [],
+        "adherence_pct": 0.0,
+        "adherence_daily": [
+          {
+            "date": "2024-04-17",
+            "value": 0.0
+          }
+        ]
+      },
+      "223": {
+        "name": "OS_twister",
+        "performance": [],
+        "difficulty": [],
+        "adherence_pct": 0.0,
+        "adherence_daily": [
+          {
+            "date": "2024-04-17",
+            "value": 0.0
+          }
+        ]
+      }
+    },
+    "adherence": {
+      "adherence_minutes": 0.5910029498525075,
+      "done_total": 333.9166666666667,
+      "planned_total": 565,
+      "days": [
+        {
+          "date": "2024-05-04",
+          "planned_min": 20,
+          "done_min": 0.0
+        },
+        {
+          "date": "2024-05-09",
+          "planned_min": 20,
+          "done_min": 20.0
+        },
+        {
+          "date": "2024-05-01",
+          "planned_min": 20,
+          "done_min": 29.0
+        },
+        {
+          "date": "2024-05-02",
+          "planned_min": 20,
+          "done_min": 20.0
+        },
+        {
+          "date": "2024-04-24",
+          "planned_min": 20,
+          "done_min": 0.0
+        },
+        {
+          "date": "2024-05-10",
+          "planned_min": 20,
+          "done_min": 20.0
+        },
+        {
+          "date": "2024-05-08",
+          "planned_min": 20,
+          "done_min": 30.0
+        },
+        {
+          "date": "2024-04-30",
+          "planned_min": 20,
+          "done_min": 20.0
+        },
+        {
+          "date": "2024-05-03",
+          "planned_min": 20,
+          "done_min": 20.0
+        },
+        {
+          "date": "2024-04-18",
+          "planned_min": 20,
+          "done_min": 20.0
+        },
+        {
+          "date": "2024-05-07",
+          "planned_min": 20,
+          "done_min": 20.0
+        },
+        {
+          "date": "2024-04-22",
+          "planned_min": 20,
+          "done_min": 37.93333333333334
+        },
+        {
+          "date": "2024-04-19",
+          "planned_min": 20,
+          "done_min": 20.0
+        },
+        {
+          "date": "2024-04-21",
+          "planned_min": 20,
+          "done_min": 0.0
+        },
+        {
+          "date": "2024-04-25",
+          "planned_min": 20,
+          "done_min": 10.0
+        },
+        {
+          "date": "2024-04-20",
+          "planned_min": 20,
+          "done_min": 0.0
+        },
+        {
+          "date": "2024-05-12",
+          "planned_min": 20,
+          "done_min": 0.0
+        },
+        {
+          "date": "2024-05-06",
+          "planned_min": 20,
+          "done_min": 0.0
+        },
+        {
+          "date": "2024-04-29",
+          "planned_min": 20,
+          "done_min": 20.0
+        },
+        {
+          "date": "2024-04-17",
+          "planned_min": 65,
+          "done_min": 16.983333333333334
+        },
+        {
+          "date": "2024-04-28",
+          "planned_min": 20,
+          "done_min": 0.0
+        },
+        {
+          "date": "2024-05-05",
+          "planned_min": 20,
+          "done_min": 0.0
+        },
+        {
+          "date": "2024-04-23",
+          "planned_min": 20,
+          "done_min": 20.0
+        },
+        {
+          "date": "2024-04-27",
+          "planned_min": 20,
+          "done_min": 0.0
+        },
+        {
+          "date": "2024-05-11",
+          "planned_min": 20,
+          "done_min": 0.0
+        },
+        {
+          "date": "2024-04-26",
+          "planned_min": 20,
+          "done_min": 10.0
+        }
+      ]
+    },
+    "sessions": [
+      {
+        "session_id": 19733,
+        "protocol_id": 219,
+        "start_time": "2024-04-17T11:47:58",
+        "duration_sec": 250.0
+      },
+      {
+        "session_id": 19740,
+        "protocol_id": 225,
+        "start_time": "2024-04-17T12:06:43",
+        "duration_sec": 173.0
+      },
+      {
+        "session_id": 19992,
+        "protocol_id": 219,
+        "start_time": "2024-04-18T09:56:31",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 19993,
+        "protocol_id": 225,
+        "start_time": "2024-04-18T10:03:40",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 20228,
+        "protocol_id": 219,
+        "start_time": "2024-04-19T09:02:00",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 20230,
+        "protocol_id": 225,
+        "start_time": "2024-04-19T09:10:00",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 20803,
+        "protocol_id": 219,
+        "start_time": "2024-04-22T08:59:01",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 20805,
+        "protocol_id": 225,
+        "start_time": "2024-04-22T09:05:13",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 20814,
+        "protocol_id": 219,
+        "start_time": "2024-04-22T09:23:05",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 20816,
+        "protocol_id": 225,
+        "start_time": "2024-04-22T09:31:26",
+        "duration_sec": 238.0
+      },
+      {
+        "session_id": 21049,
+        "protocol_id": 219,
+        "start_time": "2024-04-23T09:37:35",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 21053,
+        "protocol_id": 225,
+        "start_time": "2024-04-23T09:50:18",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 21664,
+        "protocol_id": 219,
+        "start_time": "2024-04-25T17:08:02",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 21870,
+        "protocol_id": 219,
+        "start_time": "2024-04-26T09:17:30",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 22349,
+        "protocol_id": 219,
+        "start_time": "2024-04-29T09:02:45",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 22350,
+        "protocol_id": 225,
+        "start_time": "2024-04-29T09:08:59",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 22614,
+        "protocol_id": 219,
+        "start_time": "2024-04-30T09:01:47",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 22615,
+        "protocol_id": 225,
+        "start_time": "2024-04-30T09:07:52",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 22887,
+        "protocol_id": 219,
+        "start_time": "2024-05-01T09:05:26",
+        "duration_sec": 270.0
+      },
+      {
+        "session_id": 22892,
+        "protocol_id": 225,
+        "start_time": "2024-05-01T09:10:35",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 22904,
+        "protocol_id": 219,
+        "start_time": "2024-05-01T09:18:34",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 23088,
+        "protocol_id": 219,
+        "start_time": "2024-05-02T08:51:07",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 23091,
+        "protocol_id": 225,
+        "start_time": "2024-05-02T08:57:09",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 23245,
+        "protocol_id": 219,
+        "start_time": "2024-05-03T09:27:11",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 23246,
+        "protocol_id": 225,
+        "start_time": "2024-05-03T09:32:51",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 23966,
+        "protocol_id": 219,
+        "start_time": "2024-05-07T15:03:25",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 23967,
+        "protocol_id": 225,
+        "start_time": "2024-05-07T15:09:09",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 24077,
+        "protocol_id": 219,
+        "start_time": "2024-05-08T08:56:18",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 24079,
+        "protocol_id": 225,
+        "start_time": "2024-05-08T09:02:27",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 24164,
+        "protocol_id": 219,
+        "start_time": "2024-05-08T16:06:56",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 24309,
+        "protocol_id": 219,
+        "start_time": "2024-05-09T08:56:37",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 24311,
+        "protocol_id": 225,
+        "start_time": "2024-05-09T09:02:37",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 24644,
+        "protocol_id": 219,
+        "start_time": "2024-05-10T09:06:31",
+        "duration_sec": 300.0
+      },
+      {
+        "session_id": 24646,
+        "protocol_id": 225,
+        "start_time": "2024-05-10T09:15:13",
+        "duration_sec": 300.0
+      }
+    ],
+    "performance": [
+      {
+        "session_id": 19733,
+        "performance_mean": 0.27999999999999997
+      },
+      {
+        "session_id": 19740,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 19992,
+        "performance_mean": 0.4666666666666666
+      },
+      {
+        "session_id": 19993,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 20228,
+        "performance_mean": 0.6
+      },
+      {
+        "session_id": 20230,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 20803,
+        "performance_mean": 0.4000000000000001
+      },
+      {
+        "session_id": 20805,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 20814,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 20816,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 21049,
+        "performance_mean": 0.7555555555555555
+      },
+      {
+        "session_id": 21053,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 21664,
+        "performance_mean": 0.6
+      },
+      {
+        "session_id": 21870,
+        "performance_mean": 0.525
+      },
+      {
+        "session_id": 22349,
+        "performance_mean": 0.6285714285714287
+      },
+      {
+        "session_id": 22350,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 22614,
+        "performance_mean": 0.7333333333333333
+      },
+      {
+        "session_id": 22615,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 22887,
+        "performance_mean": 0.6
+      },
+      {
+        "session_id": 22892,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 22904,
+        "performance_mean": 0.6
+      },
+      {
+        "session_id": 23088,
+        "performance_mean": 0.74
+      },
+      {
+        "session_id": 23091,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 23245,
+        "performance_mean": 0.6571428571428571
+      },
+      {
+        "session_id": 23246,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 23966,
+        "performance_mean": 0.6
+      },
+      {
+        "session_id": 23967,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 24077,
+        "performance_mean": 0.65
+      },
+      {
+        "session_id": 24079,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 24164,
+        "performance_mean": 0.6
+      },
+      {
+        "session_id": 24309,
+        "performance_mean": 0.6444444444444444
+      },
+      {
+        "session_id": 24311,
+        "performance_mean": 0.0
+      },
+      {
+        "session_id": 24644,
+        "performance_mean": 0.6857142857142857
+      },
+      {
+        "session_id": 24646,
+        "performance_mean": 0.0
+      }
+    ],
+    "difficulty": [
+      {
+        "session_id": 19733,
+        "difficulty_mean": 0.0
+      },
+      {
+        "session_id": 19740,
+        "difficulty_mean": 0
+      },
+      {
+        "session_id": 19992,
+        "difficulty_mean": 0.0
+      },
+      {
+        "session_id": 19993,
+        "difficulty_mean": 0.0
+      },
+      {
+        "session_id": 20228,
+        "difficulty_mean": 0.009523809523809525
+      },
+      {
+        "session_id": 20230,
+        "difficulty_mean": 0.0
+      },
+      {
+        "session_id": 20803,
+        "difficulty_mean": 0.01
+      },
+      {
+        "session_id": 20805,
+        "difficulty_mean": 0.0
+      },
+      {
+        "session_id": 20814,
+        "difficulty_mean": 0
+      },
+      {
+        "session_id": 20816,
+        "difficulty_mean": 0.0
+      },
+      {
+        "session_id": 21049,
+        "difficulty_mean": 0.041379310344827586
+      },
+      {
+        "session_id": 21053,
+        "difficulty_mean": 0.0
+      },
+      {
+        "session_id": 21664,
+        "difficulty_mean": 0.06000000000000001
+      },
+      {
+        "session_id": 21870,
+        "difficulty_mean": 0.038461538461538464
+      },
+      {
+        "session_id": 22349,
+        "difficulty_mean": 0.014285714285714287
+      },
+      {
+        "session_id": 22350,
+        "difficulty_mean": 0.0
+      },
+      {
+        "session_id": 22614,
+        "difficulty_mean": 0.06071428571428572
+      },
+      {
+        "session_id": 22615,
+        "difficulty_mean": 0.0
+      },
+      {
+        "session_id": 22887,
+        "difficulty_mean": 0.125
+      },
+      {
+        "session_id": 22892,
+        "difficulty_mean": 0.0
+      },
+      {
+        "session_id": 22904,
+        "difficulty_mean": 0.034782608695652174
+      },
+      {
+        "session_id": 23088,
+        "difficulty_mean": 0.052941176470588235
+      },
+      {
+        "session_id": 23091,
+        "difficulty_mean": 0.0
+      },
+      {
+        "session_id": 23245,
+        "difficulty_mean": 0.08
+      },
+      {
+        "session_id": 23246,
+        "difficulty_mean": 0.0
+      },
+      {
+        "session_id": 23966,
+        "difficulty_mean": 0.09444444444444444
+      },
+      {
+        "session_id": 23967,
+        "difficulty_mean": 0.0
+      },
+      {
+        "session_id": 24077,
+        "difficulty_mean": 0.1217391304347826
+      },
+      {
+        "session_id": 24079,
+        "difficulty_mean": 0.0
+      },
+      {
+        "session_id": 24164,
+        "difficulty_mean": 0.13125
+      },
+      {
+        "session_id": 24309,
+        "difficulty_mean": 0.10384615384615385
+      },
+      {
+        "session_id": 24311,
+        "difficulty_mean": 0.0
+      },
+      {
+        "session_id": 24644,
+        "difficulty_mean": 0.11818181818181818
+      },
+      {
+        "session_id": 24646,
+        "difficulty_mean": 0.0
+      }
+    ],
+    "learning_rates": [
+      {
+        "protocol_id": 219,
+        "learning_rate": -0.0009090909090909091
+      },
+      {
+        "protocol_id": 225,
+        "learning_rate": 0.0
+      }
+    ],
+    "self_reports": [
+      {
+        "key": "mood",
+        "value": "8",
+        "timestamp": "2024-04-17T11:47:31"
+      },
+      {
+        "key": "pain",
+        "value": "3",
+        "timestamp": "2024-04-17T11:47:31"
+      },
+      {
+        "key": "energy",
+        "value": "3",
+        "timestamp": "2024-04-17T11:47:31"
+      },
+      {
+        "key": "mood",
+        "value": "9",
+        "timestamp": "2024-04-18T09:55:59"
+      },
+      {
+        "key": "pain",
+        "value": "10",
+        "timestamp": "2024-04-18T09:55:59"
+      },
+      {
+        "key": "energy",
+        "value": "10",
+        "timestamp": "2024-04-18T09:55:59"
+      },
+      {
+        "key": "mood",
+        "value": "7",
+        "timestamp": "2024-04-18T10:17:36"
+      },
+      {
+        "key": "pain",
+        "value": "3",
+        "timestamp": "2024-04-18T10:17:36"
+      },
+      {
+        "key": "energy",
+        "value": "3",
+        "timestamp": "2024-04-18T10:17:36"
+      },
+      {
+        "key": "mood",
+        "value": "8",
+        "timestamp": "2024-04-19T09:01:41"
+      },
+      {
+        "key": "pain",
+        "value": "8",
+        "timestamp": "2024-04-19T09:01:41"
+      },
+      {
+        "key": "energy",
+        "value": "8",
+        "timestamp": "2024-04-19T09:01:41"
+      },
+      {
+        "key": "mood",
+        "value": "7",
+        "timestamp": "2024-04-19T09:20:56"
+      },
+      {
+        "key": "pain",
+        "value": "4",
+        "timestamp": "2024-04-19T09:20:56"
+      },
+      {
+        "key": "energy",
+        "value": "7",
+        "timestamp": "2024-04-19T09:20:56"
+      },
+      {
+        "key": "mood",
+        "value": "6",
+        "timestamp": "2024-04-23T09:02:52"
+      },
+      {
+        "key": "pain",
+        "value": "7",
+        "timestamp": "2024-04-23T09:02:52"
+      },
+      {
+        "key": "energy",
+        "value": "7",
+        "timestamp": "2024-04-23T09:02:52"
+      },
+      {
+        "key": "mood",
+        "value": "8",
+        "timestamp": "2024-04-23T09:56:22"
+      },
+      {
+        "key": "pain",
+        "value": "8",
+        "timestamp": "2024-04-23T09:56:22"
+      },
+      {
+        "key": "energy",
+        "value": "8",
+        "timestamp": "2024-04-23T09:56:22"
+      },
+      {
+        "key": "mood",
+        "value": "4",
+        "timestamp": "2024-04-24T09:16:23"
+      },
+      {
+        "key": "pain",
+        "value": "6",
+        "timestamp": "2024-04-24T09:16:23"
+      },
+      {
+        "key": "energy",
+        "value": "4",
+        "timestamp": "2024-04-24T09:16:23"
+      },
+      {
+        "key": "mood",
+        "value": "8",
+        "timestamp": "2024-04-25T10:32:45"
+      },
+      {
+        "key": "pain",
+        "value": "4",
+        "timestamp": "2024-04-25T10:32:45"
+      },
+      {
+        "key": "energy",
+        "value": "8",
+        "timestamp": "2024-04-25T10:32:45"
+      },
+      {
+        "key": "mood",
+        "value": "8",
+        "timestamp": "2024-04-26T09:17:14"
+      },
+      {
+        "key": "pain",
+        "value": "7",
+        "timestamp": "2024-04-26T09:17:14"
+      },
+      {
+        "key": "energy",
+        "value": "9",
+        "timestamp": "2024-04-26T09:17:14"
+      },
+      {
+        "key": "mood",
+        "value": "4",
+        "timestamp": "2024-04-29T09:02:21"
+      },
+      {
+        "key": "pain",
+        "value": "4",
+        "timestamp": "2024-04-29T09:02:21"
+      },
+      {
+        "key": "energy",
+        "value": "6",
+        "timestamp": "2024-04-29T09:02:21"
+      },
+      {
+        "key": "mood",
+        "value": "9",
+        "timestamp": "2024-04-30T09:01:33"
+      },
+      {
+        "key": "pain",
+        "value": "6",
+        "timestamp": "2024-04-30T09:01:33"
+      },
+      {
+        "key": "energy",
+        "value": "7",
+        "timestamp": "2024-04-30T09:01:33"
+      },
+      {
+        "key": "mood",
+        "value": "3",
+        "timestamp": "2024-05-01T09:04:15"
+      },
+      {
+        "key": "pain",
+        "value": "3",
+        "timestamp": "2024-05-01T09:04:15"
+      },
+      {
+        "key": "energy",
+        "value": "6",
+        "timestamp": "2024-05-01T09:04:15"
+      },
+      {
+        "key": "mood",
+        "value": "9",
+        "timestamp": "2024-05-02T08:50:43"
+      },
+      {
+        "key": "pain",
+        "value": "5",
+        "timestamp": "2024-05-02T08:50:43"
+      },
+      {
+        "key": "energy",
+        "value": "6",
+        "timestamp": "2024-05-02T08:50:43"
+      },
+      {
+        "key": "mood",
+        "value": "5",
+        "timestamp": "2024-05-03T09:26:29"
+      },
+      {
+        "key": "pain",
+        "value": "3",
+        "timestamp": "2024-05-03T09:26:29"
+      },
+      {
+        "key": "energy",
+        "value": "3",
+        "timestamp": "2024-05-03T09:26:29"
+      },
+      {
+        "key": "mood",
+        "value": "4",
+        "timestamp": "2024-05-06T08:58:57"
+      },
+      {
+        "key": "pain",
+        "value": "4",
+        "timestamp": "2024-05-06T08:58:57"
+      },
+      {
+        "key": "energy",
+        "value": "7",
+        "timestamp": "2024-05-06T08:58:57"
+      },
+      {
+        "key": "mood",
+        "value": "10",
+        "timestamp": "2024-05-07T15:00:11"
+      },
+      {
+        "key": "pain",
+        "value": "10",
+        "timestamp": "2024-05-07T15:00:11"
+      },
+      {
+        "key": "energy",
+        "value": "10",
+        "timestamp": "2024-05-07T15:00:11"
+      },
+      {
+        "key": "mood",
+        "value": "6",
+        "timestamp": "2024-05-08T08:55:51"
+      },
+      {
+        "key": "pain",
+        "value": "6",
+        "timestamp": "2024-05-08T08:55:51"
+      },
+      {
+        "key": "energy",
+        "value": "6",
+        "timestamp": "2024-05-08T08:55:51"
+      },
+      {
+        "key": "mood",
+        "value": "8",
+        "timestamp": "2024-05-10T09:05:52"
+      },
+      {
+        "key": "pain",
+        "value": "8",
+        "timestamp": "2024-05-10T09:05:52"
+      },
+      {
+        "key": "energy",
+        "value": "8",
+        "timestamp": "2024-05-10T09:05:52"
+      }
+    ],
+    "drift_events": [
+      {
+        "type": "ADHERENCE_DRIFT",
+        "severity": 1
+      },
+      {
+        "type": "PLATEAU",
+        "severity": 1
+      },
+      {
+        "type": "PLATEAU",
+        "severity": 1
+      }
+    ]
+  },
+  "checkin": {
+    "wins": "You showed up again after a few quiet days and kept your Hockey AR sessions steady. The game nudged harder late in the week and you stayed on it.",
+    "to_improve": "On lighter days, try a short Cleaning AR or Circle AR Horizontal round to round out the week.",
+    "check_in": "",
+    "tone": "steady",
+    "progress": [
+      {
+        "label": "Completion",
+        "current": 66,
+        "previous": null,
+        "unit": "%",
+        "direction": "flat"
+      },
+      {
+        "label": "OS_hockeyAR",
+        "previous": 53,
+        "current": 65,
+        "unit": "%",
+        "direction": "up"
+      },
+      {
+        "label": "OS_hockeyAR difficulty",
+        "previous": 5,
+        "current": 9,
+        "unit": "",
+        "direction": "up"
+      }
+    ]
+  }
+}

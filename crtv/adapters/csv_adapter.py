@@ -4,10 +4,11 @@ App and plus have same structure; data distributed across both.
 """
 
 import csv
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 from pathlib import Path
 from typing import Any
 
+from crtv.adapters.database import DatabaseAdapter
 from crtv.domain.models import (
     Session,
     PrescriptionItem,
@@ -60,7 +61,7 @@ def _merge_tables(app_path: Path, plus_path: Path) -> list[dict]:
     return all_rows
 
 
-class CSVDataAdapter:
+class CSVDataAdapter(DatabaseAdapter):
     """Load NEST data from data/; merge app and plus tables."""
 
     def __init__(self, data_dir: Path | str):
@@ -224,12 +225,6 @@ class CSVDataAdapter:
                 wd = _weekday_to_int(presc.get("WEEKDAY"))
             except ValueError:
                 wd = 0
-            sd = presc.get("SESSION_DURATION") or 30
-            try:
-                sd_val = int(float(sd))
-            except (ValueError, TypeError):
-                sd_val = 30
-            session_duration_min = max(1, sd_val // 60) if sd_val > 120 else max(1, sd_val)
             sessions.append(Session(
                 session_id=int(s["SESSION_ID"]),
                 prescription_id=pid,
@@ -261,8 +256,8 @@ class CSVDataAdapter:
                 if p_end < start_d or p_start >= end_d:
                     continue
                 wd = _weekday_to_int(p.get("WEEKDAY"))
-                sd = int(float(p.get("SESSION_DURATION") or 30))
-                session_duration_min = max(1, sd // 60) if sd > 120 else max(1, sd)
+                sd_sec = int(float(p.get("SESSION_DURATION") or 1800))
+                session_duration_min = max(1, sd_sec // 60)
                 result.append(PrescriptionItem(
                     prescription_id=int(float(p.get("PRESCRIPTION_ID") or 0)),
                     patient_id=patient_id,
@@ -364,13 +359,43 @@ class CSVDataAdapter:
     def get_integrity_events(self) -> list[DataIntegrityEvent]:
         return list(self._integrity_events)
 
-    def write_checkin_request(self, req) -> int:
-        return 0
-    def write_checkin_response(self, resp) -> int:
-        return 0
-    def write_triage_event(self, event) -> int:
-        return 0
-    def write_recommendation(self, rec) -> int:
-        return 0
-    def write_pipeline_run(self, run_meta) -> int:
-        return 0
+    def list_patient_ids(self) -> list[int]:
+        ids: set[int] = set()
+        for p in self._prescription:
+            try:
+                ids.add(int(float(p.get("PATIENT_ID") or 0)))
+            except (ValueError, TypeError):
+                continue
+        for s in self._session:
+            try:
+                ids.add(int(float(s.get("PATIENT_ID") or 0)))
+            except (ValueError, TypeError):
+                continue
+        ids.discard(0)
+        return sorted(ids)
+
+    def resolve_patient(self, query: str) -> list[dict]:
+        q = (query or "").strip()
+        if not q:
+            return []
+        if q.isdigit():
+            pid = int(q)
+            return [{"patient_id": pid, "patient_user": ""}] if pid in set(self.list_patient_ids()) else []
+        # CSV has no PATIENT_USER column in the NEST dump; substring match is not meaningful
+        return []
+
+    def patient_active_weeks(self, patient_id: int) -> list[date]:
+        weeks: set[date] = set()
+        for s in self._session:
+            try:
+                if int(float(s.get("PATIENT_ID") or 0)) != patient_id:
+                    continue
+                start_str = s.get("STARTING_DATE") or s.get("start_date")
+                if not start_str:
+                    continue
+                dt = datetime.fromisoformat(str(start_str).replace("Z", "+00:00").split(".")[0])
+                d = dt.date()
+                weeks.add(d + timedelta(days=(6 - d.weekday())))
+            except (ValueError, TypeError):
+                continue
+        return sorted(weeks)
